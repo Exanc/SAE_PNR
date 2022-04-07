@@ -1,7 +1,8 @@
-package GUI;
+package GUI.Controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import GUI.EView;
 import javafx.event.ActionEvent;
 
 public class Controller {
@@ -33,7 +34,12 @@ public class Controller {
             }
             
         } else {
-            output.setText("" + Model.calculate(Long.parseLong(a), Long.parseLong(output.getText()), operator));
+            output.setText("" + GUI.Model.calculate(Long.parseLong(a), Long.parseLong(output.getText()), operator));
         }
+    }
+
+    @FXML
+    private void switchViewAction(ActionEvent event) {
+        GUI.ViewSwitcher.switchTo(EView.OTHER);
     }
 }
