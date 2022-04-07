@@ -7,5 +7,5 @@ public interface IDriver {
   
     Connection connect (String url, String user, String password);
 
-    ResultSet querry(Connection connection, String querry);
+    ResultSet querry (Connection connection, String querry);
 }
