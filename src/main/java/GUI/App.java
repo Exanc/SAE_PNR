@@ -19,6 +19,8 @@ public class App extends Application {
         ViewSwitcher.setScene(scene);
         ViewSwitcher.switchTo(EView.MAIN);
 
+
+        stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
     }

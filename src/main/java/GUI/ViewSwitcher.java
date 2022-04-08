@@ -40,7 +40,7 @@ public class ViewSwitcher {
             scene.setRoot(root);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            CORE.ErrorHandler.show("Erreur FXML", e.getStackTrace().toString());
         }        
     }
 }

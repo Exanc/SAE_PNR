@@ -6,9 +6,9 @@
     "requests" : {
 
         "list:databases" : "SHOW DATABASES;",
-        "database:switch" : "USE {$name};",
+        "database:switch" : "USE {$0};",
         "list:tables" : "SHOW TABLES;",
 
-        "table:getAll" : "SELECT * FROM {$name};"
+        "table:getAll" : "SELECT * FROM {$0};"
     }
 }
