@@ -89,11 +89,19 @@
             <artifactId>javafx-maven-plugin</artifactId>
             <version>0.0.3</version>
             <configuration>
-                <mainClass>org.openjfx.App</mainClass>
+                <mainClass>Launcher</mainClass>
+                <!-- org.openjfx.App -->
             </configuration>
         </plugin>
         
     </plugins>
+    <resources>
+
+        <resource>
+          <directory>src/main/assets</directory>
+        </resource>
+
+    </resources>
   </build>
   
 </project>

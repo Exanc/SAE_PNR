@@ -2,8 +2,8 @@ package GUI;
 
 public enum EView {
     
-    MAIN("Views/ui.fxml"),
-    OTHER("Views/other.fxml");
+    MAIN("../ui/ui.fxml"),
+    OTHER("../ui/other.fxml");
 
     private String fileName;
 
