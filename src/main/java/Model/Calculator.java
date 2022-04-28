@@ -1,6 +1,6 @@
-package CORE;
+package Model;
 
-public class Model {
+public class Calculator {
     
     public static long calculate (long a, long b, String operator) {
 

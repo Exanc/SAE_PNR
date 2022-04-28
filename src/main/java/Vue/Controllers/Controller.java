@@ -1,8 +1,8 @@
-package GUI.Controllers;
+package Vue.Controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import GUI.EView;
+import Vue.EView;
 import javafx.event.ActionEvent;
 
 /**
@@ -45,7 +45,7 @@ public class Controller {
             }
             
         } else {
-            output.setText("" + CORE.Model.calculate(Long.parseLong(a), Long.parseLong(output.getText()), operator));
+            output.setText("" + Model.Calculator.calculate(Long.parseLong(a), Long.parseLong(output.getText()), operator));
         }
     }
 
@@ -55,6 +55,6 @@ public class Controller {
      */
     @FXML
     private void switchViewAction(ActionEvent event) {
-        GUI.ViewSwitcher.switchTo(EView.OTHER);
+        Vue.ViewSwitcher.switchTo(EView.OTHER);
     }
 }

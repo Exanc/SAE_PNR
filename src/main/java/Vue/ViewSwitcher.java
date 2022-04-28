@@ -1,4 +1,4 @@
-package GUI;
+package Vue;
 
 import java.io.IOException;
 
@@ -40,7 +40,7 @@ public class ViewSwitcher {
             scene.setRoot(root);
 
         } catch (IOException e) {
-            CORE.ErrorHandler.show("Erreur FXML", e.getStackTrace().toString());
+            Model.ErrorHandler.show("Erreur FXML", e.getStackTrace().toString());
         }        
     }
 }

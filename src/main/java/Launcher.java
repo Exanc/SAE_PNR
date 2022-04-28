@@ -1,4 +1,4 @@
-import GUI.App;
+import Vue.App;
 
 public class Launcher {
     

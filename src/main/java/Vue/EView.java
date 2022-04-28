@@ -1,4 +1,4 @@
-package GUI;
+package Vue;
 
 public enum EView {
     

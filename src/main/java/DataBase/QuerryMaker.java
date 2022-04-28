@@ -1,4 +1,4 @@
-package DB;
+package DataBase;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -26,22 +26,22 @@ public class QuerryMaker {
         try {
             o = (JSONObject) new JSONParser().parse(new FileReader(filePath));
         } catch (Exception e) {
-            CORE.ErrorHandler.show("Erreur d'inportation de fichier JSON", "Fichier : "+ filePath +"\n\n"+ e.getMessage());
+            Model.ErrorHandler.show("Erreur d'inportation de fichier JSON", "Fichier : "+ filePath +"\n\n"+ e.getMessage());
         }
 
         if (o != null) {
             
             /* On vérifie le type du fichier */
             if (o.containsKey("type")) {
-                if (o.get("type").equals(CORE.ressources.EJSONType.SQLRequestLibrary.getName())) {
+                if (o.get("type").equals(Model.ressources.EJSONType.SQLRequestLibrary.getName())) {
                     data = o;
                 } else {
-                    CORE.ErrorHandler.show("Erreur d'inportation de fichier JSON", "Le fichier "+ filePath 
-                                         + " n'est pas de type "+ CORE.ressources.EJSONType.SQLRequestLibrary.getName());
+                    Model.ErrorHandler.show("Erreur d'inportation de fichier JSON", "Le fichier "+ filePath 
+                                         + " n'est pas de type "+ Model.ressources.EJSONType.SQLRequestLibrary.getName());
                 }
 
             } else {
-                CORE.ErrorHandler.show("Erreur d'inportation de fichier JSON", "Le fichier "+ filePath + " ne contient pas de champs \"type\".");
+                Model.ErrorHandler.show("Erreur d'inportation de fichier JSON", "Le fichier "+ filePath + " ne contient pas de champs \"type\".");
             }
         }
     }
@@ -58,13 +58,13 @@ public class QuerryMaker {
         if (data == null) return null;
 
         if (! data.containsKey("requests")) {
-            CORE.ErrorHandler.show("Erreur de fichier JSON", "Le fichier charger dans QuerryMaker n'est pas au bon format.");
+            Model.ErrorHandler.show("Erreur de fichier JSON", "Le fichier charger dans QuerryMaker n'est pas au bon format.");
             return null;
         }
 
         JSONObject lib = (JSONObject) data.get("requests");
         if (! lib.containsKey(id)) {
-            CORE.ErrorHandler.show("Erreur de fichier JSON", "La requête "+ id +" n'existe pas.");
+            Model.ErrorHandler.show("Erreur de fichier JSON", "La requête "+ id +" n'existe pas.");
             return null;
         }
 

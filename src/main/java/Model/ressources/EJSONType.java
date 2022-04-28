@@ -1,4 +1,4 @@
-package CORE.ressources;
+package Model.ressources;
 
 /**
  * Énumérateur des différents types de fichier JSON.
