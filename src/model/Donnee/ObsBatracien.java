@@ -38,4 +38,36 @@ public class ObsBatracien extends Observation {
     public EspeceObservee especeObs() {
         return EspeceObservee.BATRACIEN;
     }
+
+    /**
+     * Setter for nombreAdultes
+     * @param nombreAdultes the number of adult
+     */
+    public void setNombreAdultes(int nombreAdultes) {
+        this.nombreAdultes = nombreAdultes;
+    }
+
+    /**
+     * Setter for nombreAmplexus
+     * @param nombreAmplexus the number of amplexus
+     */
+    public void setNombreAmplexus(int nombreAmplexus) {
+        this.nombreAmplexus = nombreAmplexus;
+    }
+
+    /**
+     * Setter for nombrePonte
+     * @param nombrePonte the number of ponte
+     */
+    public void setNombrePonte(int nombrePonte) {
+        this.nombrePonte = nombrePonte;
+    }
+
+    /**
+     * Setter for nombreTetard
+     * @param nombreTetard the number of tetard
+     */
+    public void setNombreTetard(int nombreTetard) {
+        this.nombreTetard = nombreTetard;
+    }
 }
