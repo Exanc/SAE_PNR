@@ -7,7 +7,7 @@ public class Observateur {
     private String prenom;
 
     /**
-     * 
+     * Create an Observator with an single index, a name and a surname
      * @param id
      * @param nom
      * @param prenom
@@ -20,14 +20,26 @@ public class Observateur {
         }
     }
 
+    /**
+     * Get the id of the Observator
+     * @return Integer id
+     */
     public int getId () {
         return this.idObservateur;
     }
 
+    /**
+     * Get the name of the Observator
+     * @return String name
+     */
     public String getNom () {
         return this.nom;
     }
 
+    /**
+     * Get the surname of the Observator
+     * @return String surname
+     */
     public String getPrenom () {
         return this.prenom;
     } 

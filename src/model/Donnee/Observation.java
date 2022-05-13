@@ -32,10 +32,19 @@ public abstract class Observation {
 
     /**
      * Add an Observator o to the end of the ArrayList lesObservateurs
+     * Can't have two Observators with the same id
      * @param o an Observator
      */
     public void ajouteObservateur(Observateur o) {
-        if (o != null) {
+        boolean bool = true; 
+
+        for (Observateur observateur : this.lesObservateurs) {
+            if (observateur.getId() == o.getId()) {
+                bool = false;
+            }
+        }
+
+        if (o != null && bool == true) {
             this.lesObservateurs.add(o);
         }
     }
