@@ -62,8 +62,8 @@ public abstract class Observation {
     public abstract EspeceObservee especeObs();
 
     /**
-     * Getter for idObs
-     * @return idObs
+     * Get the id of the Observator
+     * @return int idObs
      */
     public int getIdObs() {
         return this.idObs;
