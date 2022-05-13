@@ -69,15 +69,13 @@ public class Chouette implements IObs<ObsChouette> {
     public boolean retireObs(int idObs) {
         Iterator<ObsChouette> iter = this.lesObservations.iterator();
         boolean estSuprimer = false;
-        int i = 0;
 
-        while (iter.hasNext()) {
+        while (iter.hasNext() && !estSuprimer) {
             ObsChouette cur = iter.next();
             if (cur.getIdObs() == idObs) {
                 this.lesObservations.remove(cur);
                 estSuprimer = true;
             }
-            i++;
         }
 
         return estSuprimer;
