@@ -24,6 +24,7 @@ public class ObsBatracien extends Observation {
      */
     public ObsBatracien(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs, int[] resObs, EspeceBatracien IEspece) {
         super(id, date, heure, lieu, observateurs);
+        
         if (resObs != null) {
             this.espece = IEspece;
         } else {
