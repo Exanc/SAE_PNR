@@ -6,7 +6,7 @@ public class Chouette implements IObs<ObsChouette> {
 
     private EspeceChouette espece;
     private Sexe sexe;
-    private ObsChouette[] lesObservations;
+    private ArrayList<ObsChouette> lesObservations;
     private String idChouette;
 
     /**
@@ -20,36 +20,70 @@ public class Chouette implements IObs<ObsChouette> {
             this.idChouette = id;
             this.sexe = leSexe;
             this.espece = IEspece;
+            this.lesObservations = new ArrayList<ObsChouette>();
         }
     }
 
     @Override
+    /**
+     * Add an ObsChouette
+     * @param obs the observation
+     */
     public void ajouteUneObs(ObsChouette obs) {
-        // TODO Auto-generated method stub
-        
+        if (obs != null) {
+            this.lesObservations.add(obs);
+        } else {
+            System.out.println("Chouette : ajouteUneObs() : obs = null");
+        }
     }
 
     @Override
+    /**
+     * Add multiple ObsChouette
+     * @param obs list of ObsChouette
+     */
     public void ajoutePlsObs(ArrayList<ObsChouette> obs) {
-        // TODO Auto-generated method stub
-        
+        if (obs != null) {
+            for (ObsChouette obsChouette : obs) {
+                this.lesObservations.add(obsChouette);
+            }
+        } else {
+            System.out.println("Chouette : ajoutePlsObs() : obs = null");
+        }
     }
 
     @Override
+    /**
+     * Clear observations
+     */
     public void videObs() {
-        // TODO Auto-generated method stub
-        
+        this.lesObservations.removeAll(this.lesObservations);
     }
 
     @Override
+    /**
+     * Delete an ObsChouette
+     * @param idObs the id of Observation
+     */
     public boolean retireObs(int idObs) {
-        // TODO Auto-generated method stub
-        return false;
+        boolean ret = false;
+        int i = 0;
+        while (ret) {
+            if (this.lesObservations[i].getIdObs() == idObs) {
+                this.lesObservations.remove(i);
+                ret = true;
+            }
+            i++;
+        }
+        return ret;
     }
 
     @Override
+    /**
+     * Get number of ObsChouette
+     * @return the number of ObsChouette
+     */
     public int nbObs() {
-        // TODO Auto-generated method stub
-        return 0;
+        return this.lesObservations.size();
     }
 }
