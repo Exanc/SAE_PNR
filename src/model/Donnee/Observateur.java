@@ -13,9 +13,11 @@ public class Observateur {
      * @param prenom
      */
     public Observateur(int id, String nom, String prenom) {
-        this.idObservateur = id;
-        this.nom = nom;
-        this.prenom = prenom;
+        if (nom != null && prenom != null) {
+            this.idObservateur = id;
+            this.nom = nom;
+            this.prenom = prenom;
+        }
     }
 
     public int getId () {
