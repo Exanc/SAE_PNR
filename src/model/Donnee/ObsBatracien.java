@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class ObsBatracien extends Observation {
 
-    private ExpeceBatracien espece;
+    private EspeceBatracien espece;
     private int nombreAdultes;
     private int nombreAmplexus;
     private int nombreTetard;
