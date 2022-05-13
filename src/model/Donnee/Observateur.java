@@ -13,8 +13,8 @@ public class Observateur {
      * @param prenom
      */
     public Observateur(int id, String nom, String prenom) {
-        // TODO - implement Observateur.Observateur
-        throw new UnsupportedOperationException();
+        this.idObservateur = id;
+        this.nom = nom;
+        this.prenom = prenom;
     }
-
 }

@@ -1,12 +1,16 @@
 package Donnee;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.util.*;
+
 public abstract class Observation {
 
-    protected Observateur[] lesObservateurs;
+    protected ArrayList<Observateur> lesObservateurs;
     protected Lieu lieuObs;
     protected int idObs;
-    protected java.sql.Date dataObs;
-    protected java.sql.Time heureObs;
+    protected Date dataObs;
+    protected Time heureObs;
 
     /**
      * 
@@ -17,8 +21,11 @@ public abstract class Observation {
      * @param observateurs
      */
     public Observation(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs) {
-        // TODO - implement Observation.Observation
-        throw new UnsupportedOperationException();
+        this.idObs = id;
+        this.dataObs = date;
+        this.heureObs = heure;
+        this.lieuObs = lieu;
+        this.lesObservateurs = observateurs;
     }
 
     /**
@@ -26,8 +33,7 @@ public abstract class Observation {
      * @param o
      */
     public void ajouteObservateur(Observateur o) {
-        // TODO - implement Observation.ajouteObservateur
-        throw new UnsupportedOperationException();
+        this.lesObservateurs.add(o);
     }
 
     /**
@@ -35,8 +41,7 @@ public abstract class Observation {
      * @param idObservateur
      */
     public void retireObservateur(int idObservateur) {
-        // TODO - implement Observation.retireObservateur
-        throw new UnsupportedOperationException();
+        this.lesObservateurs.remove(idObservateur);
     }
 
     public abstract EspeceObservee especeObs();
