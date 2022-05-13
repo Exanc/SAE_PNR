@@ -62,6 +62,11 @@ public abstract class Observation {
     public abstract EspeceObservee especeObs();
 
     /**
+     * 
+     * @return
+     */
+
+    /**
      * Get the id of the Observator
      * @return int idObs
      */
