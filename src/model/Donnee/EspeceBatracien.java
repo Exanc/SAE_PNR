@@ -1,6 +1,6 @@
 package Donnee;
 
-public enum ExpeceBatracien {
+public enum EspeceBatracien {
     CALMITE,
     PELODYTE
 }
