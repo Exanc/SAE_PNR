@@ -21,13 +21,39 @@ public class NidGCI implements IObs<ObsGCI> {
     }
 
     public Date dateDebutObs() {
-        // TODO - implement NidGCI.dateDebutObs
-        throw new UnsupportedOperationException();
+        Date min = null;
+
+        if (this.lesObservations.size() > 0) {
+            min = this.lesObservations.get(0).getDateObs();
+            Iterator<ObsGCI> iter = this.lesObservations.iterator();
+            
+            iter.next();
+            while (iter.hasNext()) {
+                Date cur = iter.next().getDateObs();
+                if (cur.before(min))
+                    min = cur;
+            }
+        }
+
+        return min;
     }
 
     public Date dateFinObs() {
-        // TODO - implement NidGCI.dateFinObs
-        throw new UnsupportedOperationException();
+        Date max = null;
+
+        if (this.lesObservations.size() > 0) {
+            max = this.lesObservations.get(0).getDateObs();
+            Iterator<ObsGCI> iter = this.lesObservations.iterator();
+            
+            iter.next();
+            while (iter.hasNext()) {
+                Date cur = iter.next().getDateObs();
+                if (cur.after(max))
+                    max = cur;
+            }
+        }
+
+        return max;
     }
 
     @Override
@@ -53,14 +79,18 @@ public class NidGCI implements IObs<ObsGCI> {
 
     @Override
     public boolean retireObs(int idObs) {
-        // TODO
-        throw new UnsupportedOperationException();
-        /*Iterator<ObsGCI> iter = this.lesObservations.iterator();
+        Iterator<ObsGCI> iter = this.lesObservations.iterator();
+        boolean estSuprimer = false;
 
-        while (iter.hasNext()) {
+        while (iter.hasNext() && !estSuprimer) {
             ObsGCI cur = iter.next();
-            
-        }*/
+            if (cur.getIdObs() == idObs) {
+                this.lesObservations.remove(cur);
+                estSuprimer = true;
+            }
+        }
+
+        return estSuprimer;
     }
 
     @Override

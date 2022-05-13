@@ -9,7 +9,7 @@ public abstract class Observation {
     protected ArrayList<Observateur> lesObservateurs;
     protected Lieu lieuObs;
     protected int idObs;
-    protected Date dataObs;
+    protected Date dateObs;
     protected Time heureObs;
 
     /**
@@ -23,7 +23,7 @@ public abstract class Observation {
     public Observation(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs) {
         if (date != null && heure != null && lieu != null && observateurs != null) {
             this.idObs = id;
-            this.dataObs = date;
+            this.dateObs = date;
             this.heureObs = heure;
             this.lieuObs = lieu;
             this.lesObservateurs = observateurs;
@@ -62,9 +62,11 @@ public abstract class Observation {
     public abstract EspeceObservee especeObs();
 
     /**
-     * 
-     * @return
+     * @return the date of the sighting
      */
+    public Date getDateObs () {
+        return this.dateObs;
+    }
 
     /**
      * Get the id of the Observator
