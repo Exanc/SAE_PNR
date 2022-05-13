@@ -13,12 +13,12 @@ public abstract class Observation {
     protected Time heureObs;
 
     /**
-     * 
-     * @param id
-     * @param date
-     * @param heure
-     * @param lieu
-     * @param observateurs
+     * Create an Observation for an specie will all its parameters
+     * @param id  the id of the Observation
+     * @param date the date of the Observation
+     * @param heure the our of the Observation
+     * @param lieu the town/city of the Observation
+     * @param observateurs ArrayList of all the Observators on this Observation
      */
     public Observation(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs) {
         if (date != null && heure != null && lieu != null && observateurs != null) {
@@ -31,8 +31,8 @@ public abstract class Observation {
     }
 
     /**
-     * 
-     * @param o
+     * Add an Observator o to the end of the ArrayList lesObservateurs
+     * @param o an Observator
      */
     public void ajouteObservateur(Observateur o) {
         if (o != null) {
@@ -41,8 +41,8 @@ public abstract class Observation {
     }
 
     /**
-     * 
-     * @param idObservateur
+     * Will remove an Observator at index idObservateur in the ArrayList lesObservateurs
+     * @param idObservateur index of the Observator
      */
     public void retireObservateur(int idObservateur) {
         if (idObservateur >= 0 && idObservateur <= this.lesObservateurs.size()) {
