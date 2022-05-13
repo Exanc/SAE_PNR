@@ -4,6 +4,9 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 
+/**
+ * Represents the sighting of a gravelot à collier interrompu.
+ */
 public class ObsGCI extends Observation {
 
     private ContenuNid natureObs;
@@ -31,10 +34,16 @@ public class ObsGCI extends Observation {
         return EspeceObservee.GCI;
     }
 
+    /**
+     * @return the type of sighting
+     */
     public ContenuNid getNatureObs () {
         return this.natureObs;
     }
 
+    /**
+     * @return the number of individuals sighted
+     */
     public int getNombre () {
         return this.nombre;
     }

@@ -1,6 +1,7 @@
 package Donnee;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Chouette implements IObs<ObsChouette> {
 
@@ -66,16 +67,20 @@ public class Chouette implements IObs<ObsChouette> {
      * @param idObs the id of Observation
      */
     public boolean retireObs(int idObs) {
-        boolean ret = false;
+        Iterator<ObsChouette> iter = this.lesObservations.iterator();
+        boolean estSuprimer = false;
         int i = 0;
-        while (ret) {
-            if (this.lesObservations[i].getIdObs() == idObs) {
-                this.lesObservations.remove(i);
-                ret = true;
+
+        while (iter.hasNext()) {
+            ObsChouette cur = iter.next();
+            if (cur.getIdObs() == idObs) {
+                this.lesObservations.remove(cur);
+                estSuprimer = true;
             }
             i++;
         }
-        return ret;
+
+        return estSuprimer;
     }
 
     @Override

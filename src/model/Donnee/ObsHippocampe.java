@@ -4,6 +4,9 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 
+/**
+ * Represents the sighting of a seahorse.
+ */
 public class ObsHippocampe extends Observation {
 
     private Peche typePeche;
@@ -39,22 +42,37 @@ public class ObsHippocampe extends Observation {
         return EspeceObservee.HIPPOCAMPE;
     }
 
+    /**
+     * @return the type of fishing
+     */
     public Peche getTypePeche () {
         return this.typePeche;
     }
 
+    /**
+     * @return the species of the sighted seahorse
+     */
     public EspeceHippocampe getEspece () {
         return this.espece;
     }
 
+    /**
+     * @return the sex of the sighted seahorse
+     */
     public Sexe getSexe () {
         return this.sexe;
     }
 
+    /**
+     * @return the size of the sighted seahorse
+     */
     public double getTaille () {
         return this.taille;
     }
 
+    /**
+     * @return true, if the sighted seahorse is pregnant
+     */
     public boolean estGestant () {
         return this.estGestant;
     }

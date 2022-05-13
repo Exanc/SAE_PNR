@@ -4,6 +4,9 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 
+/**
+ * Represents the sighting of an owl.
+ */
 public class ObsLoutre extends Observation {
 
     private IndiceLoutre indice;
@@ -26,6 +29,9 @@ public class ObsLoutre extends Observation {
         return EspeceObservee.LOUTRE;
     }
 
+    /**
+     * @return the clue of the sighting
+     */
     public IndiceLoutre getIndice () {
         return this.indice;
     }
