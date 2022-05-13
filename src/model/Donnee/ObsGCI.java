@@ -1,12 +1,15 @@
 package Donnee;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.util.ArrayList;
+
 public class ObsGCI extends Observation {
 
     private ContenuNid natureObs;
     private int nombre;
 
     /**
-     * 
      * @param id
      * @param date
      * @param heure
@@ -15,9 +18,16 @@ public class ObsGCI extends Observation {
      * @param nature
      * @param leNombre
      */
-    public ObsGCI(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs, ContenuNid nature, int leNombre) {
-        // TODO - implement ObsGCI.ObsGCI
-        throw new UnsupportedOperationException();
+    public ObsGCI(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs,
+                  ContenuNid nature, int leNombre) {
+        super(id, date, heure, lieu, observateurs);
+        
+        this.natureObs = nature;
+        this.nombre = leNombre;
     }
 
+    @Override
+    public EspeceObservee especeObs() {
+        return EspeceObservee.GCI;
+    }
 }

@@ -1,13 +1,14 @@
 package Donnee;
 
 import java.sql.Date;
+import java.sql.Time;
+import java.util.ArrayList;
 
 public class ObsLoutre extends Observation {
 
     private IndiceLoutre indice;
 
     /**
-     * 
      * @param id
      * @param date
      * @param heure
@@ -16,8 +17,12 @@ public class ObsLoutre extends Observation {
      * @param iIndice
      */
     public ObsLoutre(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs, IndiceLoutre iIndice) {
-        // TODO - implement ObsLoutre.ObsLoutre
-        throw new UnsupportedOperationException();
+        super(id, date, heure, lieu, observateurs);
+        this.indice = iIndice;
     }
 
+    @Override
+    public EspeceObservee especeObs() {
+        return EspeceObservee.LOUTRE;
+    }
 }

@@ -1,5 +1,9 @@
 package Donnee;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.util.ArrayList;
+
 public class ObsHippocampe extends Observation {
 
     private Peche typePeche;
@@ -20,9 +24,19 @@ public class ObsHippocampe extends Observation {
      * @param IEspece
      * @param leSexe
      */
-    public ObsHippocampe(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs, double laTaille, Peche leTypePeche, EspeceHippocampe IEspece, Sexe leSexe) {
-        // TODO - implement ObsHippocampe.ObsHippocampe
-        throw new UnsupportedOperationException();
+    public ObsHippocampe(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs,
+                         double laTaille, Peche leTypePeche, EspeceHippocampe IEspece, Sexe leSexe) {
+        super(id, date, heure, lieu, observateurs);
+        
+        this.estGestant = false;
+        this.taille = laTaille;
+        this.typePeche = leTypePeche;
+        this.espece = IEspece;
+        this.sexe = leSexe;
     }
 
+    @Override
+    public EspeceObservee especeObs() {
+        return EspeceObservee.HIPPOCAMPE;
+    }
 }

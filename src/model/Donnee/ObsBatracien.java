@@ -1,5 +1,9 @@
 package Donnee;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.util.ArrayList;
+
 public class ObsBatracien extends Observation {
 
     private ExpeceBatracien espece;
@@ -9,18 +13,27 @@ public class ObsBatracien extends Observation {
     private int nombrePonte;
 
     /**
-     * 
-     * @param id
-     * @param date
-     * @param heure
-     * @param lieu
-     * @param observateurs
-     * @param resObs
-     * @param IEspece
+     * Constructor of ObsBatracien
+     * @param id id of Observation
+     * @param date date of Observation
+     * @param heure hours of Observation
+     * @param lieu place of Observation
+     * @param observateurs liste of Observateurs for this Observation
+     * @param resObs TODO : ?
+     * @param IEspece batracien species's
      */
     public ObsBatracien(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs, int[] resObs, EspeceBatracien IEspece) {
-        // TODO - implement ObsBatracien.ObsBatracien
-        throw new UnsupportedOperationException();
+        super(id, date, heure, lieu, observateurs);
+        
+        if (resObs != null) {
+            this.espece = IEspece;
+        } else {
+            System.out.println("ObsBatracien : Constructor : resObs = null");
+        }
     }
 
+    @Override
+    public EspeceObservee especeObs() {
+        return EspeceObservee.BATRACIEN;
+    }
 }
