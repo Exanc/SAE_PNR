@@ -21,11 +21,13 @@ public abstract class Observation {
      * @param observateurs
      */
     public Observation(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs) {
-        this.idObs = id;
-        this.dataObs = date;
-        this.heureObs = heure;
-        this.lieuObs = lieu;
-        this.lesObservateurs = observateurs;
+        if (date != null && heure != null && lieu != null && observateurs != null) {
+            this.idObs = id;
+            this.dataObs = date;
+            this.heureObs = heure;
+            this.lieuObs = lieu;
+            this.lesObservateurs = observateurs;
+        }
     }
 
     /**
@@ -33,7 +35,9 @@ public abstract class Observation {
      * @param o
      */
     public void ajouteObservateur(Observateur o) {
-        this.lesObservateurs.add(o);
+        if (o != null) {
+            this.lesObservateurs.add(o);
+        }
     }
 
     /**
@@ -41,7 +45,9 @@ public abstract class Observation {
      * @param idObservateur
      */
     public void retireObservateur(int idObservateur) {
-        this.lesObservateurs.remove(idObservateur);
+        if (idObservateur >= 0 && idObservateur <= this.lesObservateurs.size()) {
+            this.lesObservateurs.remove(idObservateur);
+        }
     }
 
     public abstract EspeceObservee especeObs();
