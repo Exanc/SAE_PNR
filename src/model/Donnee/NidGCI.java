@@ -8,7 +8,7 @@ public class NidGCI implements IObs<ObsGCI> {
 
     private ArrayList<ObsGCI> lesObservations;
     private int idNid;
-    private int ndEnvoi;
+    private int ndEnvol;
     private String nomPlage;
 
     /**
@@ -66,5 +66,17 @@ public class NidGCI implements IObs<ObsGCI> {
     @Override
     public int nbObs() {
         return this.lesObservations.size();
+    }
+
+    public int getIdNid () {
+        return this.idNid;
+    }
+
+    public int getNbEnvol () {
+        return this.ndEnvol;
+    }
+
+    public String getNomPlage () {
+        return this.nomPlage;
     }
 }
