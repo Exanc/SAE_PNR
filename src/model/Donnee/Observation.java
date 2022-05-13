@@ -52,4 +52,11 @@ public abstract class Observation {
 
     public abstract EspeceObservee especeObs();
 
+    /**
+     * Getter for idObs
+     * @return idObs
+     */
+    public int getIdObs() {
+        return this.idObs;
+    }
 }
