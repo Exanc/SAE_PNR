@@ -13,7 +13,6 @@ public class ObsHippocampe extends Observation {
     private boolean estGestant;
 
     /**
-     * 
      * @param id
      * @param date
      * @param heure
@@ -38,5 +37,25 @@ public class ObsHippocampe extends Observation {
     @Override
     public EspeceObservee especeObs() {
         return EspeceObservee.HIPPOCAMPE;
+    }
+
+    public Peche getTypePeche () {
+        return this.typePeche;
+    }
+
+    public EspeceHippocampe getEspece () {
+        return this.espece;
+    }
+
+    public Sexe getSexe () {
+        return this.sexe;
+    }
+
+    public double getTaille () {
+        return this.taille;
+    }
+
+    public boolean estGestant () {
+        return this.estGestant;
     }
 }

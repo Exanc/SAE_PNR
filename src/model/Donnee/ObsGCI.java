@@ -30,4 +30,12 @@ public class ObsGCI extends Observation {
     public EspeceObservee especeObs() {
         return EspeceObservee.GCI;
     }
+
+    public ContenuNid getNatureObs () {
+        return this.natureObs;
+    }
+
+    public int getNombre () {
+        return this.nombre;
+    }
 }

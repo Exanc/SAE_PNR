@@ -25,4 +25,8 @@ public class ObsLoutre extends Observation {
     public EspeceObservee especeObs() {
         return EspeceObservee.LOUTRE;
     }
+
+    public IndiceLoutre getIndice () {
+        return this.indice;
+    }
 }

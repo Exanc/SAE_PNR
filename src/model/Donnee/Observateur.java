@@ -17,4 +17,16 @@ public class Observateur {
         this.nom = nom;
         this.prenom = prenom;
     }
+
+    public int getId () {
+        return this.idObservateur;
+    }
+
+    public String getNom () {
+        return this.nom;
+    }
+
+    public String getPrenom () {
+        return this.prenom;
+    } 
 }

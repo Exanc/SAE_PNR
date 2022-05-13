@@ -14,4 +14,12 @@ public class Lieu {
         this.xCoord = x;
         this.yCoord = y;
     }
+
+    public double getXCoord () {
+        return this.xCoord;
+    }
+
+    public double getYCoord () {
+        return this.yCoord;
+    } 
 }

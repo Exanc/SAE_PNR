@@ -27,4 +27,7 @@ public class ObsChouette extends Observation {
         return EspeceObservee.CHOUETTE;
     }
 
+    public TypeObservation getTypeObs () {
+        return this.typeObs;
+    }
 }
