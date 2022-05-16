@@ -4,8 +4,8 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.*;
 
-public abstract class Observation {
-
+public abstract class Observation
+{
     protected ArrayList<Observateur> lesObservateurs;
     protected Lieu lieuObs;
     protected int idObs;

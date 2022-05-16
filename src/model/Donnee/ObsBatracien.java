@@ -35,39 +35,77 @@ public class ObsBatracien extends Observation {
     }
 
     @Override
-    public EspeceObservee especeObs() {
+    public EspeceObservee especeObs () {
         return EspeceObservee.BATRACIEN;
     }
 
     /**
-     * Setter for nombreAdultes
-     * @param nombreAdultes the number of adult
+     * @param espece the species of amphibians
      */
-    public void setNombreAdultes(int nombreAdultes) {
+    public void setEspeceBatracien (EspeceBatracien espece) {
+        this.espece = espece;
+    }
+
+    /**
+     * @return the species of amphibians
+     */
+    public EspeceBatracien getEspeceBatracien () {
+        return this.espece;
+    }
+
+    /**
+     * @param nombreAdultes the number of adults
+     */
+    public void setNombreAdultes (int nombreAdultes) {
         this.nombreAdultes = nombreAdultes;
     }
 
     /**
-     * Setter for nombreAmplexus
-     * @param nombreAmplexus the number of amplexus
+     * @return number of adults
      */
-    public void setNombreAmplexus(int nombreAmplexus) {
+    public int getNombreAdultes () {
+        return this.nombreAdultes;
+    }
+
+    /**
+     * @param nombreAmplexus the number of amplexuses
+     */
+    public void setNombreAmplexus (int nombreAmplexus) {
         this.nombreAmplexus = nombreAmplexus;
     }
 
     /**
-     * Setter for nombrePonte
-     * @param nombrePonte the number of ponte
+     * @return the number of amplexuses
      */
-    public void setNombrePonte(int nombrePonte) {
+    public int getNombreAmplexus () {
+        return this.nombreAmplexus;
+    }
+
+    /**
+     * @param nombrePonte the number of pontes
+     */
+    public void setNombrePonte (int nombrePonte) {
         this.nombrePonte = nombrePonte;
     }
 
     /**
-     * Setter for nombreTetard
-     * @param nombreTetard the number of tetard
+     * @return the number of pontes
      */
-    public void setNombreTetard(int nombreTetard) {
+    public int getNombrePontes () {
+        return this.nombrePonte;
+    }
+
+    /**
+     * @param nombreTetard the number of tadpoles
+     */
+    public void setNombreTetard (int nombreTetard) {
         this.nombreTetard = nombreTetard;
+    }
+
+    /**
+     * @return the number of tadpoles
+     */
+    public int getNombreTetard () {
+        return this.nombreTetard;
     }
 }
