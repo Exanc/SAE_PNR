@@ -4,20 +4,15 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class DataBatricien {
+import Donnee.ObsBatracien;
+import Donnee.Observateur;
 
-    private Connection c;
-    private ArrayList<ObsBatracien> liste_ObsBatricien;
+public class Batracien extends Table<ObsBatracien>
+{
+    @Override
+    public ArrayList<ObsBatracien> getAll () {
 
-    public Connection setC(String url) {
-        return this.c = DriverManager.getConnection(url);
-    }
-
-    public void getAll () {
-        this.c = setC("jdbc:mysql://localhost:3306/myDB");
-
-        Statement statement = this.c.createStatement();
-
+        Statement statement = this.connection.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM OBS_BATRACIEN ");
 
         while (rs.next()) {
@@ -28,15 +23,31 @@ public class DataBatricien {
             String observateurs = rs.getString("OBSERVATEURS");
             String resObs = rs.getString("RESOBS");
             String IEspece = rs.getString("IESPECE");
-            String[] observateurs_tab = observateurs.split(",");     
+            String[] observateurs_tab = observateurs.split(",");    
             //String[] resObs_tab = resObs.split(",");
             //int[] resObs_tab2 = Integer.parseInt(resObs_tab);
+
+            // Les observations ne stock que l'id des observateurs
+            // Ils va donc falloir trouvé un moyen de récup les observateurs
+            // par leurs id.
             ArrayList<Observateur> observateurs_liste;
             for (int i = 0; i < observateurs_tab.length-1; i++) {
                 observateurs_liste.add(observateurs_tab[i]);
             }
-            ObsBatracien obsBatracien = new ObsBatracien(id, date, heure, lieu, observateurs_liste, resObs_tab, IEspece);
+            Donnee.ObsBatracien obsBatracien = new Donnee.ObsBatracien(id, date, heure, lieu, observateurs_liste, resObs_tab, IEspece);
             liste_ObsBatricien.add(obsBatracien);
         }
+    }
+
+    @Override
+    public ArrayList<ObsBatracien> getCuston (String filters) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void deleteEntry(int id) {
+        // TODO Auto-generated method stub
+        
     }
 }
