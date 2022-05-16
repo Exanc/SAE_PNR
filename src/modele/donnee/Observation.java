@@ -21,7 +21,7 @@ public abstract class Observation
      * @param observateurs ArrayList of all the Observators on this Observation
      */
     public Observation(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs) {
-        if (date != null && heure != null && lieu != null && observateurs != null) {
+        if (id > 0 && date != null && heure != null && lieu != null && observateurs != null) {
             this.idObs = id;
             this.dateObs = date;
             this.heureObs = heure;
