@@ -1,28 +1,67 @@
+package model.traitement;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Donnee.ObsBatracien;
-import Donnee.Observateur;
+import model.donnee.ObsBatracien;
+import model.donnee.Observateur;
 
 public class Batracien extends Table<ObsBatracien>
 {
     @Override
     public ArrayList<ObsBatracien> getAll () {
 
-        Statement statement = this.connection.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT * FROM OBS_BATRACIEN ");
+        ResultSet rs = null;
+        try {
+            Statement statement = this.connection.createStatement();
+            rs = statement.executeQuery("SELECT * FROM OBS_BATRACIEN ");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-        while (rs.next()) {
-            String id = rs.getString("ID");
-            String date = rs.getString("DATE");
-            String heure = rs.getString("HEURE");
-            String lieu = rs.getString("LIEU");
-            String observateurs = rs.getString("OBSERVATEURS");
-            String resObs = rs.getString("RESOBS");
-            String IEspece = rs.getString("IESPECE");
+        return getFromResultSet(rs);
+    }
+
+    @Override
+    public ArrayList<ObsBatracien> getCuston (String filters) {
+        
+        ResultSet rs = null;
+        try {
+            Statement statement = this.connection.createStatement();
+            rs = statement.executeQuery("SELECT * FROM OBS_BATRACIEN WHERE "+ filters);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return getFromResultSet(rs);
+    }
+
+    @Override
+    public void deleteEntry(int id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+
+    private static ArrayList<ObsBatracien> getFromResultSet (ResultSet r)
+    {
+        ArrayList<ObsBatracien> list = new ArrayList<ObsBatracien>();
+
+        if (r == null) return null;
+
+        while (r.next()) {
+            
+            String id    = r.getString("ID");
+            String date  = r.getString("DATE");
+            String heure = r.getString("HEURE");
+            String lieu  = r.getString("LIEU");
+            String observateurs = r.getString("OBSERVATEURS");
+            String resObs  = r.getString("RESOBS");
+            String IEspece = r.getString("IESPECE");
+            
             String[] observateurs_tab = observateurs.split(",");    
             //String[] resObs_tab = resObs.split(",");
             //int[] resObs_tab2 = Integer.parseInt(resObs_tab);
@@ -30,24 +69,17 @@ public class Batracien extends Table<ObsBatracien>
             // Les observations ne stock que l'id des observateurs
             // Ils va donc falloir trouvé un moyen de récup les observateurs
             // par leurs id.
+            // TODO : Systéme de récupération / autorisation
             ArrayList<Observateur> observateurs_liste;
             for (int i = 0; i < observateurs_tab.length-1; i++) {
                 observateurs_liste.add(observateurs_tab[i]);
             }
-            Donnee.ObsBatracien obsBatracien = new Donnee.ObsBatracien(id, date, heure, lieu, observateurs_liste, resObs_tab, IEspece);
-            liste_ObsBatricien.add(obsBatracien);
+            
+            list.add(new ObsBatracien(
+                id, date, heure, lieu, observateurs_liste, resObs_tab, IEspece
+            ));
         }
-    }
 
-    @Override
-    public ArrayList<ObsBatracien> getCuston (String filters) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void deleteEntry(int id) {
-        // TODO Auto-generated method stub
-        
+        return list;
     }
 }

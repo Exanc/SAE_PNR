@@ -1,4 +1,4 @@
-package traitement;
+package model.traitement;
 
 import java.sql.Connection;
 import java.util.ArrayList;

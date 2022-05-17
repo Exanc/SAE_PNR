@@ -1,4 +1,4 @@
-package Donnee;
+package model.donnee;
 
 /**
  * Represents the types of owl sightings.

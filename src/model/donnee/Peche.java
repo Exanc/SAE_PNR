@@ -1,4 +1,4 @@
-package Donnee;
+package model.donnee;
 
 /**
  * Represents the different ways a seahorse can be fished.

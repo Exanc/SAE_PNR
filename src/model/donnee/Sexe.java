@@ -1,4 +1,4 @@
-package Donnee;
+package model.donnee;
 
 /**
  * Represents an individual's sex.

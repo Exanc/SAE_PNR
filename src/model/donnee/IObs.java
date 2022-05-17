@@ -1,4 +1,4 @@
-package Donnee;
+package model.donnee;
 
 import java.util.ArrayList;
 

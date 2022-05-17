@@ -1,4 +1,4 @@
-package Donnee;
+package model.donnee;
 
 public enum EspeceHippocampe {
     SYNGNATHUS_ACUS,
