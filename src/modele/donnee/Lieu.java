@@ -15,10 +15,32 @@ public class Lieu {
         this.yCoord = y;
     }
 
+    /**
+     * Sets the xCoord
+     * @param x
+     */
+    public void setXCoord (double x) {
+        this.xCoord = x;
+    }
+
+    /**
+     * @return the x coordinate
+     */
     public double getXCoord () {
         return this.xCoord;
     }
 
+    /**
+     * Sets the yCoord
+     * @param y
+     */
+    public void setYCoord (double y) {
+        this.yCoord = y;
+    }
+
+    /**
+     * @return the y coordinate
+     */
     public double getYCoord () {
         return this.yCoord;
     } 

@@ -27,7 +27,18 @@ public class ObsChouette extends Observation {
         return EspeceObservee.CHOUETTE;
     }
 
-    public TypeObservation getTypeObs () {
+    /**
+     * Sets the type of observation
+     * @param typeObs type
+     */
+    public void setTypeObs(TypeObservation typeObs) {
+        this.typeObs = typeObs;
+    }
+
+    /**
+     * @return the type of observation
+     */
+    public TypeObservation getTypeObs() {
         return this.typeObs;
     }
 }

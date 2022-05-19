@@ -89,4 +89,72 @@ public class Chouette implements IObs<ObsChouette> {
     public int nbObs() {
         return this.lesObservations.size();
     }
+
+    /**
+     * @return the species of the owl
+     */
+    public EspeceChouette getEspece() {
+        return espece;
+    }
+
+    /**
+     * Sets the species of the owl
+     * @param espece the species
+     */
+    public void setEspece(EspeceChouette espece) {
+        this.espece = espece;
+    }
+
+    /**
+     * @return return the sex of the owl
+     */
+    public Sexe getSexe() {
+        return sexe;
+    }
+
+    /**
+     * Sets the sex of the owl
+     * @param sexe sex
+     */
+    public void setSexe(Sexe sexe) {
+        this.sexe = sexe;
+    }
+
+    /**
+     * @return return the list of sightings
+     */
+    public ArrayList<ObsChouette> getLesObservations() {
+        return lesObservations;
+    }
+
+    /**
+     * Sets the list of sightings
+     * @param lesObservations list of sightings
+     */
+    public void setLesObservations(ArrayList<ObsChouette> lesObservations) {
+
+        if (lesObservations == null)
+            throw new IllegalArgumentException();
+
+        this.lesObservations = lesObservations;
+    }
+
+    /**
+     * @return the id of the owl
+     */
+    public String getIdChouette() {
+        return idChouette;
+    }
+
+    /**
+     * Sets the id of the owl
+     * @param idChouette id
+     */
+    public void setIdChouette(String idChouette) {
+
+        if (idChouette == null)
+            throw new IllegalArgumentException();
+
+        this.idChouette = idChouette;
+    }
 }

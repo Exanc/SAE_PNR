@@ -62,17 +62,93 @@ public abstract class Observation
     public abstract EspeceObservee especeObs();
 
     /**
-     * @return the date of the sighting
+     * Sets the list of observers
+     * @param lesObservateurs list of observers
      */
-    public Date getDateObs () {
+    public void setLesObservateurs (ArrayList<Observateur> lesObservateurs) {
+
+        if (lesObservateurs == null)
+            throw new IllegalArgumentException();
+
+        this.lesObservateurs = lesObservateurs;
+    }
+
+    /**
+     * @return the list of observers
+     */
+    public ArrayList<Observateur> getLesObservateurs() {
+        return this.lesObservateurs;
+    }
+
+    /**
+     * Sets the id
+     * @param idObs id
+     */
+    public void setIdObs(int idObs) {
+        this.idObs = idObs;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getIdObs() {
+        return this.idObs;
+    }
+
+    /**
+     * Sets the location of the sighting
+     * @param lieuObs location
+     */
+    public void setLieuObs(Lieu lieuObs) {
+
+        if (lieuObs == null)
+            throw new IllegalArgumentException();
+        
+        this.lieuObs = lieuObs;
+    }
+
+    /**
+     * @return the locations of the sighting
+     */
+    public Lieu getLieuObs() {
+        return this.lieuObs;
+    }
+
+    /**
+     * Sets the date of the sighting
+     * @param dateObs date
+     */
+    public void setDateObs(Date dateObs) {
+        
+        if (dateObs == null)
+            throw new IllegalArgumentException();
+
+        this.dateObs = dateObs;
+    }
+
+    /**
+     * @return date of the sighting
+     */
+    public Date getDateObs() {
         return this.dateObs;
     }
 
     /**
-     * Get the id of the Observator
-     * @return int idObs
+     * Sets the time of the sighting
+     * @param heureObs time of sighting
      */
-    public int getIdObs() {
-        return this.idObs;
+    public void setHeureObs(Time heureObs) {
+
+        if (heureObs == null)
+            throw new IllegalArgumentException();
+
+        this.heureObs = heureObs;
+    }
+
+    /**
+     * @return the time of the sighting
+     */
+    public Time getHeureObs() {
+        return this.heureObs;
     }
 }

@@ -7,7 +7,7 @@ public class Observateur {
     private String prenom;
 
     /**
-     * Create an Observator with an single index, a name and a surname
+     * Create an Observator with an single index, a last name and a first name
      * @param id
      * @param nom
      * @param prenom
@@ -21,24 +21,56 @@ public class Observateur {
     }
 
     /**
+     * Sets the id
+     * @param idObservateur id
+     */
+    public void setId (int idObservateur) {
+        this.idObservateur = idObservateur;
+    }
+
+    /**
      * Get the id of the Observator
-     * @return Integer id
+     * @return id
      */
     public int getId () {
         return this.idObservateur;
     }
 
     /**
-     * Get the name of the Observator
-     * @return String name
+     * Sets the last name
+     * @param nom name
+     */
+    public void setNom (String nom) {
+
+        if (nom == null)
+            throw new IllegalArgumentException();
+
+        this.nom = nom;
+    }
+
+    /**
+     * Get the last name of the Observator
+     * @return name
      */
     public String getNom () {
         return this.nom;
     }
 
     /**
-     * Get the surname of the Observator
-     * @return String surname
+     * Sets the first name
+     * @param prenom name
+     */
+    public void setPrenom (String prenom) {
+
+        if (prenom == null)
+            throw new IllegalArgumentException();
+
+        this.prenom = prenom;
+    }
+
+    /**
+     * Get the first name of the Observator
+     * @return name
      */
     public String getPrenom () {
         return this.prenom;

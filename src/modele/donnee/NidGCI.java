@@ -8,7 +8,7 @@ public class NidGCI implements IObs<ObsGCI> {
 
     private ArrayList<ObsGCI> lesObservations;
     private int idNid;
-    private int ndEnvol;
+    private int nbEnvol;
     private String nomPlage;
 
     /**
@@ -98,15 +98,75 @@ public class NidGCI implements IObs<ObsGCI> {
         return this.lesObservations.size();
     }
 
-    public int getIdNid () {
-        return this.idNid;
+    /**
+     * @return the list of sightings
+     */
+    public ArrayList<ObsGCI> getLesObservations() {
+        return lesObservations;
     }
 
-    public int getNbEnvol () {
-        return this.ndEnvol;
+    /**
+     * Sets the list of sightings
+     * @param lesObservations list of sightings
+     */
+    public void setLesObservations(ArrayList<ObsGCI> lesObservations) {
+
+        if (lesObservations == null)
+            throw new IllegalArgumentException();
+
+        this.lesObservations = lesObservations;
     }
 
-    public String getNomPlage () {
-        return this.nomPlage;
+    /**
+     * @return the id of the nest
+     */
+    public int getIdNid() {
+        return idNid;
+    }
+
+    /**
+     * Sets the id of the nest
+     * @param idNid id
+     */
+    public void setIdNid(int idNid) {
+        this.idNid = idNid;
+    }
+
+    /**
+     * @return the number of flights
+     */
+    public int getNbEnvol() {
+        return nbEnvol;
+    }
+
+    /**
+     * Sets the number of flights
+     * @param ndEnvol number of flights
+     */
+    public void setNbEnvol(int ndEnvol) {
+
+        if (nbEnvol < 0)
+            throw new IllegalArgumentException();
+
+        this.nbEnvol = ndEnvol;
+    }
+
+    /**
+     * @return the name of the beach
+     */
+    public String getNomPlage() {
+        return nomPlage;
+    }
+
+    /**
+     * Sets the name of the beach
+     * @param nomPlage name
+     */
+    public void setNomPlage(String nomPlage) {
+
+        if (nomPlage == null)
+            throw new IllegalArgumentException();
+
+        this.nomPlage = nomPlage;
     }
 }
