@@ -30,6 +30,14 @@ public class ObsLoutre extends Observation {
     }
 
     /**
+     * Sets the clue of the sighting
+     * @param indice clue
+     */
+    public void setIndice (IndiceLoutre indice) {
+        this.indice = indice;
+    }
+
+    /**
      * @return the clue of the sighting
      */
     public IndiceLoutre getIndice () {

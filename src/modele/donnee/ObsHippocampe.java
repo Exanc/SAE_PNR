@@ -43,10 +43,26 @@ public class ObsHippocampe extends Observation {
     }
 
     /**
+     * Sets the type of phising
+     * @param typePeche type
+     */
+    public void setTypePeche(Peche typePeche) {
+        this.typePeche = typePeche;
+    }
+
+    /**
      * @return the type of fishing
      */
     public Peche getTypePeche () {
         return this.typePeche;
+    }
+    
+    /**
+     * Sets the species
+     * @param espece species
+     */
+    public void setEspece(EspeceHippocampe espece) {
+        this.espece = espece;
     }
 
     /**
@@ -57,10 +73,26 @@ public class ObsHippocampe extends Observation {
     }
 
     /**
+     * Sets the sex
+     * @param sexe sex
+     */
+    public void setSexe(Sexe sexe) {
+        this.sexe = sexe;
+    }
+
+    /**
      * @return the sex of the sighted seahorse
      */
     public Sexe getSexe () {
         return this.sexe;
+    }
+
+    /**
+     * Sets the size
+     * @param taille size
+     */
+    public void setTaille(double taille) {
+        this.taille = taille;
     }
 
     /**
@@ -71,7 +103,15 @@ public class ObsHippocampe extends Observation {
     }
 
     /**
-     * @return true, if the sighted seahorse is pregnant
+     * Sets estGestant, true if the individual is pregnant
+     * @param estGestant isPregnant
+     */
+    public void setEstGestant(boolean estGestant) {
+        this.estGestant = estGestant;
+    }
+
+    /**
+     * @return true, if the sighted seahorse was pregnant
      */
     public boolean estGestant () {
         return this.estGestant;

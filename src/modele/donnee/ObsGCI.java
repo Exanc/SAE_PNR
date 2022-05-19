@@ -35,10 +35,26 @@ public class ObsGCI extends Observation {
     }
 
     /**
+     * Sets the type of the sighting
+     * @param natureObs type
+     */
+    public void setNatureObs (ContenuNid natureObs) {
+        this.natureObs = natureObs;
+    } 
+
+    /**
      * @return the type of sighting
      */
     public ContenuNid getNatureObs () {
         return this.natureObs;
+    }
+
+    /**
+     * Sets the number of individuals
+     * @param nombre number
+     */
+    public void setNombre (int nombre) {
+        this.nombre = nombre;
     }
 
     /**
