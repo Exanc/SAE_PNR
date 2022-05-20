@@ -12,7 +12,7 @@ public abstract class Table <T>
     }
 
     public abstract ArrayList<T> getAll ();
-    public abstract ArrayList<T> getCustom (String querry);
+    public abstract ArrayList<T> getAllWithFilters (String filters);
 
     public abstract void deleteEntry (int id);
     // TODO: Quel était la quatriéme méthode demandé par le prof
