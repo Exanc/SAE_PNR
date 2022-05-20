@@ -2,6 +2,8 @@ package modele.traitement;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import modele.donnee.*;
 
@@ -32,7 +34,7 @@ public class DataGCI extends Table<ObsGCI> {
         else {
             while (rs.next()) {
             
-                String id = rs.getString("obsG");
+                int    id    = rs.getInt("obsG");
                 String date  = rs.getString("dateObs");
                 String heure = rs.getString("heureObs");
 
@@ -40,13 +42,23 @@ public class DataGCI extends Table<ObsGCI> {
                 String coord_y  = rs.getString("lieu_Lambert_Y");
                 Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
 
-                // TODO : Condition WHERE pas folle help me
-                ArrayList<Observateur> liste_obervateurs = DataObservateur.getAll("Observateur, AObserve, ObsChouette WHERE lobservateur = idObservateur AND lobservation = " + id + "\"");
+                // TODO: ça m'a l'aire bien ?
+                HashMap<Integer, Integer> lobservateurs = DataAObserver.getAll("WHERE lobservation = "+ id);
+                ArrayList<Observateur> liste_obervateurs = new ArrayList<Observateur>();
+
+                for (Map.Entry<Integer, Integer> entry : lobservateurs.entrySet()) {
+
+                    if (entry.getKey() == id) {
+                        int lobservateur = entry.getValue();
+                        DataObservateur.getAll("Observateur WHERE idObservateur = " + lobservateur);
+                    }
+                }
 
                 String nature = rs.getString("nature");
 
                 list.add(new ObsGCI (
-                    Integer.parseInt(id), Date.valueOf(date), Time.valueOf(heure), lieu, liste_obervateurs, ContenuNid.valueOf(nature)
+                    id, Date.valueOf(date), Time.valueOf(heure), lieu, liste_obervateurs, ContenuNid.valueOf(nature),
+                    0 // TODO: le nombre ?
                 ));
             }
         }
