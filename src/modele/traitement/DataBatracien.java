@@ -47,24 +47,26 @@ public class DataBatracien extends Table<ObsBatracien>{
         throw new UnsupportedOperationException();
     }
 
-    private static ArrayList<ObsBatracien> getFromResultSet (ResultSet r) {
+    private static ArrayList<ObsBatracien> getFromResultSet (ResultSet rs) {
 
         ArrayList<ObsBatracien> list = new ArrayList<ObsBatracien>();
+        Statement statement = this.connection.createStatement();
+        ResultSet AObserve = get
 
-        if (r == null) {
+        if (rs == null) {
             return null;
         }
         else {
-            while (r.next()) {
+            while (rs.next()) {
             
-                String id    = r.getString("obsB");
-                String date  = r.getString("dateObs");
-                String heure = r.getString("heureObs");
-                String lieu  = r.getString("LIEU");
-                String observateurs = r.getString("OBSERVATEURS");
-                String resObs  = r.getString("RESOBS");
+                String id    = rs.getString("obsB");
+                String date  = rs.getString("dateObs");
+                String heure = rs.getString("heureObs");
+                String lieu  = rs.getString("LIEU");
+                String observateurs = rs.getString("OBSERVATEURS");
+                String resObs  = rs.getString("RESOBS");
                 int[] resObs_tab;
-                String IEspece = r.getString("espece");
+                String IEspece = rs.getString("espece");
                 
                 String[] str = resObs.split(",");
                 for (int i = 0; i < str.length-1; i++) {
