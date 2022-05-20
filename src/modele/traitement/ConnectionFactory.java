@@ -1,0 +1,32 @@
+package modele.traitement;
+
+import java.sql.*;
+
+public class ConnectionFactory {
+
+    private static String url = "";
+    private static String user = "";
+    private static String password = "";
+
+    private static Connection connection = null;
+
+    private ConnectionFactory () {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } 
+        catch (ClassNotFoundException e) {
+            System.out.println("Erreur de chargement du driver");
+        } 
+        catch (Exception e) {
+            System.out.println("Erreur de chargement du driver");
+        }
+    }
+
+    public static Connection getConnection() throws SQLException {
+        if (connection == null) {
+            connection = DriverManager.getConnection(url, user, password);
+        }
+
+        return connection;
+    }
+}
