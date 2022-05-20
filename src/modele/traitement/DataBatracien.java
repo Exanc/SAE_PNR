@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import modele.donnee.ObsBatracien;
 import modele.donnee.Observateur;
 
-public class Batracien extends Table<ObsBatracien>{
+public class DataBatracien extends Table<ObsBatracien>{
 
     public ArrayList<ObsBatracien> getAll () {
 
@@ -34,15 +34,16 @@ public class Batracien extends Table<ObsBatracien>{
         try {
             Statement statement = this.connection.createStatement();
             rs = statement.executeQuery("SELECT * FROM OBS_BATRACIEN WHERE " + filters);
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) {
             e.printStackTrace();
         }
 
         return getFromResultSet(rs);
     }
 
+    //Jsp a quoi ça sert
     public void deleteEntry(int id) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException();
     }
 
@@ -50,37 +51,44 @@ public class Batracien extends Table<ObsBatracien>{
 
         ArrayList<ObsBatracien> list = new ArrayList<ObsBatracien>();
 
-        if (r == null) return null;
-
-        while (r.next()) {
-            
-            String id    = r.getString("ID");
-            String date  = r.getString("DATE");
-            String heure = r.getString("HEURE");
-            String lieu  = r.getString("LIEU");
-            String observateurs = r.getString("OBSERVATEURS");
-            String resObs  = r.getString("RESOBS");
-            String IEspece = r.getString("IESPECE");
-            
-            String[] observateurs_tab = observateurs.split(",");    
-            //String[] resObs_tab = resObs.split(",");
-            //int[] resObs_tab2 = Integer.parseInt(resObs_tab);
-
-            // Les observations ne stock que l'id des observateurs
-            // Ils va donc falloir trouvé un moyen de récup les observateurs
-            // par leurs id.
-            // TODO : Systéme de récupération / autorisation
-            ArrayList<Observateur> observateurs_liste;
-
-            for (int i = 0; i < observateurs_tab.length-1; i++) {
-                observateurs_liste.add(observateurs_tab[i]);
-            }
-            
-            list.add(new ObsBatracien(
-                id, date, heure, lieu, observateurs_liste, resObs_tab, IEspece
-            ));
+        if (r == null) {
+            return null;
         }
-
-        return list;
+        else {
+            while (r.next()) {
+            
+                String id    = r.getString("obsB");
+                String date  = r.getString("dateObs");
+                String heure = r.getString("heureObs");
+                String lieu  = r.getString("LIEU");
+                String observateurs = r.getString("OBSERVATEURS");
+                String resObs  = r.getString("RESOBS");
+                int[] resObs_tab;
+                String IEspece = r.getString("espece");
+                
+                String[] str = resObs.split(",");
+                for (int i = 0; i < str.length-1; i++) {
+                    resObs_tab[i] = Integer.parseInt(str[i]);
+                }
+    
+                // Les observations ne stock que l'id des observateurs
+                // Ils va donc falloir trouvé un moyen de récup les observateurs
+                // par leurs id.
+                // TODO : Systéme de récupération / autorisation
+                ArrayList<Observateur> observateurs_liste;
+                
+                String[] observateurs_tab = observateurs.split(","); 
+                for (int i = 0; i < observateurs_tab.length-1; i++) {
+                    observateurs_liste.add(observateurs_tab[i]);
+                }
+                
+                list.add(new ObsBatracien(
+                    id, date, heure, lieu, observateurs_liste, resObs_tab, IEspece
+                ));
+            }
+    
+            return list;
+     
+        } 
     }
 }

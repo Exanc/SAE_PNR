@@ -1,4 +1,4 @@
-package src.modele.traitement;
+package modele.traitement;
 
 import java.sql.Connection;
 import java.util.ArrayList;
