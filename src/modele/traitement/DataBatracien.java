@@ -52,7 +52,7 @@ public class DataBatracien extends Table<ObsBatracien>{
         else {
             while (rs.next()) {
             
-                String id    = rs.getString("obsB");
+                String id = rs.getString("obsB");
                 String date  = rs.getString("dateObs");
                 String heure = rs.getString("heureObs");
 
@@ -62,7 +62,7 @@ public class DataBatracien extends Table<ObsBatracien>{
 
                 // Stocke tout les observateurs même si pas dans l'observation
                 // Rajouter condition WHERE
-                ArrayList<Observateur> liste_obervateurs = DataObservateur.getAll("Observateur, Observation, AObserve WHERE lobservateur = idObservateur AND lobservation = idObs");
+                ArrayList<Observateur> liste_obervateurs = DataObservateur.getAll("Observateur, AObserve, ObsBatricien WHERE lobservateur = idObservateur AND lobservation = " + id + "\"");
 
                 String resObs = rs.getString("RESOBS");
                 String[] str = resObs.split(",");
