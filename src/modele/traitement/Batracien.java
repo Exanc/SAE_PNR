@@ -27,7 +27,7 @@ public class Batracien extends Table<ObsBatracien>
     }
 
     @Override
-    public ArrayList<ObsBatracien> getCuston (String filters) {
+    public ArrayList<ObsBatracien> getCustom (String filters) {
         
         ResultSet rs = null;
         try {
