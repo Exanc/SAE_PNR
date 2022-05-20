@@ -10,29 +10,30 @@ import java.util.ArrayList;
 import modele.donnee.ObsBatracien;
 import modele.donnee.Observateur;
 
-public class Batracien extends Table<ObsBatracien>
-{
-    @Override
+public class Batracien extends Table<ObsBatracien>{
+
     public ArrayList<ObsBatracien> getAll () {
 
         ResultSet rs = null;
+
         try {
             Statement statement = this.connection.createStatement();
             rs = statement.executeQuery("SELECT * FROM OBS_BATRACIEN ");
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) {
             e.printStackTrace();
         }
 
         return getFromResultSet(rs);
     }
 
-    @Override
-    public ArrayList<ObsBatracien> getCuston (String filters) {
+    public ArrayList<ObsBatracien> getAllWithFilters (String filters) {
         
         ResultSet rs = null;
+
         try {
             Statement statement = this.connection.createStatement();
-            rs = statement.executeQuery("SELECT * FROM OBS_BATRACIEN WHERE "+ filters);
+            rs = statement.executeQuery("SELECT * FROM OBS_BATRACIEN WHERE " + filters);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -40,14 +41,13 @@ public class Batracien extends Table<ObsBatracien>
         return getFromResultSet(rs);
     }
 
-    @Override
     public void deleteEntry(int id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException();
     }
 
-    private static ArrayList<ObsBatracien> getFromResultSet (ResultSet r)
-    {
+    private static ArrayList<ObsBatracien> getFromResultSet (ResultSet r) {
+
         ArrayList<ObsBatracien> list = new ArrayList<ObsBatracien>();
 
         if (r == null) return null;
@@ -71,6 +71,7 @@ public class Batracien extends Table<ObsBatracien>
             // par leurs id.
             // TODO : Systéme de récupération / autorisation
             ArrayList<Observateur> observateurs_liste;
+
             for (int i = 0; i < observateurs_tab.length-1; i++) {
                 observateurs_liste.add(observateurs_tab[i]);
             }
