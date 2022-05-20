@@ -22,22 +22,6 @@ public class DataBatracien extends Table<ObsBatracien>{
         return getFromResultSet(rs);
     }
 
-    public static ArrayList<ObsBatracien> getAllWithFilters (String filters) throws NumberFormatException, SQLException {
-        
-        ResultSet rs = null;
-
-        try {
-            Statement statement = ConnectionFactory.getConnection().createStatement();
-            rs = statement.executeQuery("SELECT * FROM Obs_Batracien WHERE " + filters);
-        } 
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return getFromResultSet(rs);
-    }
-
-    //Jsp a quoi ça sert
     public void deleteEntry(int id) {
         throw new UnsupportedOperationException();
     }
@@ -60,8 +44,7 @@ public class DataBatracien extends Table<ObsBatracien>{
                 String coord_y  = rs.getString("lieu_Lambert_Y");
                 Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
 
-                // Stocke tout les observateurs même si pas dans l'observation
-                // Rajouter condition WHERE
+                // TODO : Condition WHERE pas folle help me
                 ArrayList<Observateur> liste_obervateurs = DataObservateur.getAll("Observateur, AObserve, ObsBatricien WHERE lobservateur = idObservateur AND lobservation = " + id + "\"");
 
                 String resObs = rs.getString("RESOBS");
@@ -79,7 +62,6 @@ public class DataBatracien extends Table<ObsBatracien>{
             }
     
             return list;
-     
         } 
     }
 }
