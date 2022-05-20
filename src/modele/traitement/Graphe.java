@@ -53,24 +53,37 @@ public class Graphe {
      * @return the degree of the verticies, -1 if not in the graph
      */
     public int caculeDegre (int idSom) {
-        // TODO
-        throw new UnsupportedOperationException();
+        int ret = -1;
+        if (this.sommetsVoisins.get(idSom).size() != 0) ret = this.sommetsVoisins.get(idSom).size();
+        return ret;
     }
 
     /**
      * @return the maximum degree
      */
     public int maxDegre () {
-        // TODO
-        throw new UnsupportedOperationException();
+        int max = -1;
+        for (Map.Entry<Sommet, ArrayList<Sommet>> entry : this.sommetsVoisins.entrySet()) {
+            int degree = caculeDegre(entry.getKey().getId());
+            if (degree > max) max = degree;
+        }
+        return max;
     }
 
     /**
      * @return the vertex with the maximum degree
      */
     public Sommet somMaxDegre () {
-        // TODO
-        throw new UnsupportedOperationException();
+        int max = -1;
+        Sommet som = null;
+        for (Map.Entry<Sommet, ArrayList<Sommet>> entry : this.sommetsVoisins.entrySet()) {
+            int degree = caculeDegre(entry.getKey().getId());
+            if (degree > max) {
+                max = degree;
+                som = entry.getKey();
+            }
+        }
+        return som;
     }
 
     /**
