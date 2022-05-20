@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 import modele.donnee.*;
 
-public class DataChouette extends Table<ObsChouette> {
+public class DataGCI extends Table<ObsGCI> {
 
-    public static ArrayList<ObsChouette> getAll (String str) throws NumberFormatException, SQLException {
+    public static ArrayList<ObsGCI> getAll (String str) throws NumberFormatException, SQLException {
 
         ResultSet rs = null;
 
@@ -22,9 +22,9 @@ public class DataChouette extends Table<ObsChouette> {
         return getFromResultSet(rs);
     }
 
-    private static ArrayList<ObsChouette> getFromResultSet (ResultSet rs) throws NumberFormatException, SQLException {
+    private static ArrayList<ObsGCI> getFromResultSet (ResultSet rs) throws NumberFormatException, SQLException {
 
-        ArrayList<ObsChouette> list = new ArrayList<ObsChouette>();
+        ArrayList<ObsGCI> list = new ArrayList<ObsGCI>();
 
         if (rs == null) {
             return null;
@@ -32,7 +32,7 @@ public class DataChouette extends Table<ObsChouette> {
         else {
             while (rs.next()) {
             
-                String id = rs.getString("numObs");
+                String id = rs.getString("obsG");
                 String date  = rs.getString("dateObs");
                 String heure = rs.getString("heureObs");
 
@@ -43,10 +43,10 @@ public class DataChouette extends Table<ObsChouette> {
                 // TODO : Condition WHERE pas folle help me
                 ArrayList<Observateur> liste_obervateurs = DataObservateur.getAll("Observateur, AObserve, ObsChouette WHERE lobservateur = idObservateur AND lobservation = " + id + "\"");
 
-                String TypeObservation = rs.getString("typeObs");
+                String nature = rs.getString("nature");
 
-                list.add(new ObsChouette (
-                    Integer.parseInt(id), Date.valueOf(date), Time.valueOf(heure), lieu, liste_obervateurs, TypeObservation.valueOf(TypeObservation);
+                list.add(new ObsGCI (
+                    Integer.parseInt(id), Date.valueOf(date), Time.valueOf(heure), lieu, liste_obervateurs, ContenuNid.valueOf(nature)
                 ));
             }
         }
