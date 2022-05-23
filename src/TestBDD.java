@@ -12,6 +12,6 @@ import modele.*;
 public class TestBDD {
 
     public static void main(String[] args) {
-        DataLieu.getAll(str)
+        //DataLieu.getAll(str)
     }
 }

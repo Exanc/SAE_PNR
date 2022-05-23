@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DataAObserver extends Table<Map.Entry<Integer, Integer>> {
+public class DataAObserver extends DataGeneral<Map.Entry<Integer, Integer>> {
 
     public static HashMap<Integer, Integer> getAll (String str) throws NumberFormatException, SQLException {
 

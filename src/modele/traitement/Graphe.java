@@ -40,12 +40,32 @@ public class Graphe {
     }
 
     /**
-     * @param idSomme id of the vertex
+     * @return the nomber of edges
+     */
+    public int nbAretes () {
+
+        int[][] mat = this.matriceAdjacence();
+        int num = 0;
+
+        for (int i = 1; i < mat.length; i++) {
+            for (int j = 1; j < mat[i].length; j++) {
+                num += mat[i][j];
+            }
+        }
+        return num;
+    }
+
+    /**
+     * @param idSom id of the vertex
      * @return true, if the vertex is in the graph
      */
-    public boolean nbAretes (int idSomme) {
-        // TODO
-        throw new UnsupportedOperationException();
+    public boolean estDansGraphe (int idSom) {
+
+        for (Sommet s : this.sommetsVoisins.keySet()) {
+            if (s.getId() == idSom)
+                return true;
+        }
+        return false;
     }
 
     /**
@@ -53,8 +73,19 @@ public class Graphe {
      * @return the degree of the verticies, -1 if not in the graph
      */
     public int caculeDegre (int idSom) {
+        
+        Sommet som = this.getSommetById(idSom);
+        int[][] mat = this.matriceAdjacence();
         int ret = -1;
-        if (this.sommetsVoisins.get(idSom).size() != 0) ret = this.sommetsVoisins.get(idSom).size();
+        
+        if (som != null) {
+            int index = this.getIndice(som);
+            ret = 0;
+
+            for (int j = 0; j < mat[index].length; j++)
+                ret += mat[index][j]; 
+        }
+
         return ret;
     }
 
@@ -63,10 +94,15 @@ public class Graphe {
      */
     public int maxDegre () {
         int max = -1;
+
         for (Map.Entry<Sommet, ArrayList<Sommet>> entry : this.sommetsVoisins.entrySet()) {
+            
             int degree = caculeDegre(entry.getKey().getId());
-            if (degree > max) max = degree;
+            
+            if (degree > max)
+                max = degree;
         }
+
         return max;
     }
 
@@ -74,10 +110,14 @@ public class Graphe {
      * @return the vertex with the maximum degree
      */
     public Sommet somMaxDegre () {
+
         int max = -1;
         Sommet som = null;
+
         for (Map.Entry<Sommet, ArrayList<Sommet>> entry : this.sommetsVoisins.entrySet()) {
+
             int degree = caculeDegre(entry.getKey().getId());
+
             if (degree > max) {
                 max = degree;
                 som = entry.getKey();
@@ -92,8 +132,16 @@ public class Graphe {
      * @return true, if both those verticies are neighbors
      */
     public boolean sontVoisins (int idSom1, int idSom2) {
-        // TODO
-        throw new UnsupportedOperationException();
+
+        int[][] mat = this.matriceAdjacence();
+
+        Sommet som1 = this.getSommetById(idSom1);
+        Sommet som2 = this.getSommetById(idSom2);
+        if (som1 == null || som2 == null) return false;
+
+        if (mat[this.getIndice(som1)][this.getIndice(som2)] == 1)
+            return true;
+        return false;
     }
 
     /**
@@ -111,8 +159,19 @@ public class Graphe {
      * @return ids of thy neigbhors
      */
     public int[] voisins (int idSom) {
-        // TODO
-        throw new UnsupportedOperationException();
+
+        for (var entry : this.sommetsVoisins.entrySet()) {
+            if (entry.getKey().getId() != idSom) continue;
+            if (entry.getValue() != null) break;
+            
+            int[] ids = new int[entry.getValue().size()];
+            int i = 0;
+            for (var som : entry.getValue()) {
+                ids[i] = som.getId();
+                i++;
+            }
+        }
+        return null;
     }
 
     /**
@@ -195,17 +254,35 @@ public class Graphe {
         int[][] res = new int[this.nbSomments()][this.nbSomments()];
 
         int i = 0;
-        Set<Map.Entry<Sommet, ArrayList<Sommet>>> entries = this.sommetsVoisins.entrySet();
-
-        for (Map.Entry<Sommet, ArrayList<Sommet>> entry : entries) {
+        for (var entry : this.sommetsVoisins.entrySet()) {
 
             if (entry.getValue() != null) {
-
-                //TODO
+                for (var som : entry.getValue()) {
+                    res[i][this.getIndice(som)] = 1;
+                }
             }
             i++;
         }
 
         return res;
+    }
+
+    private Sommet getSommetById (int id) {
+
+        for (var som : this.sommetsVoisins.keySet())
+            if (som.getId() == id) return som;
+        return null;
+    }
+
+    private int getIndice (Sommet s) {
+
+        int i = 0;
+
+        for (var som : this.sommetsVoisins.keySet()) {
+            if (som.equals(s))
+                return i;
+            i++;
+        }
+        return -1;
     }
 }
