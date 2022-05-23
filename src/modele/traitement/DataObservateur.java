@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import modele.donnee.*;
 import java.sql.*;
 
-public class DataObservateur extends Table<Observateur> {
+public class DataObservateur extends DataGeneral<Observateur> {
     
     public static ArrayList<Observateur> getAll(String str) throws NumberFormatException, SQLException {
 

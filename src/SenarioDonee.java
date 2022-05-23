@@ -6,7 +6,7 @@ import modele.donnee.*;
 
 public class SenarioDonee {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         Observateur alfred = new Observateur(0, "Remorkfeuil", "Alfred");
         System.out.println(alfred.getPrenom() + alfred.getNom());
         Observateur sophie = new Observateur(2, "Preon", "Sophie");

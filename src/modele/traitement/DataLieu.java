@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import modele.donnee.*;
 import java.sql.*;
 
-public class DataLieu extends Table<Lieu> {
+public class DataLieu extends DataGeneral<Lieu> {
 
     public static ArrayList<Lieu> getAll(String str) throws NumberFormatException, SQLException {
 
         ResultSet rs = null;
 
         try {
-            PreparedStatement statement = ConnectionFactory.getConnection().prepareStatement("SELECT * FROM ?");
+            PreparedStatement statement = getDataConnection().prepareStatement("SELECT * FROM ?");
             statement.setString(1, str);
         } 
         catch (SQLException e) {
@@ -31,11 +31,11 @@ public class DataLieu extends Table<Lieu> {
         else {
             while (rs.next()) {
                 
-                String x = rs.getString("coord_Lambert_X");
-                String y = rs.getString("coord_Lambert_Y");
+                Double coord_x = rs.getDouble("coord_Lambert_X");
+                Double coord_y = rs.getDouble("coord_Lambert_Y");
 
                 list.add(new Lieu(
-                    Double.parseDouble(x), Double.parseDouble(y)
+                    coord_x, coord_y
                 ));
             }
         }

@@ -9,10 +9,11 @@ public class ConnectionFactory {
     private static String password = "";
 
     private static Connection connection = null;
+    private static ConnectionFactory connectionFactory = null;
 
     private ConnectionFactory () {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } 
         catch (ClassNotFoundException e) {
             System.out.println("Erreur de chargement du driver");
@@ -20,6 +21,14 @@ public class ConnectionFactory {
         catch (Exception e) {
             System.out.println("Erreur de chargement du driver");
         }
+    }
+
+    public static ConnectionFactory getConnectionFactory() {
+        if (connectionFactory == null) {
+            connectionFactory = new ConnectionFactory();
+        }
+        
+        return connectionFactory;
     }
 
     public static Connection getConnection() throws SQLException {

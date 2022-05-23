@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 import modele.donnee.*;
 
-public class DataChouette extends Table<ObsChouette> {
+public class DataChouette extends DataGeneral<ObsChouette> {
 
     public static ArrayList<ObsChouette> getAll (String str) throws NumberFormatException, SQLException {
 
         ResultSet rs = null;
 
         try {
-            PreparedStatement statement = ConnectionFactory.getConnection().prepareStatement("SELECT * FROM ?");
+            PreparedStatement statement = getDataConnection().prepareStatement("SELECT * FROM ?");
             statement.setString(1, str);
         } 
         catch (SQLException e) {
@@ -32,21 +32,20 @@ public class DataChouette extends Table<ObsChouette> {
         else {
             while (rs.next()) {
             
-                String id = rs.getString("numObs");
-                String date  = rs.getString("dateObs");
-                String heure = rs.getString("heureObs");
+                int id = rs.getInt("numObs");
+                Date date  = rs.getDate("dateObs");
+                Time heure = rs.getTime("heureObs");
 
-                String coord_x  = rs.getString("lieu_Lambert_X");
-                String coord_y  = rs.getString("lieu_Lambert_Y");
-                Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
+                Double coord_x  = rs.getDouble("lieu_Lambert_X");
+                Double coord_y  = rs.getDouble("lieu_Lambert_Y");
+                Lieu lieu = new Lieu(coord_x, coord_y);
 
-                // TODO : Condition WHERE pas folle help me
                 ArrayList<Observateur> liste_obervateurs = DataObservateur.getAll("Observateur, AObserve, ObsChouette WHERE lobservateur = idObservateur AND lobservation = " + id + "\"");
 
                 String type = rs.getString("typeObs");
 
                 list.add(new ObsChouette (
-                    Integer.parseInt(id), Date.valueOf(date), Time.valueOf(heure), lieu, liste_obervateurs, TypeObservation.valueOf(type)
+                    id, date, heure, lieu, liste_obervateurs, TypeObservation.valueOf(type)
                 ));
             }
         }
