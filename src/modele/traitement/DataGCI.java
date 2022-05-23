@@ -14,7 +14,7 @@ public class DataGCI extends Table<ObsGCI> {
         ResultSet rs = null;
 
         try {
-            PreparedStatement statement = ConnectionFactory.getConnection().prepareStatement("SELECT * FROM ?");
+            PreparedStatement statement = ConnectionFactory.getConnectionFactory().getConnection().prepareStatement("SELECT * FROM ?");
             statement.setString(1, str);
         } 
         catch (SQLException e) {

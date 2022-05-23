@@ -12,7 +12,7 @@ public class DataChouette extends Table<ObsChouette> {
         ResultSet rs = null;
 
         try {
-            PreparedStatement statement = ConnectionFactory.getConnection().prepareStatement("SELECT * FROM ?");
+            PreparedStatement statement = ConnectionFactory.getConnectionFactory().getConnection().prepareStatement("SELECT * FROM ?");
             statement.setString(1, str);
         } 
         catch (SQLException e) {
