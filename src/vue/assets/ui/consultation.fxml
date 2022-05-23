@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <top>
+            <HBox prefHeight="36.0" prefWidth="600.0" spacing="5.0" style="-fx-background-color: #d9d9d9ff;" BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane prefHeight="26.0" prefWidth="818.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #6aa84fff;" text="&lt;" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #6aa84fff;" text="Préférence" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #6aa84fff;" text="Carte" />
+                           </children>
+                        </HBox>
+                        <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
+                           <children>
+                              <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #eb5600ff;" text="Se déconnecter" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </top>
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-border-color: #cccccc;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Espèces" />
+                  <Button mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: #efefefff; -fx-border-color: #666666; -fx-border-radius: 4;" text="Batracien" />
+                  <Button mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: #efefefff; -fx-border-color: #666666; -fx-border-radius: 4;" text="Chouette" />
+                  <Button mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: #efefefff; -fx-border-color: #666666; -fx-border-radius: 4;" text="GCI" />
+                  <Button mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: #efefefff; -fx-border-color: #666666; -fx-border-radius: 4;" text="Hippocampe" />
+                  <Button mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: #efefefff; -fx-border-color: #666666; -fx-border-radius: 4;" text="Loutre" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </left>
+         <right>
+            <VBox alignment="TOP_CENTER" prefHeight="364.0" prefWidth="114.0" spacing="5.0" style="-fx-border-color: #cccccc;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #6aa84fff;" text="Carte" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </right>
+         <center>
+            <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</Pane>
