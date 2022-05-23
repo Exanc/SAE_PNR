@@ -16,10 +16,10 @@ public class ConnectionFactory {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } 
         catch (ClassNotFoundException e) {
-            System.out.println("Erreur de chargement du driver");
-        } 
+            System.out.println("Erreur de chargement du driver 1");
+        }
         catch (Exception e) {
-            System.out.println("Erreur de chargement du driver");
+            System.out.println("Erreur de chargement du driver 2");
         }
     }
 
