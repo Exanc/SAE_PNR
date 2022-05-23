@@ -10,17 +10,9 @@ public class ConnectionFactory {
 
     private static Connection connection = null;
     private static ConnectionFactory connectionFactory = null;
-
+    
     private ConnectionFactory () {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } 
-        catch (ClassNotFoundException e) {
-            System.out.println("Erreur de chargement du driver 1");
-        }
-        catch (Exception e) {
-            System.out.println("Erreur de chargement du driver 2");
-        }
+        com.mysql.cj.jdbc.Driver d;
     }
 
     public static ConnectionFactory getConnectionFactory() {
