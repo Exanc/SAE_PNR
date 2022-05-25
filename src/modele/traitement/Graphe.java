@@ -2,8 +2,8 @@ package modele.traitement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
-import java.util.Set;
 
 public class Graphe {
     
@@ -150,8 +150,37 @@ public class Graphe {
      * @return true, if there is a path between theses two verticies
      */
     public boolean existeChemin (int idSom1, int idSom2) {
-        // TODO
-        throw new UnsupportedOperationException();
+        
+        int index1 = getIndice(getSommetById(idSom1));
+        int index2 = getIndice(getSommetById(idSom2));
+
+        // Exploration BFS
+        if (index1 != -1 || index2 != -1) {
+            
+            LinkedList<Integer> file = new LinkedList<Integer>();
+            LinkedList<Integer> explored = new LinkedList<Integer>();
+
+            for (int id : voisins(idSom1)) {
+                if (id == idSom2)
+                    return true;
+                else
+                    file.add(id);
+            }
+
+            while (!file.isEmpty()) {
+
+                int cur = file.poll();
+                explored.add(cur);
+
+                for (int id : voisins(cur)) {
+                    if (id == idSom2)
+                        return true;
+                    else if (!explored.contains(id) && !file.contains(id))
+                        file.add(id);
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -180,8 +209,23 @@ public class Graphe {
      * @return true, if an edge has been placed
      */
     public boolean ajouteArete (int idSom1, int idSom2) {
-        // TODO
-        throw new UnsupportedOperationException();
+        
+        Sommet som1 = getSommetById(idSom1);
+        Sommet som2 = getSommetById(idSom2);
+
+        boolean valid = false;
+        if (som1 != null && som2 != null) {
+
+            if (this.sommetsVoisins.get(som1).indexOf(som2) == -1) {
+                this.sommetsVoisins.get(som1).add(som2);
+                valid = valid || true;
+            }
+            if (this.sommetsVoisins.get(som2).indexOf(som1) == -1) {
+                this.sommetsVoisins.get(som2).add(som1);
+                valid = valid || true;
+            }
+        }
+        return valid;
     }
 
     /**
@@ -190,8 +234,17 @@ public class Graphe {
      * @return true, if an edge has been deleted
      */
     public boolean retireArete (int idSom1, int idSom2) {
-        // TODO
-        throw new UnsupportedOperationException();
+        
+        Sommet som1 = getSommetById(idSom1);
+        Sommet som2 = getSommetById(idSom2);
+
+        boolean valid = false;
+        if (som1 != null && som2 != null) {
+
+            valid = valid || this.sommetsVoisins.get(som1).remove(som2);
+            valid = valid || this.sommetsVoisins.get(som2).remove(som1);
+        }
+        return valid;
     }
 
     /**
@@ -217,7 +270,7 @@ public class Graphe {
     /**
      * @return the diameter of the graph
      */
-    public int diameter() {
+    public int diametre () {
         // TODO
         throw new UnsupportedOperationException();
     }

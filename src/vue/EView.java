@@ -2,8 +2,8 @@ package vue;
 
 public enum EView {
     
-    MAIN("../vue/assets/ui/ui.fxml"),
-    OTHER("../vue/assets/ui/other.fxml");
+    MAIN("src/vue/assets/ui/ui.fxml"),
+    OTHER("src/vue/assets/ui/other.fxml");
 
     private String fileName;
 
