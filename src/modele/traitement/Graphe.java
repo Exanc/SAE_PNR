@@ -253,8 +253,45 @@ public class Graphe {
      * @return length of the shortest path between two verticies, -1 if they're not connected
      */
     public double calculeDist (int idSom1, int idSom2) {
-        // TODO
-        throw new UnsupportedOperationException();
+        
+        double dist = 0;
+        if (!existeChemin(idSom1, idSom2)) {
+            dist = -1;
+
+        } else { // https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra#Sch%C3%A9ma_de_l'algorithme
+            double[][] G = this.matriceAdjacencePoids();
+
+            // Initialisation de l'algorithme
+            double[] d = new double[this.sommetsVoisins.size()];
+            for (int i = 0; i < d.length; i++) d[i] = Double.POSITIVE_INFINITY;
+            d[getIndice(getSommetById(idSom1))] = 0;
+            ArrayList<Sommet> Q = new ArrayList<>(this.sommetsVoisins.keySet());
+
+            while (!Q.isEmpty()) {
+
+                // On trouve le somment de distance minimale
+                Sommet s1 = null;
+                double min = Double.POSITIVE_INFINITY;
+                for (Sommet s : Q) {
+                    if (d[getIndice(s)] < min) {
+                        min = d[getIndice(s)];
+                        s1 = s;
+                    } 
+                }
+
+                Q.remove(s1);
+                for (Sommet s2 : this.sommetsVoisins.get(s1)) {
+                    if (d[getIndice(s2)] > d[getIndice(s1)] + s1.caculeDist(s2)){
+                        d[getIndice(s2)] = d[getIndice(s1)] + s1.caculeDist(s2);
+                        //prédécesseur[getIndice(s2)] = s1
+                        // NOTE : si jamais on veut retourner le chemin
+                    }
+                }
+            }
+
+            dist = d[getIndice(getSommetById(idSom2))];
+        }
+        return dist;
     }
 
     /**
@@ -300,7 +337,7 @@ public class Graphe {
     }
 
     /**
-     * @returnxthe adjacency matrix 
+     * @return the adjacency matrix 
      */
     public int[][] matriceAdjacence () {
 
@@ -316,10 +353,33 @@ public class Graphe {
             }
             i++;
         }
-
         return res;
     }
 
+    /**
+     * @return the weighted adjancy matrix
+     */
+    public double[][] matriceAdjacencePoids () {
+
+        double[][] res = new double[this.nbSomments()][this.nbSomments()];
+
+        int i = 0;
+        for (var entry : this.sommetsVoisins.entrySet()) {
+
+            if (entry.getValue() != null) {
+                for (var som : entry.getValue()) {
+                    res[i][this.getIndice(som)] = som.caculeDist(entry.getKey());
+                }
+            }
+            i ++;
+        }
+        return res;
+    }
+
+    /**
+     * @param id
+     * @return the edge with this id
+     */
     private Sommet getSommetById (int id) {
 
         for (var som : this.sommetsVoisins.keySet())
@@ -327,6 +387,10 @@ public class Graphe {
         return null;
     }
 
+    /**
+     * @param s an edge
+     * @return the index of this edge inside of the HashMap
+     */
     private int getIndice (Sommet s) {
 
         int i = 0;

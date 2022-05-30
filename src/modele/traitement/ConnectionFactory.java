@@ -13,7 +13,7 @@ public class ConnectionFactory {
 
     // on a plus beusion du jar, c'est maven qui fair le boulot :)
     private ConnectionFactory () {
-        com.mysql.cj.jdbc.Driver d;
+        //com.mysql.cj.jdbc.Driver d;
     }
 
     public static ConnectionFactory getConnectionFactory() {

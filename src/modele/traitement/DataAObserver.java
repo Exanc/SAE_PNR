@@ -14,7 +14,8 @@ public class DataAObserver extends DataGeneral<Map.Entry<Integer, Integer>> {
         ResultSet rs = null;
 
         try {
-            PreparedStatement statement = ConnectionFactory.getConnectionFactory().getConnection().prepareStatement("SELECT * FROM AObserver?");
+            ConnectionFactory.getConnectionFactory();
+            PreparedStatement statement = ConnectionFactory.getConnection().prepareStatement("SELECT * FROM AObserver ?");
             statement.setString(1, str);
         } 
         catch (SQLException e) {
