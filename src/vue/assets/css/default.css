@@ -1,0 +1,79 @@
+/* IMPORTS FONT */
+@font-face {
+    font-family: Oswald;
+    src: url('../font/Oswald/Oswald-Regular.ttf');
+}
+
+@font-face {
+    font-family: Comfortaa;
+    src: url('../font/Comfortaa/Comfortaa-Regular.ttf');
+}
+
+/* TEXTS */
+#hyperlink {
+    -fx-font-family : Arial;
+    -fx-text-fill : #666666ff;
+    -fx-underline : true;
+}
+
+#text {
+    -fx-font-family : Oswald;
+    -fx-text-fill : #000000ff;
+}
+
+#subtitle {
+    -fx-font-family : Comfortaa;
+    -fx-text-fill : #666666ff;
+}
+
+#title {
+    -fx-font-family : Comfortaa;
+    -fx-text-fill : #6aa84fff;
+    -fx-font-size : 32;
+}
+
+#textfield {
+    -fx-background-color : #efefefff;
+    -fx-border-radius : 4;
+    -fx-font-family : Oswald;
+    -fx-text-fill : #000000ff;
+}
+
+/* BUTTONS */
+#button {
+    -fx-background-color : #6aa84fff;
+    -fx-font-family : Oswald;
+    -fx-text-fill : #000000ff;
+}
+
+#button_cancel {
+    -fx-background-color : #eb5600ff;
+    -fx-font-family : Oswald;
+    -fx-text-fill : #000000ff;
+}
+
+#left_button {
+    -fx-background-color : #f3f3f3ff;
+    -fx-border-color : #666666ff;
+    -fx-border-radius : 4;
+    -fx-font-family : Oswald;
+    -fx-text-fill : #000000ff;
+}
+
+/* BACKGROUNDS */
+#background_2 {
+    -fx-background-color : #d9d9d9ff;
+}
+
+#background_1 {
+    -fx-background-color : #ffffffff;
+}
+
+#left_panel {
+    -fx-border-color :  #cccccc;
+}
+
+#right_panel {
+    -fx-background-color : #f3f3f3ff;
+    -fx-border-color :  #cccccc;
+}
