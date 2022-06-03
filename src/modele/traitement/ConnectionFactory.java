@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class ConnectionFactory {
 
-    private String url = "";
-    private String user = "";
-    private String password = "";
+    private String url = "jdbc:mysql://localhost:3306/pnr    ";
+    private String user = "test";
+    private String password = "pass";
 
     private static Connection connection = null;
     private static ConnectionFactory connectionFactory = null;

@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class DataLieu extends DataGeneral<Lieu> {
 
-    public static ArrayList<Lieu> getAll(String str) throws NumberFormatException, SQLException {
+    public ArrayList<Lieu> getAll(String str) throws NumberFormatException, SQLException {
 
         ResultSet rs = null;
 

@@ -14,6 +14,7 @@ public class TestBDD {
     public static void main(String[] args) {
         try {
             System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
+            System.out.println("YEESSSSS");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
