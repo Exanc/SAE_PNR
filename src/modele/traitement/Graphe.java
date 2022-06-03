@@ -151,10 +151,12 @@ public class Graphe {
      */
     public boolean existeChemin (int idSom1, int idSom2) {
         
+        // TODO : c pas ouf de faire un dijstra juste pour ça
+
         int index1 = getIndice(getSommetById(idSom1));
         int index2 = getIndice(getSommetById(idSom2));
 
-        // Exploration BFS
+        // Dijkstra ?
         if (index1 != -1 || index2 != -1) {
             
             LinkedList<Integer> file = new LinkedList<Integer>();
@@ -305,19 +307,41 @@ public class Graphe {
     }
 
     /**
+     * Computes the diameter/maximum eccentricity
+     * Graph must be made of a single connected componnent
      * @return the diameter of the graph
      */
-    public int diametre () {
-        // TODO
-        throw new UnsupportedOperationException();
+    public double diametre () {
+
+        double valMax = -1;
+        for (Sommet a : this.sommetsVoisins.keySet()) {
+            double[] dst = longueurChemins(a.getId());
+            for (double d : dst) {
+                if (d > valMax)
+                    valMax = d;
+            }
+        }
+        return valMax;
     }
 
     /**
      * @return the radius of the graph
+     * Graph must be of a single connected componnent
      */
-    public int rayon () {
-        // TODO
-        throw new UnsupportedOperationException();
+    public double rayon () {
+        
+        double valMin = Double.POSITIVE_INFINITY;
+        for (Sommet a : this.sommetsVoisins.keySet()) {
+            double[] dst = longueurChemins(a.getId());
+            double valMax = 0;
+            for (double d : dst) {
+                if (d > valMax)
+                    valMax = d;
+            }
+            if (valMax < valMin)
+                valMin = valMax;
+        }
+        return valMin;
     }
 
     /**
@@ -377,6 +401,54 @@ public class Graphe {
     }
 
     /**
+     * Computes the length of the shortest path from one edges to all the other edges.
+     * @param idSom1 id of the edge to start from
+     * @return an array comtaining the length of all the paths
+     */
+    public double[] longueurChemins (int idSom1) {
+        // https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra#Sch.C3.A9ma_de_l.27algorithme
+
+        int index = getIndice(getSommetById(idSom1));
+        
+        // Dijkstra ?
+        LinkedList<Sommet> P = new LinkedList<>();
+        double[] d = new double[this.sommetsVoisins.size()];
+
+        for (int i = 0; i < d.length; i++)
+            d[i] = Double.POSITIVE_INFINITY;
+        if (index == -1) return d;
+        
+        d[index] = 0;
+
+        // Tant qu'il existe un sommet hors de P
+        while (P.size() != this.sommetsVoisins.size()) {
+            // Choisir un sommet a hors de P de plus
+            // petite distance d[a]
+            Sommet a = null;
+            double dst = Double.POSITIVE_INFINITY;
+            for (Sommet s : this.sommetsVoisins.keySet()) {
+                if (P.contains(s))
+                    continue;
+                else if (d[getIndice(s)] < dst) {
+                    a = s;
+                    dst = d[getIndice(s)];
+                }
+            }
+            // Mettre a dans P
+            P.add(a);
+
+            // Pour chaque sommet b hors de P voisin de a
+            for (Sommet b : this.sommetsVoisins.get(a)) {
+                if (P.contains(b))
+                    continue;
+                else if (d[getIndice(b)] > d[getIndice(a)] + a.caculeDist(b))
+                    d[getIndice(b)] = d[getIndice(a)] + a.caculeDist(b);
+            }
+        }
+        return d;
+    }
+
+    /**
      * @param id
      * @return the edge with this id
      */
@@ -394,7 +466,6 @@ public class Graphe {
     private int getIndice (Sommet s) {
 
         int i = 0;
-
         for (var som : this.sommetsVoisins.keySet()) {
             if (som.equals(s))
                 return i;
