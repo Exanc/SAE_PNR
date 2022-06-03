@@ -2,8 +2,10 @@ package vue;
 
 public enum EView {
     
-    MAIN("src/vue/assets/ui/ui.fxml"),
-    OTHER("src/vue/assets/ui/other.fxml");
+    CONNEXION("src/vue/assets/ui/connexion.fxml"),
+    MENU("src/vue/assets/ui/menu.fxml"),
+    CONSULTATION("src/vue/assets/ui/consultation.fxml"),
+    IMPORTATION("src/vue/assets/ui/importation.fxml");
 
     private String fileName;
 

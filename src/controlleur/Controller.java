@@ -57,6 +57,6 @@ public class Controller {
      */
     @FXML
     private void switchViewAction(ActionEvent event) {
-        ViewSwitcher.switchTo(EView.OTHER);
+        ViewSwitcher.switchTo(EView.MENU);
     }
 }

@@ -9,13 +9,13 @@ import java.util.Map;
 
 public class DataAObserver extends DataGeneral<Map.Entry<Integer, Integer>> {
 
-    public static HashMap<Integer, Integer> getAll (String str) throws NumberFormatException, SQLException {
+    public HashMap<Integer, Integer> getAll (String str) throws NumberFormatException, SQLException {
 
         ResultSet rs = null;
 
         try {
             ConnectionFactory.getConnectionFactory();
-            PreparedStatement statement = ConnectionFactory.getConnection().prepareStatement("SELECT * FROM AObserver ?");
+            PreparedStatement statement = ConnectionFactory.getConnectionFactory().getConnection().prepareStatement("SELECT * FROM AObserver ?");
             statement.setString(1, str);
         } 
         catch (SQLException e) {

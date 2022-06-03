@@ -12,6 +12,20 @@ import modele.*;
 public class TestBDD {
 
     public static void main(String[] args) {
-        //DataLieu.getAll(str)
+        try {
+            System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
+            System.out.println("YEESSSSS");
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        /*try {
+            ArrayList<Lieu> listLieu = DataLieu.getAll("Lieu");
+            for (Lieu lieu : listLieu) {
+                System.out.println(lieu.getXCoord() + " , " + lieu.getYCoord());
+            }
+        } catch (NumberFormatException | SQLException e) {
+            e.printStackTrace();
+        }*/
     }
 }

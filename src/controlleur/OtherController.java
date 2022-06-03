@@ -8,6 +8,6 @@ public class OtherController {
     
     @FXML
     private void switchViewAction(ActionEvent event) {
-        ViewSwitcher.switchTo(EView.MAIN);
+        ViewSwitcher.switchTo(EView.CONNEXION);
     }
 }

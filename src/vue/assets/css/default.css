@@ -77,3 +77,41 @@
     -fx-background-color : #f3f3f3ff;
     -fx-border-color :  #cccccc;
 }
+
+/* DATE */
+.date-picker-popup  {
+    -fx-background-color: #efefefff;
+    -fx-border-radius : 4;
+}
+
+.date-picker .cell {
+    -fx-border-radius : 4;
+    -fx-background-color: #ffffffff;
+}
+
+.date-picker .cell:hover {
+    -fx-background-color: #1783CC;
+    -fx-pref-width:20px ;
+    -fx-pref-height:25px ;
+}
+    
+.date-picker .cell:focused {
+    -fx-background-color:#11659e;
+    -fx-pref-width:20px ;
+    -fx-pref-height:25px ;
+}
+
+.date-picker .button {
+    -fx-background-color: #00000000;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 35px;
+}
+
+.date-picker .combo-box {
+    -fx-background-color: #FF0000FF;
+}
+    
+.date-picker .text-field{
+    -fx-background-radius: 4;
+}
+

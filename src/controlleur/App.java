@@ -19,7 +19,7 @@ public class App extends Application {
         Scene scene = new Scene(new Pane());
 
         ViewSwitcher.setScene(scene);
-        ViewSwitcher.switchTo(EView.MAIN);
+        ViewSwitcher.switchTo(EView.CONNEXION);
 
 
         stage.setMaximized(true);
