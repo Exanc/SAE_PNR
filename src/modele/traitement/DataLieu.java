@@ -5,45 +5,21 @@ import modele.donnee.*;
 import java.sql.*;
 
 public class DataLieu extends DataGeneral<Lieu> {
+    public DataLieu() {
+        super("Lieu");
+    }
 
-    public ArrayList<Lieu> getAll(String str) throws NumberFormatException, SQLException {
-
-        ResultSet rs = null;
-
+    public ArrayList<Lieu> getAll() {
+        ArrayList<Lieu> ret = new ArrayList<Lieu>();
         try {
-            PreparedStatement statement = getDataConnection().prepareStatement("SELECT * FROM ?");
-            statement.setString(1, str);
-        } 
-        catch (SQLException e) {
+            ret = super.getAll();
+        } catch (NumberFormatException | SQLException e) {
             e.printStackTrace();
         }
-
-        return getFromResultSet(rs);
-    }
-    
-    private static ArrayList<Lieu> getFromResultSet (ResultSet rs) throws NumberFormatException, SQLException {
-
-        ArrayList<Lieu> list = new ArrayList<Lieu>();
-
-        if (rs == null) {
-            return null;
-        }
-        else {
-            while (rs.next()) {
-                
-                Double coord_x = rs.getDouble("coord_Lambert_X");
-                Double coord_y = rs.getDouble("coord_Lambert_Y");
-
-                list.add(new Lieu(
-                    coord_x, coord_y
-                ));
-            }
-        }
-
-        return list;
+        return ret;
     }
 
-    public void deleteEntry(int id) {
-        throw new UnsupportedOperationException();
+    public Lieu getInstance(ResultSet rs) throws SQLException {
+        return new Lieu(rs.getDouble(1), rs.getDouble(2));
     }
 }

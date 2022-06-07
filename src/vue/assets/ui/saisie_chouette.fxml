@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label id="text" layoutX="14.0" layoutY="14.0" stylesheets="@../css/default.css" text="Observateurs" />
+      <Label id="text" layoutX="14.0" layoutY="77.0" stylesheets="@../css/default.css" text="Observation" />
+      <Label id="text" layoutX="139.0" layoutY="183.0" stylesheets="@../css/default.css" text="Label" />
+      <Label id="text" layoutX="139.0" layoutY="239.0" stylesheets="@../css/default.css" text="Label" />
+      <Label id="text" layoutX="236.0" layoutY="149.0" stylesheets="@../css/default.css" text="Label" />
+      <Label id="text" layoutX="335.0" layoutY="158.0" stylesheets="@../css/default.css" text="Label" />
+      <Label id="text" layoutX="425.0" layoutY="167.0" stylesheets="@../css/default.css" text="Label" />
+      <TextField id="textfield" layoutX="14.0" layoutY="34.0" promptText="Observateur" stylesheets="@../css/default.css" />
+      <TextField id="textfield" layoutX="14.0" layoutY="97.0" promptText="jj/MM/YYYY" stylesheets="@../css/default.css" />
+      <TextField id="textfield" layoutX="162.0" layoutY="97.0" promptText="HH:MM" stylesheets="@../css/default.css" />
+      <DatePicker layoutX="7.0" layoutY="136.0" maxWidth="521.0" minWidth="500.0" prefHeight="25.0" prefWidth="521.0" stylesheets="@../css/default.css" />
+      <MFXDatePicker id="textfield" layoutX="188.0" layoutY="185.0" prefHeight="11.0" prefWidth="113.0" style="-fx-border-color: 00000000; -mfx-editable: true;" stylesheets="@../css/default.css" />
+   </children>
+</Pane>
