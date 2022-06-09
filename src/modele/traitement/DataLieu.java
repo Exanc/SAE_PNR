@@ -20,6 +20,10 @@ public class DataLieu extends DataGeneral<Lieu> {
     }
 
     public Lieu getInstance(ResultSet rs) throws SQLException {
-        return new Lieu(rs.getDouble(1), rs.getDouble(2));
+
+        String coord_x = rs.getString(1);
+        String coord_y = rs.getString(2);
+
+        return new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
     }
 }

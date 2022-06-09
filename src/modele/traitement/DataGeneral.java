@@ -40,6 +40,10 @@ public abstract class DataGeneral<T> {
 
         return ret;
     }
+
+    public ResultSet getObs(String id) {
+        return executeSQL("SELECT * FROM Observation WHERE idObs = " + id);
+    }
     
     public abstract T getInstance(ResultSet rs) throws SQLException;
 

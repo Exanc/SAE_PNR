@@ -56,7 +56,11 @@ public class DataHippocampe extends DataGeneral<ObsHippocampe> {
         return list;
     }
 
-    public void deleteEntry(int id) {
-        throw new UnsupportedOperationException();
+    public ObsHippocampe getInstance (ResultSet rs) throws SQLException {
+        ObsHippocampe instance;
+
+        
+
+        return list;
     }
 }
