@@ -345,22 +345,6 @@ public class Graphe {
     }
 
     /**
-     * @return the list of connected graphs that make up the graph
-     */
-    public ArrayList<Graphe> composanteConnexe () {
-        // TODO
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * @return the transitive closure of the current graph
-     */
-    public Graphe clotureTransitive () {
-        // TODO
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * @return the adjacency matrix 
      */
     public int[][] matriceAdjacence () {

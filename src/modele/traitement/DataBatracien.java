@@ -50,7 +50,7 @@ public class DataBatracien extends DataGeneral<ObsBatracien> {
         
         Lieu lieu = new Lieu(coord_x, coord_y);
 
-        ArrayList<Observateur> liste_obervateurs = DataObservateur.getAll();
+        ArrayList<Observateur> liste_obervateurs = null;
 
         String resObs = rs.getString("RESOBS");
         String[] str = resObs.split(",");
