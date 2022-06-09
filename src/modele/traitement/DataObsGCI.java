@@ -31,7 +31,7 @@ public class DataObsGCI extends DataGeneral<ObsGCI> {
         
         String id = rs.getString(1);
 
-        ResultSet observation = getObs(id);
+        ResultSet observation = getObservation(id);
 
         String date  = observation.getString(2);
         String heure = observation.getString(3);  
@@ -40,7 +40,7 @@ public class DataObsGCI extends DataGeneral<ObsGCI> {
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
         
-        ArrayList<Observateur> observateurs = new DataObservateur("Observateur").getAll();
+        ArrayList<Observateur> observateurs = getObservateur(id);
         
         String nature = rs.getString(2);
         String leNombre = rs.getString(3);

@@ -31,7 +31,7 @@ public class DataObsBatracien extends DataGeneral<ObsBatracien> {
         
         String id = rs.getString(1);
 
-        ResultSet observation = getObs(id);
+        ResultSet observation = getObservation(id);
 
         String date  = observation.getString(2);
         String heure = observation.getString(3);  
@@ -39,8 +39,8 @@ public class DataObsBatracien extends DataGeneral<ObsBatracien> {
         String coord_y = observation.getString(5);
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
-        
-        ArrayList<Observateur> observateurs = new DataObservateur("Observateur").getAll();
+
+        ArrayList<Observateur> observateurs = getObservateur(id);
 
         String nombreAdultes = rs.getString(3);
         String nombreAmplexus = rs.getString(4);

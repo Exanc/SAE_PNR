@@ -19,7 +19,7 @@ public class ObsBatracien extends Observation {
      * @param heure hours of Observation
      * @param lieu place of Observation
      * @param observateurs liste of Observateurs for this Observation
-     * @param resObs TODO : ?
+     * @param resObs array of nombreAdultes, nombreAmplexus, nombreTetard and nombrePonte
      * @param IEspece batracien species's
      */
     public ObsBatracien(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs,

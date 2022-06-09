@@ -31,7 +31,7 @@ public class DataObsChouette extends DataGeneral<ObsChouette> {
         
         String id = rs.getString(4);
 
-        ResultSet observation = getObs(id);
+        ResultSet observation = getObservation(id);
 
         String date  = observation.getString(2);
         String heure = observation.getString(3);  
@@ -39,8 +39,8 @@ public class DataObsChouette extends DataGeneral<ObsChouette> {
         String coord_y = observation.getString(5);
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
-        
-        ArrayList<Observateur> observateurs = new DataObservateur("Observateur").getAll();
+
+        ArrayList<Observateur> observateurs = getObservateur(id);
         
         String type = rs.getString(2);
 
