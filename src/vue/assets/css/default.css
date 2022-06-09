@@ -9,10 +9,27 @@
     src: url('../font/Comfortaa/Comfortaa-Regular.ttf');
 }
 
+/*VARIABLES*/
+* {
+    /*Text colors*/
+    -fx-title-color : #6aa84fff;
+    -fx-subtitle-color : #666666ff;
+    -fx-text-color : #000000ff;
+    -fx-hyperlink-color : #666666ff;
+
+    /*Pane colors*/
+    -fx-background1-color : #f3f3f3ff;
+    -fx-background2-color : #efefefff;
+    -fx-lines-color : #ccccccff;
+    -fx-primary-color : #6aa84fff;
+    -fx-deny-color : #eb5600ff;
+    -fx-arrow-bg-color : #00000000;
+}
+
 /* TEXTS */
 #hyperlink {
     -fx-font-family : Arial;
-    -fx-text-fill : #666666ff;
+    -fx-text-fill : -fx-hyperlink-color;
     -fx-underline : true;
 }
 
@@ -23,7 +40,7 @@
 
 #subtitle {
     -fx-font-family : Comfortaa;
-    -fx-text-fill : #666666ff;
+    -fx-text-fill : -fx-subtitle-color;
 }
 
 #title {
@@ -36,28 +53,28 @@
     -fx-background-color : #efefefff;
     -fx-border-radius : 4;
     -fx-font-family : Oswald;
-    -fx-text-fill : #000000ff;
+    -fx-text-fill : -fx-text-color;
 }
 
 /* BUTTONS */
 #button {
-    -fx-background-color : #6aa84fff;
+    -fx-background-color : -fx-primary-color;
     -fx-font-family : Oswald;
-    -fx-text-fill : #000000ff;
+    -fx-text-fill : -fx-text-color;
 }
 
 #button_cancel {
-    -fx-background-color : #eb5600ff;
+    -fx-background-color : -fx-deny-color;
     -fx-font-family : Oswald;
-    -fx-text-fill : #000000ff;
+    -fx-text-fill : -fx-text-color;
 }
 
 #left_button {
-    -fx-background-color : #f3f3f3ff;
+    -fx-background-color : -fx-background1-color;
     -fx-border-color : #666666ff;
     -fx-border-radius : 4;
     -fx-font-family : Oswald;
-    -fx-text-fill : #000000ff;
+    -fx-text-fill : -fx-text-color;
 }
 
 /* BACKGROUNDS */
@@ -66,52 +83,98 @@
 }
 
 #background_1 {
-    -fx-background-color : #ffffffff;
+    -fx-background-color : -fx-background1-color;
 }
 
 #left_panel {
-    -fx-border-color :  #cccccc;
+    -fx-border-color :  -fx-lines-color;
 }
 
 #right_panel {
-    -fx-background-color : #f3f3f3ff;
-    -fx-border-color :  #cccccc;
+    -fx-background-color : -fx-background1-color;
+    -fx-border-color :  -fx-lines-color;
 }
 
 /* DATE */
-.date-picker-popup  {
-    -fx-background-color: #efefefff;
-    -fx-border-radius : 4;
+.date-picker-popup {
+    -fx-background-color: #00000000;
+}
+
+.date-picker-popup > *, .date-picker > * {
+    -fx-font-family : Oswald;
 }
 
 .date-picker .cell {
     -fx-border-radius : 4;
-    -fx-background-color: #ffffffff;
+    -fx-background-color: -fx-background1-color;
+    -fx-pref-width:30px ;
+    -fx-pref-height:25px ;
 }
 
 .date-picker .cell:hover {
-    -fx-background-color: #1783CC;
-    -fx-pref-width:20px ;
-    -fx-pref-height:25px ;
+    -fx-background-color: -fx-background2-color;
+    -fx-text-fill : -fx-hyperlink-color;
 }
     
 .date-picker .cell:focused {
-    -fx-background-color:#11659e;
-    -fx-pref-width:20px ;
-    -fx-pref-height:25px ;
+    -fx-background-color: -fx-primary-color;
 }
 
+/*fleche popup*/
 .date-picker .button {
-    -fx-background-color: #00000000;
-    -fx-pref-height: 35px;
-    -fx-pref-width: 35px;
-}
-
-.date-picker .combo-box {
-    -fx-background-color: #FF0000FF;
+    -fx-background-color: -fx-arrow-bg-color;
+    -fx-border-radius : 4;
+    -fx-pref-height: 20px;
+    -fx-pref-width: 20px;
 }
     
-.date-picker .text-field{
-    -fx-background-radius: 4;
+.date-picker .text-field {
+    -fx-background-color : -fx-background2-color;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
 }
 
+.date-picker {
+    -fx-background-color : -fx-background2-color;
+    -fx-border-color : -fx-background2-color;
+    -fx-border-radius : 4;
+}
+
+.date-picker:editable > .arrow-button > * {
+    -fx-opacity: 0; /* Set the node in the button to be visible */
+}
+
+.date-picker > .arrow-button {
+    -fx-background-color : #00000000;
+    -fx-background-image: url("../img/icons/calendar.png"); /* Url of the icon */
+    -fx-background-size: 100% 100%; /* Can be `cover` or `100% 100%` ect. */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center; /* Put the icon in the center */
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 4;
+    -fx-border-width : 40;
+
+}
+.date-picker-popup .month-year-pane .label {
+	-fx-text-fill: -fx-background1-color;
+
+}
+
+.date-picker-popup .week-number-cell {
+	-fx-text-fill: -fx-primary-color;
+    -fx-border-color: #00000000;
+    -fx-background-color: -fx-lines-color;
+}
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+	-fx-background-color: -fx-background1-color;
+}
+
+.combo-box-base:editable > *,
+.date-picker-popup > * {
+    -fx-background-color: -fx-background2-color;
+    -fx-background-radius: 4;
+}
