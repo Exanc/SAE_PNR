@@ -4,14 +4,13 @@ import java.sql.*;
 
 public class ConnectionFactory {
 
-    private String url = "jdbc:mysql://localhost:3306/pnr    ";
-    private String user = "test";
-    private String password = "pass";
+    private static String user;
+    private static String password;
+    private static String url = "jdbc:mysql://localhost:3306/pnr";
 
     private static Connection connection = null;
     private static ConnectionFactory connectionFactory = null;
 
-    // on a plus beusion du jar, c'est maven qui fair le boulot :)
     private ConnectionFactory () {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -20,7 +19,18 @@ public class ConnectionFactory {
         }
     }
 
+    public static void setProperties (String user, String password, String url) {
+        
+        if (user == null || password == null) {
+            ConnectionFactory.user = user;
+            ConnectionFactory.password = password;
+        }
+
+        if (url != null) ConnectionFactory.url = url;
+    }
+
     public static ConnectionFactory getConnectionFactory() {
+        
         if (connectionFactory == null) {
             connectionFactory = new ConnectionFactory();
         }

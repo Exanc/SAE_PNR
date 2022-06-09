@@ -1,16 +1,31 @@
-import java.sql.Date;
+package controlleur;
+
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+
+import modele.traitement.*;
 import modele.donnee.*;
-import modele.traitement.ConnectionFactory;
-import modele.traitement.DataLieu;
-import modele.*;
 
-public class TestBDD {
+/**
+ * Controlleur de la page Connexion
+ */
+public class Connexion
+{
+    @FXML
+    TextField fUsername, fPassword, fAddress;
 
-    public static void main(String[] args) {
+    @FXML
+    public void connectAction () {
+
+        String user = fUsername.getText();
+        String password = fPassword.getText();
+        String url = fAddress.getText();
+
+        modele.traitement.ConnectionFactory.setProperties(user, password, url);
+
         try {
             System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
             System.out.println("Cnnecter à la BDD");

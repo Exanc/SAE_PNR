@@ -6,17 +6,14 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
-import org.ietf.jgss.GSSCredential;
-
 import modele.donnee.EspeceBatracien;
 import modele.donnee.Lieu;
 import modele.donnee.ObsBatracien;
 import modele.donnee.Observateur;
-import modele.donnee.Observation;
 
-public class DataBatracien extends DataGeneral<ObsBatracien> {
+public class DataObsBatracien extends DataGeneral<ObsBatracien> {
 
-    public DataBatracien(String table) {
+    public DataObsBatracien(String table) {
         super("Obs_Batracien");
     }
 
