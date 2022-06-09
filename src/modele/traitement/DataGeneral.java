@@ -20,10 +20,11 @@ public abstract class DataGeneral<T> {
             rs = statement.executeQuery();
         } catch (Exception e) {
             System.out.println("SQL : CONNECTION / QUERY : ERROR");
+            e.printStackTrace();
         } finally {
             try {
-                statement.close();
-                connection.close();
+                //statement.close();
+                //connection.close();
             } catch (Exception e) {
                 System.out.println("SQL : CLOSE CONNECTION : ERROR");
             }
@@ -34,10 +35,11 @@ public abstract class DataGeneral<T> {
     public ArrayList<T> getAll() throws NumberFormatException, SQLException {
         ArrayList<T> ret = new ArrayList<T>();
         ResultSet rs = executeSQL("SELECT * FROM " + table);
+
         while (rs.next()) {
             ret.add(getInstance(rs));
         }
-
+        
         return ret;
     }
 

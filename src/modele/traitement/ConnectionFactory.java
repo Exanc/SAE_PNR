@@ -6,7 +6,7 @@ public class ConnectionFactory {
 
     private static String user;
     private static String password;
-    private static String url = "jdbc:mysql://localhost:3306/pnr";
+    private static String url = "localhost:3306/pnr";
 
     private static Connection connection = null;
     private static ConnectionFactory connectionFactory = null;
@@ -21,7 +21,7 @@ public class ConnectionFactory {
 
     public static void setProperties (String user, String password, String url) {
         
-        if (user == null || password == null) {
+        if (user != null && password != null) {
             ConnectionFactory.user = user;
             ConnectionFactory.password = password;
         }
@@ -39,6 +39,8 @@ public class ConnectionFactory {
     }
 
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, user, password);
+        System.out.println("jdbc:mysql://"+ url +"?user="+ user +"&password="+ password);
+        return DriverManager.getConnection("jdbc:mysql://"+ url +"?user="+ user +"&password="+ password);
+
     }
 }

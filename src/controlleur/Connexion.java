@@ -24,16 +24,16 @@ public class Connexion
         String password = fPassword.getText();
         String url = fAddress.getText();
 
-        modele.traitement.ConnectionFactory.setProperties(user, password, url);
+        modele.traitement.ConnectionFactory.setProperties(user, password, null);
 
         try {
             System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
-            System.out.println("Cnnecter à la BDD");
+            System.out.println("Connecter à la BDD");
 
             ArrayList<Lieu> listLieu = new DataLieu().getAll();
-            for (Lieu lieu : listLieu) {
+            /*for (Lieu lieu : listLieu) {
                 System.out.println(lieu.getXCoord() + " , " + lieu.getYCoord());
-            }
+            }*/
         } catch (SQLException e) {
             e.printStackTrace();
         }

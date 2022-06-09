@@ -11,9 +11,10 @@ import modele.*;
 public class TestBDD {
 
     public static void main(String[] args) {
+        //modele.traitement.ConnectionFactory.setProperties("root", "123456741", null);
         try {
             System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
-            System.out.println("Cnnecter à la BDD");
+            System.out.println("Connecté à la BDD");
 
             ArrayList<Lieu> listLieu = new DataLieu().getAll();
             for (Lieu lieu : listLieu) {
