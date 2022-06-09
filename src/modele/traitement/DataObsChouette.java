@@ -40,8 +40,7 @@ public class DataObsChouette extends DataGeneral<ObsChouette> {
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
         
-        // DataObservateur.getAll()
-        ArrayList<Observateur> observateurs = null;
+        ArrayList<Observateur> observateurs = new DataObservateur("Observateur").getAll();
         
         String type = rs.getString(2);
 

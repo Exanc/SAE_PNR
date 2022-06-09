@@ -30,9 +30,8 @@ public class DataObsLoutre extends DataGeneral<ObsLoutre> {
         String coord_y = observation.getString(5);
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
-
-        // DataObservateur.getAll()
-        ArrayList<Observateur> observateurs = null;
+        
+        ArrayList<Observateur> observateurs = new DataObservateur("Observateur").getAll();
 
         String iIndice = rs.getString(4);
         

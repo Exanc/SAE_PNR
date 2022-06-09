@@ -39,16 +39,18 @@ public class DataObsBatracien extends DataGeneral<ObsBatracien> {
         String coord_y = observation.getString(5);
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
+        
+        ArrayList<Observateur> observateurs = new DataObservateur("Observateur").getAll();
 
-        // DataObservateur.getAll()
-        ArrayList<Observateur> observateurs = null;
-
-        String resObs = rs.getString(5);
-        String[] str = resObs.split(",");
-        int[] resObs_tab = new int[str.length];
-        for (int i = 0; i < str.length-1; i++) {
-            resObs_tab[i] = Integer.parseInt(str[i]);
-        }
+        String nombreAdultes = rs.getString(3);
+        String nombreAmplexus = rs.getString(4);
+        String nombreTetard = rs.getString(5);
+        String nombrePonte = rs.getString(6);
+        int[] resObs = new int[4];
+        resObs[0] = Integer.parseInt(nombreAdultes);
+        resObs[1] = Integer.parseInt(nombreAmplexus);
+        resObs[2] = Integer.parseInt(nombreTetard);
+        resObs[3] = Integer.parseInt(nombrePonte);
 
         String IEspece = rs.getString(2);
 
@@ -58,7 +60,7 @@ public class DataObsBatracien extends DataGeneral<ObsBatracien> {
             Time.valueOf(heure), 
             lieu, 
             observateurs, 
-            resObs_tab, 
+            resObs, 
             EspeceBatracien.valueOf(IEspece)
         );
     }

@@ -40,8 +40,7 @@ public class DataObsGCI extends DataGeneral<ObsGCI> {
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
         
-        // DataObservateur.getAll()
-        ArrayList<Observateur> observateurs = null;
+        ArrayList<Observateur> observateurs = new DataObservateur("Observateur").getAll();
         
         String nature = rs.getString(2);
         String leNombre = rs.getString(3);

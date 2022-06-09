@@ -29,7 +29,12 @@ public class ObsBatracien extends Observation {
 
         if (resObs != null) {
             this.espece = IEspece;
-        } else {
+            this.nombreAdultes = resObs[0];
+            this.nombreAmplexus = resObs[1];
+            this.nombreTetard = resObs[2];
+            this.nombrePonte = resObs[3];
+        } 
+        else {
             System.out.println("ObsBatracien : Constructor : resObs = null");
         }
     }

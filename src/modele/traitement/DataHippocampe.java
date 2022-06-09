@@ -32,9 +32,8 @@ public class DataHippocampe extends DataGeneral<ObsHippocampe> {
         String coord_y = observation.getString(5);
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
-
-        // DataObservateur.getAll()
-        ArrayList<Observateur> observateurs = null;
+        
+        ArrayList<Observateur> observateurs = new DataObservateur("Observateur").getAll();
 
         String laTaille = rs.getString(6);
         String leTypePeche = rs.getString(5);
