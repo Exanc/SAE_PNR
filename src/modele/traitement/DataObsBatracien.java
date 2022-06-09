@@ -17,7 +17,7 @@ import modele.donnee.Observation;
 public class DataBatracien extends DataGeneral<ObsBatracien> {
 
     public DataBatracien(String table) {
-        super("ObsBatracien");
+        super("Obs_Batracien");
     }
 
     public ArrayList<ObsBatracien> getAll() {
@@ -36,37 +36,31 @@ public class DataBatracien extends DataGeneral<ObsBatracien> {
 
         ResultSet observation = getObs(id);
 
-        int idObs = observation.getInt(1);
-        Date dateObs = observation.getDate(2);
-        Time heureObs = observation.getTime(3);
-        Double coordObs_x = observation.getDouble(4);
-        Double coordObs_y = observation.getDouble(5);
-
-        String date  = rs.getString(2);
-        String heure = rs.getString(3);  
+        String date  = observation.getString(2);
+        String heure = observation.getString(3);  
+        String coord_x = observation.getString(4);
+        String coord_y = observation.getString(5);
         
-        Double coord_x  = coordObs_x;
-        Double coord_y  = coordObs_y;
-        
-        Lieu lieu = new Lieu(coord_x, coord_y);
+        Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
 
-        ArrayList<Observateur> liste_obervateurs = DataObservateur.getAll();
+        // DataObservateur.getAll()
+        ArrayList<Observateur> observateurs = null;
 
-        String resObs = rs.getString("RESOBS");
+        String resObs = rs.getString(5);
         String[] str = resObs.split(",");
         int[] resObs_tab = new int[str.length];
         for (int i = 0; i < str.length-1; i++) {
             resObs_tab[i] = Integer.parseInt(str[i]);
         }
 
-        String IEspece = rs.getString("espece");
+        String IEspece = rs.getString(2);
 
         return new ObsBatracien(
             Integer.parseInt(id), 
             Date.valueOf(date), 
             Time.valueOf(heure), 
             lieu, 
-            liste_obervateurs, 
+            observateurs, 
             resObs_tab, 
             EspeceBatracien.valueOf(IEspece)
         );
