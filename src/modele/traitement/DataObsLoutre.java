@@ -6,30 +6,21 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
+import modele.donnee.IndiceLoutre;
 import modele.donnee.Lieu;
-import modele.donnee.ObsChouette;
+import modele.donnee.ObsLoutre;
 import modele.donnee.Observateur;
-import modele.donnee.TypeObservation;
 
-public class DataObsChouette extends DataGeneral<ObsChouette> {
+public class DataObsLoutre extends DataGeneral<ObsLoutre> {
 
-    public DataObsChouette(String table) {
-        super("Obs_Chouette");
+    public DataObsLoutre(String table) {
+        super("Obs_Loutre");
     }
 
-    public ArrayList<ObsChouette> getAll() {
-        ArrayList<ObsChouette> ret = new ArrayList<ObsChouette>();
-        try {
-            ret = super.getAll();
-        } catch (NumberFormatException | SQLException e) {
-            e.printStackTrace();
-        }
-        return ret;
-    }
-
-    public ObsChouette getInstance(ResultSet rs) throws SQLException {
+    @Override
+    public ObsLoutre getInstance(ResultSet rs) throws SQLException {
         
-        String id = rs.getString(4);
+        String id = rs.getString(1);
 
         ResultSet observation = getObs(id);
 
@@ -39,20 +30,19 @@ public class DataObsChouette extends DataGeneral<ObsChouette> {
         String coord_y = observation.getString(5);
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
-        
+
         // DataObservateur.getAll()
         ArrayList<Observateur> observateurs = null;
-        
-        String type = rs.getString(2);
 
-        return new ObsChouette(
-            Integer.getInteger(id), 
+        String iIndice = rs.getString(4);
+        
+        return new ObsLoutre(
+            Integer.parseInt(id), 
             Date.valueOf(date), 
             Time.valueOf(heure), 
             lieu, 
             observateurs, 
-            TypeObservation.valueOf(type)
+            IndiceLoutre.valueOf(iIndice)
         );
     }
-    
 }

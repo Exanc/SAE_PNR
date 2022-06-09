@@ -6,28 +6,21 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
-import modele.donnee.ContenuNid;
+import modele.donnee.EspeceHippocampe;
 import modele.donnee.Lieu;
-import modele.donnee.ObsGCI;
+import modele.donnee.ObsHippocampe;
 import modele.donnee.Observateur;
+import modele.donnee.Peche;
+import modele.donnee.Sexe;
 
-public class DataObsGCI extends DataGeneral<ObsGCI> {
+public class DataHippocampe extends DataGeneral<ObsHippocampe> {
 
-    public DataObsGCI(String table) {
-        super("Obs_GCI");
+    public DataHippocampe(String table) {
+        super("Obs_Hippocampe");
     }
 
-    public ArrayList<ObsGCI> getAll() {
-        ArrayList<ObsGCI> ret = new ArrayList<ObsGCI>();
-        try {
-            ret = super.getAll();
-        } catch (NumberFormatException | SQLException e) {
-            e.printStackTrace();
-        }
-        return ret;
-    }
-
-    public ObsGCI getInstance(ResultSet rs) throws SQLException {
+    @Override
+    public ObsHippocampe getInstance(ResultSet rs) throws SQLException {
         
         String id = rs.getString(1);
 
@@ -39,21 +32,25 @@ public class DataObsGCI extends DataGeneral<ObsGCI> {
         String coord_y = observation.getString(5);
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
-        
+
         // DataObservateur.getAll()
         ArrayList<Observateur> observateurs = null;
-        
-        String nature = rs.getString(2);
-        String leNombre = rs.getString(3);
 
-        return new ObsGCI(
-            Integer.getInteger(id), 
+        String laTaille = rs.getString(6);
+        String leTypePeche = rs.getString(5);
+        String IEspece = rs.getString(2);
+        String leSexe = rs.getString(4);
+        
+        return new ObsHippocampe(
+            Integer.parseInt(id), 
             Date.valueOf(date), 
             Time.valueOf(heure), 
             lieu, 
             observateurs, 
-            ContenuNid.valueOf(nature), 
-            Integer.parseInt(leNombre)
+            Double.parseDouble(laTaille), 
+            Peche.valueOf(leTypePeche), 
+            EspeceHippocampe.valueOf(IEspece), 
+            Sexe.valueOf(leSexe)
         );
     }
 }
