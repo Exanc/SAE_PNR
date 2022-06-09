@@ -3,6 +3,8 @@ package modele.traitement;
 import java.sql.*;
 import java.util.ArrayList;
 
+import modele.donnee.Observateur;
+
 public abstract class DataGeneral<T> {
     private String table;
 
@@ -41,8 +43,23 @@ public abstract class DataGeneral<T> {
         return ret;
     }
 
-    public ResultSet getObs(String id) {
+    public ResultSet getObservation(String id) {
         return executeSQL("SELECT * FROM Observation WHERE idObs = " + id);
+    }
+
+    public ArrayList<Observateur> getObservateur(String idObservation) throws SQLException {
+        ArrayList<Observateur> ret = new ArrayList<Observateur>();
+        ResultSet rs = executeSQL(
+            "SELECT idObservateur, nom, prenom FROM AObserve, Observateur WHERE lobservation = " + idObservation
+        );
+        while (rs.next()) {
+            String idObservateur = rs.getString(1);
+            String nom = rs.getString(2);
+            String prenom = rs.getString(3);
+            ret.add(new Observateur(Integer.parseInt(idObservateur), nom,  prenom ));
+        }
+
+        return ret;
     }
     
     public abstract T getInstance(ResultSet rs) throws SQLException;

@@ -22,7 +22,7 @@ public class DataObsLoutre extends DataGeneral<ObsLoutre> {
         
         String id = rs.getString(1);
 
-        ResultSet observation = getObs(id);
+        ResultSet observation = getObservation(id);
 
         String date  = observation.getString(2);
         String heure = observation.getString(3);  
@@ -31,7 +31,7 @@ public class DataObsLoutre extends DataGeneral<ObsLoutre> {
         
         Lieu lieu = new Lieu(Double.parseDouble(coord_x), Double.parseDouble(coord_y));
         
-        ArrayList<Observateur> observateurs = new DataObservateur("Observateur").getAll();
+        ArrayList<Observateur> observateurs = getObservateur(id);
 
         String iIndice = rs.getString(4);
         
