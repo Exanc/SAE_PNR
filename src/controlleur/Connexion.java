@@ -1,16 +1,14 @@
 package controlleur;
 
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import modele.traitement.*;
 import vue.EView;
-import modele.donnee.*;
 
 /**
  * Controlleur de la page Connexion
@@ -18,10 +16,13 @@ import modele.donnee.*;
 public class Connexion
 {
     @FXML
-    private TextField fUsername, fPassword, fAddress;
+    private TextField fUsername, fAddress;
 
     @FXML
-    private Label lError;
+    private PasswordField fPassword;
+
+    @FXML
+    private Label fErrorField;
 
     @FXML
     public void connectAction () {

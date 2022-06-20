@@ -20,11 +20,11 @@
             <VBox id="left_panel" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-border-color: #cccccc;" BorderPane.alignment="CENTER">
                <children>
                   <Label id="text" stylesheets="@../css/default.css" text="Espèces" />
-                  <Button id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Batracien" />
-                  <Button id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Chouette" />
-                  <Button id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="GCI" />
-                  <Button id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Hippocampe" />
-                  <Button id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Loutre" />
+                  <Button fx:id="btBatracien" id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Batracien" />
+                  <Button fx:id="btChouette" id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Chouette" />
+                  <Button fx:id="btGCI"      id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="GCI" />
+                  <Button fx:id="Hippocampe" id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Hippocampe" />
+                  <Button fx:id="Loutre"     id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Loutre" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -34,7 +34,7 @@
          <right>
             <VBox id="right_panel" alignment="TOP_CENTER" prefHeight="364.0" prefWidth="114.0" spacing="5.0" stylesheets="@../css/default.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Rechercher" />
+                  <Button fx:id="btRechercher" id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Rechercher" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -68,14 +68,14 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <Button id="button" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
-                              <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Préférence" />
-                              <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Carte" />
+                              <Button fx:id="btRetour" id="button" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
+                              <Button fx:id="btPreference" id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Préférence" />
+                              <Button fx:id="btCarte" id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Carte" />
                            </children>
                         </HBox>
                         <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
                            <children>
-                              <Button id="button_cancel" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
+                              <Button fx:id="btDeconnection" id="button_cancel" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
                            </children>
                         </HBox>
                      </children>
