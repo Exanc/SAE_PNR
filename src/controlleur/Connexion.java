@@ -35,30 +35,30 @@ public class Connexion
         if (!user.trim().isEmpty() && !password.trim().isEmpty()) {
             modele.traitement.ConnectionFactory.setProperties(user, password, (url.trim().isEmpty() ? null : url));
 
-        try {
-            System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
-            System.out.println("Connecter à la BDD");
+            try {
+                System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
+                System.out.println("Connecter à la BDD");
 
-            ViewSwitcher.switchTo(EView.MENU);
+                ViewSwitcher.switchTo(EView.MENU);
 
-        } catch (SQLException e) {
-                
-            e.printStackTrace();
+            } catch (SQLException e) {
+                    
+                e.printStackTrace();
 
-            if (e.getMessage().contains("The driver has not received any packets from the server.")) fErrorField.setText("Database not exist or is turned off");
-            else if (e.getMessage().contains("Access denied for user")) fErrorField.setText("User not exist or he don't have access to the database");
-            else fErrorField.setText(e.getMessage());
+                if (e.getMessage().contains("The driver has not received any packets from the server."))
+                    fErrorField.setText("Le serveur n'existe pas ou est injoignable.");
 
-        }
+                else if (e.getMessage().contains("Access denied for user"))
+                    fErrorField.setText("Accès refusé");
 
-        } else if (user.trim().isEmpty()) {
-            fErrorField.setText("Username field is empty");
-        } else if (password.trim().isEmpty()) {
-            fErrorField.setText("Password field is empty");
-        }
+                else
+                    fErrorField.setText(e.getMessage());
+
+            }
+
+        } else if (user.trim().isEmpty() || password.trim().isEmpty())
+            fErrorField.setText("Mot de passe ou nom d'utilisateur non renseigner.");
+        
         if (!valid) return;
-
-        // TODO: verif des droits pour pas tous afficher
-        ViewSwitcher.switchTo(EView.MENU);
     }
 }

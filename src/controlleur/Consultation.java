@@ -12,14 +12,32 @@ public class Consultation {
     }
 
     @FXML
-    public void btPreferences () {
-        // TODO: pop-up ?
+    public void btPreference () {
+        ViewSwitcher.invokePopup(EView.POPUP_PREFERENCES, "Préférences");
     }
 
     @FXML
     public void btRetour () {
         ViewSwitcher.switchTo(EView.MENU);
     }
+
+    @FXML
+    public void btCarte () {}
+
+    @FXML
+    public void btBatracien () {}
+
+    @FXML
+    public void btChouette () {}
+
+    @FXML
+    public void btGCI () {}
+
+    @FXML
+    public void btHippocampe () {}
+
+    @FXML
+    public void btLoutre () {}
 
     //TODO: tables...
 }

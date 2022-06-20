@@ -22,6 +22,7 @@ public class App extends Application {
         Scene scene = new Scene(new Pane());
 
         ViewSwitcher.setScene(scene);
+        ViewSwitcher.setStage(stage);
         ViewSwitcher.switchTo(EView.CONNEXION);
         
         stage.setTitle("Gestion de données - Parc Naturel Regional");
