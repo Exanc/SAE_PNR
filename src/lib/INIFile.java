@@ -17,6 +17,8 @@
  * 15/06//2015   - Removed JDK 5 support, changed to advance for loops
  *--------------------------------------------------------------------------------------------------------------------------------*/
 
+package lib;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,7 +37,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import com.freeware.utils.StringUtils;
+import lib.StringUtils;
 
 /**
  * INIFile class provides methods for manipulating (Read/Write) windows ini files.
@@ -65,7 +67,7 @@ public final class INIFile
      * Create a iniFile object from the file named in the parameter.
      * @param pstrPathAndName The full path and name of the ini file to be used.
      */
-    public INIFile(String pstrPathAndName)
+    public INIFile (String pstrPathAndName)
     {
         _propEnv = getEnvVars();
         _hmapSections = new LinkedHashMap<String, INISection>(4);
@@ -806,7 +808,7 @@ public final class INIFile
             while (objBRdr.ready() && strLine != null)
             {
             	intLine = intLine + 1;
-            	System.out.println(intLine + " " + strLine);
+            	//System.out.println(intLine + " " + strLine);
                 iPos = -1;
                 strLine = objBRdr.readLine();
                 if (StringUtils.isBlank(strLine)) continue;

@@ -14,10 +14,10 @@ import vue.EView;
  * Controlleur de la page Connexion
  */
 public class Connexion
-{
-    @FXML
+{   
+    @FXML 
     private TextField fUsername, fAddress;
-
+    
     @FXML
     private PasswordField fPassword;
 

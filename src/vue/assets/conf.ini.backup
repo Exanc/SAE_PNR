@@ -6,4 +6,3 @@ default_url = localhost:3306/pnr
 [user]
 ; Demander confirmation avant d'envoyer une requéte SQL
 confirm_on_sql_request = FALSE
-

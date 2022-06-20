@@ -28,6 +28,9 @@
  * @version 1.0
  * @since 15-Jun-2015 12:51:09 pm
  */
+
+package lib;
+
 public final class StringUtils
 {
 	private StringUtils()

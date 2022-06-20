@@ -11,11 +11,8 @@ import vue.EView;
 public class Menu
 {
     @FXML
-    Button fAdministrer, fSaisir;
-
-    @FXML
     public void deconnexion () {
-        ViewSwitcher.switchTo(EView.CONNEXION);
+        App.disconnectUser();
     }
 
     public void switchToConsult () {
@@ -27,7 +24,7 @@ public class Menu
     }
 
     public void switchToAdmin () {
-        //ViewSwitcher.switchTo(EView.Ad);
+        ViewSwitcher.switchTo(EView.ADMIN_CONSOLE);
     }
 
     public void switchToImport () {

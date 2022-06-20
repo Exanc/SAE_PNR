@@ -6,7 +6,7 @@ public class ConnectionFactory {
 
     private static String user;
     private static String password;
-    private static String url = "localhost:3306/pnr";
+    private static String url = controlleur.Preferences.getDefaultUrl();
 
     private static Connection connection = null;
     private static ConnectionFactory connectionFactory = null;

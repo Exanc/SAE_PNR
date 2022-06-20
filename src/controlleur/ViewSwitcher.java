@@ -53,7 +53,9 @@ public class ViewSwitcher {
             scene.setRoot(root);
 
         } catch (IOException e) {
-            controlleur.ErrorHandler.show("Une erreur est survenue lors du chargement d'un fichier .fxml", e);
+            controlleur.ErrorHandler.show(
+                "Une erreur est survenue lors du chargement d'un fichier .fxml", 
+                "Le fichier \""+ view.getFileName() +"\" n'a pas pu être chargé correctement.", e);
         }        
     }
 
@@ -85,7 +87,9 @@ public class ViewSwitcher {
             return stage;
 
         } catch (IOException e) {
-            controlleur.ErrorHandler.show("Une erreur est survenue lors du chargement d'un fichier .fxml", e);
+            controlleur.ErrorHandler.show(
+                "Une erreur est survenue lors du chargement d'un fichier .fxml", 
+                "Le fichier \""+ view.getFileName() +"\" n'a pas pu être chargé correctement.", e);
         }
         return null;
     }

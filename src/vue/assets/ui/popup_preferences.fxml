@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Preferences">
    <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -30,7 +30,7 @@
                               <CheckBox fx:id="cbConfirmationRequete" mnemonicParsing="false" />
                            </children>
                         </HBox>
-                        <Button id="button" fx:id="btSauvegarder" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Sauvegarder" />
+                        <Button id="button" onAction="#btSauvegarder" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Sauvegarder" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

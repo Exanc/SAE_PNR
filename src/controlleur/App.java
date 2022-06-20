@@ -3,11 +3,15 @@ package controlleur;
 import java.io.FileInputStream;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
+import modele.traitement.ConnectionFactory;
+import controlleur.*;
 import vue.EView;
 
 public class App extends Application {
@@ -29,6 +33,27 @@ public class App extends Application {
         stage.getIcons().add(new Image(new FileInputStream("src/vue/assets/img/window_icon.png")));
         stage.setMaximized(true);
         stage.setScene(scene);
+
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            public void handle (WindowEvent event) {
+                // TODO: Si jamais on veut vérifier 2-3 truc avant de fermer l'app.
+            }
+        });
+
         stage.show();
+    }
+
+    public static void openPreferences () {
+        
+        if (!Preferences.isActive) {
+            
+            Stage stage = ViewSwitcher.invokePopup(EView.POPUP_PREFERENCES, "Préférences");
+            stage.setOnCloseRequest(Preferences.CLOSER);
+        }
+    }
+
+    public static void disconnectUser () {
+        ConnectionFactory.setProperties("", "", null);
+        ViewSwitcher.switchTo(EView.CONNEXION);
     }
 }

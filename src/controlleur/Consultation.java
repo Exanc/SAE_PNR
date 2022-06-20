@@ -13,7 +13,7 @@ public class Consultation {
 
     @FXML
     public void btPreference () {
-        ViewSwitcher.invokePopup(EView.POPUP_PREFERENCES, "Préférences");
+        controlleur.App.openPreferences();
     }
 
     @FXML
