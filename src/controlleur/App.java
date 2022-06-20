@@ -23,7 +23,7 @@ public class App extends Application {
 
         ViewSwitcher.setScene(scene);
         ViewSwitcher.switchTo(EView.CONNEXION);
-
+        
         stage.setTitle("Gestion de données - Parc Naturel Regional");
         stage.getIcons().add(new Image(new FileInputStream("src/vue/assets/img/window_icon.png")));
         stage.setMaximized(true);
