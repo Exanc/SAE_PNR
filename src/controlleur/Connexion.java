@@ -31,9 +31,9 @@ public class Connexion
             System.out.println("Connecter à la BDD");
 
             ArrayList<Lieu> listLieu = new DataLieu().getAll();
-            /*for (Lieu lieu : listLieu) {
+            for (Lieu lieu : listLieu) {
                 System.out.println(lieu.getXCoord() + " , " + lieu.getYCoord());
-            }*/
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

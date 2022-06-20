@@ -9,14 +9,14 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Connexion">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label id="title" style="-fx-text-fill: #6aa84f; -fx-font-size: 32;" stylesheets="@../css/default.css" text="PARC NATUREL RÉGIONAL " textAlignment="CENTER" />
-            <TextField id="textfield" fx:id="fUsername1" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Identifiant" stylesheets="@../css/default.css" />
-            <TextField id="textfield" fx:id="fPassword1" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Mots de passe" stylesheets="@../css/default.css" />
-            <TextField id="textfield" fx:id="fAddress1" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Addresse de connexion" stylesheets="@../css/default.css" />
+            <TextField id="textfield" fx:id="fUsername" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Identifiant" stylesheets="@../css/default.css" />
+            <TextField id="textfield" fx:id="fPassword" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Mots de passe" stylesheets="@../css/default.css" />
+            <TextField id="textfield" fx:id="fAddress" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Addresse de connexion" stylesheets="@../css/default.css" />
             <Button id="button" mnemonicParsing="false" onAction="#connectAction" prefWidth="100.0" stylesheets="@../css/default.css" text="Connexion" />
             <Label id="hyperlink" prefHeight="47.0" prefWidth="131.0" stylesheets="@../css/default.css" text="En cas de problème veuillez contacter un administrateur " textAlignment="CENTER" wrapText="true">
                <font>
