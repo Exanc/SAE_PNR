@@ -4,9 +4,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import modele.traitement.*;
+import vue.EView;
 import modele.donnee.*;
 
 /**
@@ -15,7 +17,10 @@ import modele.donnee.*;
 public class Connexion
 {
     @FXML
-    TextField fUsername, fPassword, fAddress;
+    private TextField fUsername, fPassword, fAddress;
+
+    @FXML
+    private Label lError;
 
     @FXML
     public void connectAction () {
@@ -23,19 +28,19 @@ public class Connexion
         String user = fUsername.getText();
         String password = fPassword.getText();
         String url = fAddress.getText();
+        Boolean valid = true;
 
         modele.traitement.ConnectionFactory.setProperties(user, password, null);
 
         try {
             System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
-            System.out.println("Connecter à la BDD");
-
-            ArrayList<Lieu> listLieu = new DataLieu().getAll();
-            /*for (Lieu lieu : listLieu) {
-                System.out.println(lieu.getXCoord() + " , " + lieu.getYCoord());
-            }*/
         } catch (SQLException e) {
-            e.printStackTrace();
+            lError.setText("La connexion à échouée.");
+            valid = false;
         }
+        if (!valid) return;
+
+        // TODO: verif des droits pour pas tous afficher
+        ViewSwitcher.switchTo(EView.MENU);
     }
 }

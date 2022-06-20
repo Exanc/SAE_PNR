@@ -4,14 +4,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Menu">
    <children>
       <Label id="title" layoutX="77.0" layoutY="60.0" stylesheets="@../css/default.css" text="PARC NATUREL RÉGIONAL " textAlignment="CENTER" />
       <Label id="subtitle" layoutX="246.0" layoutY="109.0" stylesheets="@../css/default.css" text="Base de données" textAlignment="CENTER" textFill="#666666" />
-      <Button id="button" layoutX="168.0" layoutY="155.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Consulter" />
-      <Button id="button" layoutX="333.0" layoutY="155.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Saisir" />
-      <Button id="button" layoutX="168.0" layoutY="220.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Administrer" />
-      <Button id="button" layoutX="333.0" layoutY="220.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Importer" />
-      <Button id="button_cancel" layoutX="250.0" layoutY="276.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Déconnexion" />
+      <Button id="button" onAction="#btConsulter" layoutX="168.0" layoutY="155.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Consulter" />
+      <Button id="button" onAction="#btSaisir" layoutX="333.0" layoutY="155.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Saisir" />
+      <Button id="button" onAction="#btAdmin" layoutX="168.0" layoutY="220.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Administrer" />
+      <Button id="button" onAction="#btImporter" layoutX="333.0" layoutY="220.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Importer" />
+      <Button id="button_cancel" onAction="#disconnectAction" layoutX="250.0" layoutY="276.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Déconnexion" />
    </children>
 </Pane>
