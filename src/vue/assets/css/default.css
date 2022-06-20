@@ -20,9 +20,12 @@
     /*Pane colors*/
     -fx-background1-color : #f3f3f3ff;
     -fx-background2-color : #efefefff;
+    -fx-background2-color-alt : rgb(208, 208, 208);
     -fx-lines-color : #ccccccff;
     -fx-primary-color : #6aa84fff;
+    -fx-primary-color-alt : rgb(75, 131, 51);
     -fx-deny-color : #eb5600ff;
+    -fx-deny-color-alt : rgb(177, 65, 0);
     -fx-arrow-bg-color : #00000000;
 }
 
@@ -49,11 +52,34 @@
     -fx-font-size : 32;
 }
 
+/*TEXTFIELD*/
 #textfield {
-    -fx-background-color : #efefefff;
+    -fx-background-color : -fx-background2-color;
     -fx-border-radius : 4;
     -fx-font-family : Oswald;
     -fx-text-fill : -fx-text-color;
+}
+
+#textfield:hover {
+    -fx-background-color : -fx-background2-color-alt;
+}
+
+/*TEXTAREA*/
+
+#textarea {
+    -fx-background-color : none;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
+}
+
+#textarea .content {
+    -fx-background-color : -fx-background2-color;
+    -fx-background-radius : 4;
+}
+
+#textarea:hover .content {
+    -fx-border-color : -fx-primary-color;
+    -fx-border-radius : 4;
 }
 
 /* BUTTONS */
@@ -63,10 +89,18 @@
     -fx-text-fill : -fx-text-color;
 }
 
+#button:hover {
+    -fx-background-color : -fx-primary-color-alt;
+}
+
 #button_cancel {
     -fx-background-color : -fx-deny-color;
     -fx-font-family : Oswald;
     -fx-text-fill : -fx-text-color;
+}
+
+#button_cancel:hover {
+    -fx-background-color : -fx-deny-color-alt;
 }
 
 #left_button {
@@ -157,6 +191,7 @@
     -fx-border-width : 40;
 
 }
+
 .date-picker-popup .month-year-pane .label {
 	-fx-text-fill: -fx-background1-color;
 
@@ -167,6 +202,7 @@
     -fx-border-color: #00000000;
     -fx-background-color: -fx-lines-color;
 }
+
 .date-picker-popup .spinner .button .left-arrow,
 .date-picker-popup .spinner .button .right-arrow {
 	-fx-background-color: -fx-background1-color;
@@ -227,6 +263,40 @@
     -fx-border-radius : 4;
 }
 
+.date-picker:hover {
+    -fx-background-color : -fx-background2-color-alt;
+    -fx-border-color : -fx-background2-color-alt;
+}
+
 .spinner > * {
     -fx-background-color : #00000000;
+}
+
+/*DROPDOWN*/
+#dropdown {
+    -fx-background-color : -fx-primary-color;
+}
+
+#dropdown > * {
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
+}
+
+#dropdown:hover {
+    -fx-background-color : -fx-primary-color-alt;
+}
+
+#dropdown_item {
+    -fx-background-color : -fx-background1-color;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
+}
+
+#dropdown_item:focused {
+    -fx-background-color : -fx-primary-color;
+    -fx-font-family : Oswald;
+}
+
+#dropdown_item:focused > *{
+    -fx-text-fill : -fx-text-color;
 }

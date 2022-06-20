@@ -67,15 +67,16 @@
                               <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../css/default.css">
                                  <children>
                                     <Label id="text" fx:id="lUsername" stylesheets="@../css/default.css" text="Username" />
-                                    <TextField fx:id="fPassword" promptText="Password" />
+                                    <TextField id="textfield" fx:id="fPassword" promptText="Password" stylesheets="@../css/default.css" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" spacing="5.0" stylesheets="@../css/default.css" GridPane.columnIndex="1">
                                  <children>
-                                    <MenuButton fx:id="dpRole" mnemonicParsing="false" prefWidth="100.0" text="Role">
+                                    <MenuButton id="dropdown" fx:id="dpRole" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Role">
                                       <items>
-                                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Administrateur" />
+                                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Observateur" />
+                                          <MenuItem id="dropdown_item" mnemonicParsing="false" text="Homme de terrain" />
                                       </items>
                                     </MenuButton>
                                     <Button id="button" fx:id="btSupprimer" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Supprimer" />
@@ -99,10 +100,11 @@
                <children>
                   <TextField id="textfield" fx:id="fAddMemberUsername" promptText="Username" stylesheets="@../css/default.css" />
                   <TextField id="textfield" fx:id="fAddMemberPassword" promptText="Password" stylesheets="@../css/default.css" />
-                  <MenuButton fx:id="dpAddMemberRole" mnemonicParsing="false" prefWidth="100.0" text="Role">
+                  <MenuButton id="dropdown" fx:id="dpAddMemberRole" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Role">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                      <MenuItem id="dropdown_item" mnemonicParsing="false" text="Administrateur" />
+                      <MenuItem id="dropdown_item" mnemonicParsing="false" text="Observateur" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Homme de terrain" />
                     </items>
                   </MenuButton>
                   <Button id="button" fx:id="btRechercher" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Ajouter" />
