@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" stylesheets="@../../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label id="text" stylesheets="@../../css/default.css" text="Observateurs" />
+            <TextField id="textfield" fx:id="fObservateurs" maxWidth="-Infinity" prefHeight="28.0" prefWidth="266.0" promptText="Observateur" stylesheets="@../../css/default.css" />
+            <Label id="text" stylesheets="@../../css/default.css" text="Observation" />
+            <HBox spacing="5.0" stylesheets="@../../css/default.css">
+               <children>
+                  <DatePicker id="date-picker" fx:id="dpDate" prefHeight="30.0" prefWidth="119.0" promptText="JJ/MM/AAAA" styleClass="date-picker" stylesheets="@../../css/default.css" />
+                  <Spinner fx:id="sHeure" editable="true" prefHeight="25.0" prefWidth="57.0" stylesheets="@../../css/default.css" />
+                  <Label id="text" prefHeight="20.0" prefWidth="16.0" style="-fx-alignment: center;" stylesheets="@../../css/default.css" text=":">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="sMinutes" editable="true" prefHeight="25.0" prefWidth="57.0" stylesheets="@../../css/default.css" />
+               </children>
+            </HBox>
+            <Label id="text" stylesheets="@../../css/default.css" text="Données" />
+            <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
+               <children>
+                  <Label id="text" stylesheets="@../../css/default.css" text="Taille : " />
+                  <TextField id="textfield" promptText="Taille" stylesheets="@../../css/default.css" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
+               <children>
+                  <Label id="text" stylesheets="@../../css/default.css" text="Type de pêche" />
+                  <MenuButton id="dropdown" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../../css/default.css" text="Sélectionner">
+                     <items>
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Casier de crevettes" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Casier de morgates" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Petit filet" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Verveux anguilles" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Non renseigné" />
+                     </items>
+                  </MenuButton>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
+               <children>
+                  <Label id="text" stylesheets="@../../css/default.css" text="Espèce" />
+                  <MenuButton id="dropdown" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../../css/default.css" text="Sélectionner">
+                     <items>
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Sygniathus acus" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Hippocampe guttulatus" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Hippocampe hippocampus" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Enterurus aequoreus" />
+                     </items>
+                  </MenuButton>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
+               <children>
+                  <Label id="text" stylesheets="@../../css/default.css" text="Sexe" />
+                  <MenuButton id="dropdown" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../../css/default.css" text="Sélectionner">
+                     <items>
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Male" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Femelle" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Inconnu" />
+                     </items>
+                  </MenuButton>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

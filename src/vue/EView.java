@@ -14,8 +14,12 @@ public enum EView {
     POPUP_GENERIC(           "src/vue/assets/ui/popup_generic.fxml"),
     POPUP_PREFERENCES(       "src/vue/assets/ui/popup_preferences.fxml"),
     POPUP_SELECTION_CHOUETTE("src/vue/assets/ui/popup_selection_chouette.fxml"),
-    SAISIE_CHOUETTE(         "src/vue/assets/ui/saisie_chouette.fxml"),
-    SAISIE(                  "src/vue/assets/ui/saisie.fxml");
+    SAISIE(                  "src/vue/assets/ui/saisie.fxml"),
+    SAISIE_CHOUETTE(         "src/vue/assets/ui/saisie_espece/saisie_chouette.fxml"),
+    SAISIE_LOUTRE(           "src/vue/assets/ui/saisie_espece/saisie_loutre.fxml"),
+    SAISIE_HIPPOCAMPE(         "src/vue/assets/ui/saisie_espece/saisie_hyppocampe.fxml"),
+    SAISIE_GCI(           "src/vue/assets/ui/saisie_espece/saisie_gci.fxml"),
+    SAISIE_BATRACIEN(           "src/vue/assets/ui/saisie_espece/saisie_batracien.fxml");
 
     private String fileName;
 
