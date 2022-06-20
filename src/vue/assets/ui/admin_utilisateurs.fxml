@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane id="background_2" stylesheets="@../css/default.css" BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane prefHeight="26.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <Button id="button" fx:id="btRetour" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
+                              <Button id="button" fx:id="btPreference" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Préférence" />
+                              <Button id="button" fx:id="btBDD" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="BDD" />
+                              <Button id="button" fx:id="btComandes" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Commandes" />
+                           </children>
+                        </HBox>
+                        <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
+                           <children>
+                              <Button id="button_cancel" fx:id="btDeconnection" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="hbListeUtilisateurs" layoutX="276.0" layoutY="127.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <GridPane id="background_2" stylesheets="@../css/default.css">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../css/default.css">
+                                 <children>
+                                    <Label id="text" fx:id="lUsername" stylesheets="@../css/default.css" text="Username" />
+                                    <TextField id="textfield" fx:id="fPassword" promptText="Password" stylesheets="@../css/default.css" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" spacing="5.0" stylesheets="@../css/default.css" GridPane.columnIndex="1">
+                                 <children>
+                                    <MenuButton id="dropdown" fx:id="dpRole" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Role">
+                                      <items>
+                                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Administrateur" />
+                                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Observateur" />
+                                          <MenuItem id="dropdown_item" mnemonicParsing="false" text="Homme de terrain" />
+                                      </items>
+                                    </MenuButton>
+                                    <Button id="button" fx:id="btSupprimer" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Supprimer" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </center>
+         <right>
+            <VBox id="right_panel" alignment="TOP_CENTER" prefHeight="364.0" prefWidth="114.0" spacing="5.0" stylesheets="@../css/default.css" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField id="textfield" fx:id="fAddMemberUsername" promptText="Username" stylesheets="@../css/default.css" />
+                  <TextField id="textfield" fx:id="fAddMemberPassword" promptText="Password" stylesheets="@../css/default.css" />
+                  <MenuButton id="dropdown" fx:id="dpAddMemberRole" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Role">
+                    <items>
+                      <MenuItem id="dropdown_item" mnemonicParsing="false" text="Administrateur" />
+                      <MenuItem id="dropdown_item" mnemonicParsing="false" text="Observateur" />
+                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Homme de terrain" />
+                    </items>
+                  </MenuButton>
+                  <Button id="button" fx:id="btRechercher" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Ajouter" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>
