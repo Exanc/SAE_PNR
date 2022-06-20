@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -35,13 +34,13 @@
                         <HBox alignment="CENTER_LEFT" spacing="5.0">
                            <children>
                               <Label id="text" stylesheets="@../css/default.css" text="Addresse de connexion par défaut" />
-                              <TextField id="textfield" prefHeight="28.0" prefWidth="211.0" promptText="jdbc:mysql://localhost:3306/pnr" stylesheets="@../css/default.css" />
+                              <TextField id="textfield" fx:id="fAddress" prefHeight="28.0" prefWidth="211.0" promptText="jdbc:mysql://localhost:3306/pnr" stylesheets="@../css/default.css" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="5.0">
                            <children>
                               <Label id="text" stylesheets="@../css/default.css" text="Demander confirmation avant requête" />
-                              <CheckBox mnemonicParsing="false" />
+                              <CheckBox fx:id="cbConfirmationRequete" mnemonicParsing="false" />
                            </children>
                         </HBox>
                      </children>

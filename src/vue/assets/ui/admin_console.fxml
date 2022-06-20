@@ -21,16 +21,16 @@
                <children>
                   <HBox spacing="5.0">
                      <children>
-                        <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Executer" />
-                        <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Executer la sélection" />
+                        <Button id="button" fx:id="btExecuter" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Executer" />
+                        <Button id="button" fx:id="btExecuterSelection" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Executer la sélection" />
                      </children>
                   </HBox>
                   <AnchorPane id="background_2" stylesheets="@../css/default.css">
                      <children>
-                        <Label id="text" layoutX="40.0" layoutY="118.0" maxWidth="-Infinity" prefWidth="204.8" style="-fx-alignment: top-left;" stylesheets="@../css/default.css" text="Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat." wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label id="text" fx:id="lConsole" layoutX="40.0" layoutY="118.0" maxWidth="-Infinity" prefWidth="204.8" style="-fx-alignment: top-left;" stylesheets="@../css/default.css" text="Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat." wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
-                  <Label id="text" stylesheets="@../css/default.css" text="ln : 0 col : 0" />
+                  <Label id="text" fx:id="lInfoPosition" stylesheets="@../css/default.css" text="ln : 0 col : 0" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -52,7 +52,7 @@
                         <Label id="text" stylesheets="@../css/default.css" text="Commandes SQL" />
                         <AnchorPane VBox.vgrow="ALWAYS">
                            <children>
-                              <TextArea id="textfield" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <TextArea id="textfield" fx:id="fCommandes" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -77,15 +77,15 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <Button id="button" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
-                              <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Préférence" />
-                              <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Utilisateurs" />
-                              <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="BDD" />
+                              <Button id="button" fx:id="btRetour" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
+                              <Button id="button" fx:id="btPreference" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Préférence" />
+                              <Button id="button" fx:id="btUtilisateurs" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Utilisateurs" />
+                              <Button id="button" fx:id="btBDD" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="BDD" />
                            </children>
                         </HBox>
                         <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
                            <children>
-                              <Button id="button_cancel" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
+                              <Button id="button_cancel" fx:id="btDeconnexion" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
                            </children>
                         </HBox>
                      </children>

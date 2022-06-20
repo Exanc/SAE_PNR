@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="926.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
@@ -45,13 +44,13 @@
                      <children>
                         <HBox maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="1">
                            <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #6aa84fff;" text="&lt;" textAlignment="CENTER" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #6aa84fff;" text="Préférence" />
+                              <Button id="button" fx:id="btRetour" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
+                              <Button id="button" fx:id="btPreference" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Préférence" />
                            </children>
                         </HBox>
                         <HBox maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #eb5600ff;" text="Se déconnecter" />
+                              <Button id="button_cancel" fx:id="btDeconnexion" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
                            </children>
                         </HBox>
                      </children>
