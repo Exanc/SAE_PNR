@@ -120,7 +120,6 @@
     -fx-background-color: -fx-primary-color;
 }
 
-/*fleche popup*/
 .date-picker .button {
     -fx-background-color: -fx-arrow-bg-color;
     -fx-border-radius : 4;
@@ -177,4 +176,57 @@
 .date-picker-popup > * {
     -fx-background-color: -fx-background2-color;
     -fx-background-radius: 4;
+}
+
+/* SPINNER */
+.spinner {
+    -fx-font-family : Oswald;
+    -fx-background-color : -fx-background2-color;
+    -fx-border-color : -fx-background2-color;
+    -fx-border-radius : 4;
+}
+
+.spinner .text-field {
+    -fx-background-color : -fx-background2-color;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
+}
+
+.date-picker .cell {
+    -fx-border-radius : 4;
+    -fx-background-color: -fx-background1-color;
+    -fx-pref-width:30px ;
+    -fx-pref-height:25px ;
+}
+
+.date-picker .cell:hover {
+    -fx-background-color: -fx-background2-color;
+    -fx-text-fill : -fx-hyperlink-color;
+}
+    
+.date-picker .cell:focused {
+    -fx-background-color: -fx-primary-color;
+}
+
+.spinner .button {
+    -fx-background-color: -fx-arrow-bg-color;
+    -fx-border-radius : 4;
+    -fx-pref-height: 20px;
+    -fx-pref-width: 20px;
+}
+    
+.date-picker .text-field {
+    -fx-background-color : -fx-background2-color;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
+}
+
+.date-picker {
+    -fx-background-color : -fx-background2-color;
+    -fx-border-color : -fx-background2-color;
+    -fx-border-radius : 4;
+}
+
+.spinner > * {
+    -fx-background-color : #00000000;
 }

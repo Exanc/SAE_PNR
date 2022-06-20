@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label id="text" layoutX="14.0" layoutY="14.0" stylesheets="@../css/default.css" text="Observateurs" />
-      <Label id="text" layoutX="14.0" layoutY="77.0" stylesheets="@../css/default.css" text="Observation" />
-      <Label id="text" layoutX="14.0" layoutY="139.0" stylesheets="@../css/default.css" text="Label" />
-      <Label id="text" layoutX="139.0" layoutY="239.0" stylesheets="@../css/default.css" text="Label" />
-      <Label id="text" layoutX="236.0" layoutY="149.0" stylesheets="@../css/default.css" text="Label" />
-      <Label id="text" layoutX="335.0" layoutY="158.0" stylesheets="@../css/default.css" text="Label" />
-      <Label id="text" layoutX="425.0" layoutY="167.0" stylesheets="@../css/default.css" text="Label" />
-      <TextField id="textfield" layoutX="14.0" layoutY="34.0" promptText="Observateur" stylesheets="@../css/default.css" />
-      <TextField id="textfield" layoutX="162.0" layoutY="97.0" promptText="HH:MM" stylesheets="@../css/default.css" />
-      <DatePicker id="date-picker" layoutX="14.0" layoutY="96.0" prefHeight="30.0" prefWidth="119.0" promptText="JJ/MM/AAAA" styleClass="date-picker" stylesheets="@../css/default.css" />
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label id="text" stylesheets="@../css/default.css" text="Observateurs" />
+            <TextField id="textfield" promptText="Observateur" stylesheets="@../css/default.css" />
+            <Label id="text" stylesheets="@../css/default.css" text="Observation" />
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <DatePicker id="date-picker" prefHeight="30.0" prefWidth="119.0" promptText="JJ/MM/AAAA" styleClass="date-picker" stylesheets="@../css/default.css" />
+                  <Spinner editable="true" prefHeight="25.0" prefWidth="57.0" stylesheets="@../css/default.css" />
+                  <Label id="text" prefHeight="20.0" prefWidth="16.0" style="-fx-alignment: center;" stylesheets="@../css/default.css" text=":">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Spinner editable="true" prefHeight="25.0" prefWidth="57.0" stylesheets="@../css/default.css" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
    </children>
-</Pane>
+</AnchorPane>
