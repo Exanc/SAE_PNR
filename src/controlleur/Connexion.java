@@ -1,12 +1,15 @@
 package controlleur;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import modele.traitement.*;
+import vue.EView;
 import modele.donnee.*;
 
 /**
@@ -16,6 +19,8 @@ public class Connexion
 {
     @FXML
     TextField fUsername, fPassword, fAddress;
+    @FXML
+    Label fErrorField;
 
     @FXML
     public void connectAction () {
@@ -24,18 +29,28 @@ public class Connexion
         String password = fPassword.getText();
         String url = fAddress.getText();
 
-        modele.traitement.ConnectionFactory.setProperties(user, password, null);
+        if (!user.trim().isEmpty() && !password.trim().isEmpty()) {
+            modele.traitement.ConnectionFactory.setProperties(user, password, (url.trim().isEmpty() ? null : url));
 
-        try {
-            System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
-            System.out.println("Connecter à la BDD");
+            try {
+                System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
+                System.out.println("Connecter à la BDD");
 
-            ArrayList<Lieu> listLieu = new DataLieu().getAll();
-            for (Lieu lieu : listLieu) {
-                System.out.println(lieu.getXCoord() + " , " + lieu.getYCoord());
+                ViewSwitcher.switchTo(EView.MENU);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+                if (e.getMessage().contains("The driver has not received any packets from the server.")) fErrorField.setText("Database not exist or is turned off");
+                else if (e.getMessage().contains("Access denied for user")) fErrorField.setText("User not exist or he don't have access to the database");
+                else fErrorField.setText(e.getMessage());
+
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+
+        } else if (user.trim().isEmpty()) {
+            fErrorField.setText("Username field is empty");
+        } else if (password.trim().isEmpty()) {
+            fErrorField.setText("Password field is empty");
         }
     }
 }
