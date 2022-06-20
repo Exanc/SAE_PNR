@@ -1,33 +1,36 @@
 package controlleur;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
 import vue.EView;
 
+/**
+ * Controlleur de la page Menu
+ */
 public class Menu
 {
     @FXML
-    public void disconnectAction () {
-        modele.traitement.ConnectionFactory.setProperties("", "", null);
+    Button fAdministrer, fSaisir;
+
+    @FXML
+    public void deconnexion () {
         ViewSwitcher.switchTo(EView.CONNEXION);
     }
 
-    @FXML
-    public void btConsulter () {
+    public void switchToConsult () {
         ViewSwitcher.switchTo(EView.CONSULTATION);
     }
 
-    @FXML
-    public void btAdmin () {
-        //TODO
+    public void switchToSaisir () {
+        ViewSwitcher.switchTo(EView.SAISIE);
     }
 
-    @FXML
-    public void btSaisir () {
-        //TODO
+    public void switchToAdmin () {
+        //ViewSwitcher.switchTo(EView.Ad);
     }
 
-    @FXML
-    public void btImporter () {
+    public void switchToImport () {
         ViewSwitcher.switchTo(EView.IMPORTATION);
     }
 }

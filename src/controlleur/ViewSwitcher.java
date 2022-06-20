@@ -43,7 +43,7 @@ public class ViewSwitcher {
             scene.setRoot(root);
 
         } catch (IOException e) {
-            modele.ErrorHandler.show("Erreur FXML", e);
+            controlleur.ErrorHandler.show("Erreur FXML", e);
         }        
     }
 }
