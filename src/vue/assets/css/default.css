@@ -21,6 +21,7 @@
     -fx-background1-color : #f3f3f3ff;
     -fx-background2-color : #efefefff;
     -fx-background2-color-alt : rgb(208, 208, 208);
+    -fx-background3-color : #d9d9d9ff;
     -fx-lines-color : #ccccccff;
     -fx-primary-color : #6aa84fff;
     -fx-primary-color-alt : rgb(75, 131, 51);
@@ -65,7 +66,6 @@
 }
 
 /*TEXTAREA*/
-
 #textarea {
     -fx-background-color : none;
     -fx-font-family : Oswald;
@@ -113,7 +113,7 @@
 
 /* BACKGROUNDS */
 #background_2 {
-    -fx-background-color : #d9d9d9ff;
+    -fx-background-color : -fx-background3-color;
 }
 
 #background_1 {
@@ -127,6 +127,11 @@
 #right_panel {
     -fx-background-color : -fx-background1-color;
     -fx-border-color :  -fx-lines-color;
+}
+
+#select_pane {
+    -fx-background-color : -fx-background3-color;
+    -fx-background-radius : 4;
 }
 
 /* DATE */
@@ -299,4 +304,15 @@
 
 #dropdown_item:focused > *{
     -fx-text-fill : -fx-text-color;
+}
+
+/*CHECKBOX*/
+#checkbox > * {
+    -fx-background-color : -fx-background2-color;
+    -fx-backgroud-radius : 4;
+    -fx-border-color : none;
+}
+
+#checkbox:hover > * {
+    -fx-background-color : -fx-background2-color-alt;
 }
