@@ -16,6 +16,8 @@ import vue.EView;
 
 public class App extends Application {
     
+    // TODO: Trouver tous les endroit ou un érreur n'est pas envoyer via ErrorHandler
+
     public static void main(String[] args) {
         launch(args);
     }

@@ -1,12 +1,10 @@
 package vue;
 
-import javafx.stage.Popup;
-
 public enum EView {
 
     ADMIN_CONSOLE(           "src/vue/assets/ui/admin_console.fxml"),
     ADMIN_CONSULTATION(      "src/vue/assets/ui/admin_consultation.fxml"),
-    ADMIN_UTILISATEUR(       "src/vue/assets/ui/admin_utilisateur.fxml"),
+    ADMIN_UTILISATEUR(       "src/vue/assets/ui/admin_utilisateurs.fxml"),
     CONNEXION(               "src/vue/assets/ui/connexion.fxml"),
     CONSULTATION(            "src/vue/assets/ui/consultation.fxml"),
     IMPORTATION(             "src/vue/assets/ui/importation.fxml"),
@@ -17,9 +15,9 @@ public enum EView {
     SAISIE(                  "src/vue/assets/ui/saisie.fxml"),
     SAISIE_CHOUETTE(         "src/vue/assets/ui/saisie_espece/saisie_chouette.fxml"),
     SAISIE_LOUTRE(           "src/vue/assets/ui/saisie_espece/saisie_loutre.fxml"),
-    SAISIE_HIPPOCAMPE(         "src/vue/assets/ui/saisie_espece/saisie_hyppocampe.fxml"),
-    SAISIE_GCI(           "src/vue/assets/ui/saisie_espece/saisie_gci.fxml"),
-    SAISIE_BATRACIEN(           "src/vue/assets/ui/saisie_espece/saisie_batracien.fxml");
+    SAISIE_HIPPOCAMPE(       "src/vue/assets/ui/saisie_espece/saisie_hyppocampe.fxml"),
+    SAISIE_GCI(              "src/vue/assets/ui/saisie_espece/saisie_gci.fxml"),
+    SAISIE_BATRACIEN(        "src/vue/assets/ui/saisie_espece/saisie_batracien.fxml");
 
     private String fileName;
 

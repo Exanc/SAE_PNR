@@ -31,15 +31,15 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <Button id="button" fx:id="btRetour" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
-                              <Button id="button" fx:id="btPreference" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Préférence" />
-                              <Button id="button" fx:id="btBDD" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="BDD" />
-                              <Button id="button" fx:id="btComandes" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Commandes" />
+                              <Button id="button" onAction="#btRetour" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
+                              <Button id="button" onAction="#btPreference" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Préférence" />
+                              <Button id="button" onAction="#btBDD" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="BDD" />
+                              <Button id="button" onAction="#btComandes" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Commandes" />
                            </children>
                         </HBox>
                         <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
                            <children>
-                              <Button id="button_cancel" fx:id="btDeconnection" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
+                              <Button id="button_cancel" onAction="#btDeconnection" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
                            </children>
                         </HBox>
                      </children>
@@ -53,9 +53,9 @@
          <center>
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
-                  <VBox fx:id="hbListeUtilisateurs" layoutX="276.0" layoutY="127.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <GridPane id="background_2" stylesheets="@../css/default.css">
+                  <VBox fx:id="vbListeUtilisateurs" layoutX="276.0" layoutY="127.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <!-- <children fx:id="defaultUser" > -->
+                        <GridPane id="background_2" fx:id="defaultUser" stylesheets="@../css/default.css">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -87,7 +87,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </GridPane>
-                     </children>
+                     <!-- </children> -->
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>

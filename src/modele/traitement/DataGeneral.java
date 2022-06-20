@@ -12,7 +12,7 @@ public abstract class DataGeneral<T> {
         if (table != null) this.table = table;
     }
 
-    public ResultSet executeSQL(String command) {
+    public static ResultSet executeSQL(String command) {
         ResultSet rs = null;
         PreparedStatement statement = null;
         Connection connection = null;
@@ -23,14 +23,14 @@ public abstract class DataGeneral<T> {
         } catch (Exception e) {
             System.out.println("SQL : CONNECTION / QUERY : ERROR");
             e.printStackTrace();
-        } finally {
+        }/* finally {
             try {
-                //statement.close();
-                //connection.close();
+                statement.close();
+                connection.close();
             } catch (Exception e) {
                 System.out.println("SQL : CLOSE CONNECTION : ERROR");
             }
-        }
+        }*/
         return rs;
     }
 
