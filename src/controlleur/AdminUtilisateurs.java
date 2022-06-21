@@ -3,8 +3,11 @@ package controlleur;
 import javafx.scene.Parent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.FXML;
 
@@ -33,7 +36,7 @@ public class AdminUtilisateurs {
 
     public void btComandes () {
         //ViewSwitcher.switchTo(vue.EView.ADMIN_CONSOLE);
-        updateList();
+        //updateList();
     }
 
     public void btBDD () {
@@ -44,11 +47,15 @@ public class AdminUtilisateurs {
         controlleur.App.disconnectUser();
     }
 
-    public void updateList () {
+    public void addUser (String username, String password, int role) {
         try {
             Parent root = FXMLLoader.load(
                 new File(EView.DEFAULT_USER.getFileName()).toURI().toURL()
             );
+            
+            ((Label) root.lookup("#text")).setText(username);
+
+
 
             vbListeUtilisateurs.getChildren().add(root);
 

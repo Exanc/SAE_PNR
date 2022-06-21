@@ -32,11 +32,11 @@
       <HBox alignment="CENTER_RIGHT" spacing="5.0" stylesheets="@../css/default.css" GridPane.columnIndex="1">
          <children>
             <MenuButton id="dropdown" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Role">
-              <items>
-                <MenuItem id="dropdown_item" mnemonicParsing="false" text="Administrateur" />
-                <MenuItem id="dropdown_item" mnemonicParsing="false" text="Observateur" />
+               <items>
+                  <MenuItem id="dropdown_item" mnemonicParsing="false" text="Administrateur" />
+                  <MenuItem id="dropdown_item" mnemonicParsing="false" text="Observateur" />
                   <MenuItem id="dropdown_item" mnemonicParsing="false" text="Homme de terrain" />
-              </items>
+               </items>
             </MenuButton>
             <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Supprimer" />
          </children>
