@@ -41,7 +41,10 @@ public class ViewSwitcher {
     public static void switchTo (EView view) {
 
         if (scene == null) {
-            System.out.println("ViewSwitcher: Aucune scene n'a été précisée.");
+            controlleur.ErrorHandler.show(
+                "Une erreur est survenue lors du chargement d'une page.",
+                "Aucun objet \"scene\" n'a été précisée.",
+                new IllegalArgumentException("Aucun objet \"scene\" n'a été précisée."));
             return;
         }
 
@@ -66,7 +69,10 @@ public class ViewSwitcher {
     public static Stage invokePopup (EView view, String title) {
         
         if (stage == null) {
-            System.out.println("ViewSwitcher: Aucun stage n'a été précisée.");
+            controlleur.ErrorHandler.show(
+                "Une erreur est survenue lors du chargement d'une popup.",
+                "Aucun objet \"stage\" n'a été précisée.",
+                new IllegalArgumentException("Aucun objet \"stage\" n'a été précisée."));
             return null;
         }
 

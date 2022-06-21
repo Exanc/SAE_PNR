@@ -35,7 +35,10 @@ public class ObsBatracien extends Observation {
             this.nombrePonte = resObs[3];
         } 
         else {
-            System.out.println("ObsBatracien : Constructor : resObs = null");
+            controlleur.ErrorHandler.show(
+                "Une érreur est survenue lors de la lecture des données.",
+                "L'argument \"resObs\" ne doit pas être null.",
+                new IllegalArgumentException("L'argument \"resObs\" ne doit pas être null."));
         }
     }
 
