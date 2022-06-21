@@ -47,13 +47,13 @@
                      <children>
                         <HBox maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="1">
                            <children>
-                              <Button id="button" fx:id="btRetour" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
-                              <Button id="button" fx:id="btPreference" mnemonicParsing="false" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="Préférence" />
+                              <Button id="button" mnemonicParsing="false" onAction="#btRetour" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
+                              <Button id="button" mnemonicParsing="false" onAction="#btPreference" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="Préférence" />
                            </children>
                         </HBox>
                         <HBox maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <Button id="button_cancel" fx:id="btDeconnexion" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
+                              <Button id="button_cancel" mnemonicParsing="false" onAction="#disconnectAction" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
                            </children>
                         </HBox>
                      </children>

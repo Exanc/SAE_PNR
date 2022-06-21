@@ -13,7 +13,7 @@ import modele.donnee.Observateur;
 
 public class DataObsBatracien extends DataGeneral<ObsBatracien> {
 
-    public DataObsBatracien(String table) {
+    public DataObsBatracien() {
         super("Obs_Batracien");
     }
 

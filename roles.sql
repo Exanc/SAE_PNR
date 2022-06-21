@@ -14,7 +14,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON pnr.* TO 'field_man';
 
 DROP USER 'francis'@'localhost';
 CREATE USER 'francis'@'localhost' IDENTIFIED BY 'lol';
-GRANT 'field_man' to 'francis'@'localhost';
+GRANT 'administrator' to 'francis'@'localhost';
 
 SET DEFAULT ROLE ALL TO 'francis'@'localhost';
--- Maria DB: SET DEFAULT ROLE 'observer' FOR 'francis'@'localhost';
+
+Select max(idObs)
+from observation;

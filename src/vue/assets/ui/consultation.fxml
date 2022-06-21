@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -63,7 +62,7 @@
                         </HBox>
                         <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
                            <children>
-                              <Button id="button_cancel" onAction="#btDeconnection" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
+                              <Button id="button_cancel" mnemonicParsing="false" onAction="#btDeconnection" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
                            </children>
                         </HBox>
                      </children>
