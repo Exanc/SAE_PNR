@@ -1,18 +1,14 @@
 package controlleur;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import vue.EView;
 
-public class Consultation {
-    
+public class Saisie {
     @FXML
     BorderPane bbPane;
 
@@ -36,8 +32,18 @@ public class Consultation {
     public void btCarte () {}
 
     @FXML
-    public void btBatracien () {}
-
+    public void btBatracien () {
+        Parent root;
+        try {
+            root = FXMLLoader.load(
+                new File(EView.SAISIE_BATRACIEN.getFileName()).toURI().toURL()
+            );
+            bbPane.setCenter(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+/*
     @FXML
     public void btChouette () {}
 
@@ -50,5 +56,14 @@ public class Consultation {
     @FXML
     public void btLoutre () {}
 
-    //TODO: tables...
+    private Parent getSaisieOf(EView view) {
+        Parent ret = null;
+        try {
+            ret = FXMLLoader.load(new File(view.getFileName()).toURI().toURL());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+*/
 }
