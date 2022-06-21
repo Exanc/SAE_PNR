@@ -75,7 +75,7 @@
             </AnchorPane>
          </top>
          <center>
-            <Pane fx:id="tablePane"></Pane>
+            <AnchorPane fx:id="tablePane"></AnchorPane>
          </center>
       </BorderPane>
    </children>
