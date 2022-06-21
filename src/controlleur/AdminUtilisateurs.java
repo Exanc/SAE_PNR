@@ -1,12 +1,27 @@
 package controlleur;
 
+import javafx.scene.Parent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.TextField;
+import javafx.scene.control.MenuButton;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.FXML;
+
+import java.io.File;
+import java.io.IOException;
+
+import controlleur.*;
+import vue.EView;
 
 public class AdminUtilisateurs {
     
-    private VBox vbListeUtilisateurs;
-    private GridPane defaultUser;
+    @FXML private VBox vbListeUtilisateurs;
+    @FXML private TextField fAddMemberUsername, fAddMemberPassword;
+    @FXML private MenuButton dpAddMemberRole;
+    //@FXML private GridPane defaultUser;
+
+    public void btRechercher () {}
 
     public void btRetour () {
         ViewSwitcher.switchTo(vue.EView.MENU);
@@ -17,25 +32,31 @@ public class AdminUtilisateurs {
     }
 
     public void btComandes () {
-        ViewSwitcher.switchTo(vue.EView.ADMIN_CONSOLE);
+        //ViewSwitcher.switchTo(vue.EView.ADMIN_CONSOLE);
+        updateList();
     }
 
     public void btBDD () {
-        ViewSwitcher.switchTo(vue.EView.ADMIN_CONSULTATION);
+        ViewSwitcher.switchTo(EView.ADMIN_CONSULTATION);
     }
 
-    public void btDeconnexion () {
+    public void btDeconnection () {
         controlleur.App.disconnectUser();
     }
 
-    /**
-     * TODO
-     * Parent root = FXMLLoader.load(
-            new File(view.getFileName()).toURI().toURL()
-        );
+    public void updateList () {
+        try {
+            Parent root = FXMLLoader.load(
+                new File(EView.DEFAULT_USER.getFileName()).toURI().toURL()
+            );
 
-        scene.setRoot(root);
+            vbListeUtilisateurs.getChildren().add(root);
 
-        vbListeUtilisateurs.getChildren().add(root);
-     */
+        } catch (IOException e) {
+            ErrorHandler.show(
+                "Une erreur est survenue lors du chargement d'un fichier .fxml", 
+                "Le fichier \""+ EView.DEFAULT_USER.getFileName() +"\" n'a pas pu être chargé correctement.", e);
+        }
+    }
+    
 }

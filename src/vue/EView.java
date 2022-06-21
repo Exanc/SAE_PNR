@@ -7,6 +7,7 @@ public enum EView {
     ADMIN_UTILISATEUR(       "src/vue/assets/ui/admin_utilisateurs.fxml"),
     CONNEXION(               "src/vue/assets/ui/connexion.fxml"),
     CONSULTATION(            "src/vue/assets/ui/consultation.fxml"),
+    DEFAULT_USER(            "src/vue/assets/ui/default_user.fxml"),
     IMPORTATION(             "src/vue/assets/ui/importation.fxml"),
     MENU(                    "src/vue/assets/ui/menu.fxml"),
     POPUP_GENERIC(           "src/vue/assets/ui/popup_generic.fxml"),

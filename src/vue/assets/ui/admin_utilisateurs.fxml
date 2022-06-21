@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.AdminUtilisateurs" >
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -54,8 +54,8 @@
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
                   <VBox fx:id="vbListeUtilisateurs" layoutX="276.0" layoutY="127.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <!-- <children fx:id="defaultUser" > -->
-                        <GridPane id="background_2" fx:id="defaultUser" stylesheets="@../css/default.css">
+                     <children>
+                        <GridPane id="background_2" stylesheets="@../css/default.css">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -66,20 +66,20 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../css/default.css">
                                  <children>
-                                    <Label id="text" fx:id="lUsername" stylesheets="@../css/default.css" text="Username" />
-                                    <TextField id="textfield" fx:id="fPassword" promptText="Password" stylesheets="@../css/default.css" />
+                                    <Label id="text" stylesheets="@../css/default.css" text="Username" />
+                                    <TextField id="textfield" promptText="Password" stylesheets="@../css/default.css" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" spacing="5.0" stylesheets="@../css/default.css" GridPane.columnIndex="1">
                                  <children>
-                                    <MenuButton id="dropdown" fx:id="dpRole" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Role">
+                                    <MenuButton id="dropdown" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Role">
                                       <items>
                                         <MenuItem id="dropdown_item" mnemonicParsing="false" text="Administrateur" />
                                         <MenuItem id="dropdown_item" mnemonicParsing="false" text="Observateur" />
                                           <MenuItem id="dropdown_item" mnemonicParsing="false" text="Homme de terrain" />
                                       </items>
                                     </MenuButton>
-                                    <Button id="button" fx:id="btSupprimer" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Supprimer" />
+                                    <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Supprimer" />
                                  </children>
                               </HBox>
                            </children>
@@ -87,7 +87,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </GridPane>
-                     <!-- </children> -->
+                     </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -107,7 +107,7 @@
                         <MenuItem id="dropdown_item" mnemonicParsing="false" text="Homme de terrain" />
                     </items>
                   </MenuButton>
-                  <Button id="button" fx:id="btRechercher" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Ajouter" />
+                  <Button id="button" onAction="#btRechercher" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Ajouter" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

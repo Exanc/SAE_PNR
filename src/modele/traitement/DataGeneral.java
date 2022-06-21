@@ -21,8 +21,13 @@ public abstract class DataGeneral<T> {
             statement = connection.prepareStatement(command);
             rs = statement.executeQuery();
         } catch (Exception e) {
-            System.out.println("SQL : CONNECTION / QUERY : ERROR");
+            System.out.println();
             e.printStackTrace();
+
+            controlleur.ErrorHandler.show(
+                "SQL : CONNECTION / QUERY : ERROR",
+                e.getMessage(), e);
+
         }/* finally {
             try {
                 statement.close();

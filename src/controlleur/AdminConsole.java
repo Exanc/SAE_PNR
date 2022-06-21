@@ -1,9 +1,12 @@
 package controlleur;
 
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
+import javafx.fxml.FXML;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 
 import controlleur.*;
 
@@ -13,13 +16,13 @@ public class AdminConsole {
      * la partie admin_consultation ?
     */
 
-    private Label lConsole, lInfoPosition;
-    private TextField fCommandes;
+    @FXML private Label lConsole, lInfoPosition;
+    @FXML private TextArea fCommandes;
 
     public void btExecuter () {
-        ResultSet rs = modele.traitement.DataGeneral.executeSQL(
-            lConsole.getText().trim()
-        );
+        // TODO: Rafiner umpeut la chose quand le medium de sortie serat mieux
+        fCommandes.setText(modele.traitement.SQLQuerys.executeSQLScript(fCommandes.getText()));
+
     }
 
     public void btExecuterSelection () {

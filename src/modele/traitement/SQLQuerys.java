@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class SQLQuerys {
 
-    public static ResultSet executeSQL(String command) {
+    public static ResultSet executeSQL (String command) {
         ResultSet rs = null;
         PreparedStatement statement = null;
         Connection connection = null;
@@ -17,6 +17,67 @@ public class SQLQuerys {
             e.printStackTrace();
         }
         return rs;
+    }
+
+    public static String executeSQLScript (String script) {
+
+        // TODO: Rafiner umpeut la chose quand le medium de sortie serat mieux
+
+        String[] commands = script.split(";");
+        String output = "";
+
+        for (String command : commands) {
+
+            if (command.trim().isEmpty())
+                continue;
+
+            ResultSet rs = null;
+            PreparedStatement statement = null;
+            Connection connection = null;
+
+            try {
+                connection = ConnectionFactory.getConnectionFactory().getConnection();
+                statement = connection.prepareStatement(command);
+                boolean hasResult = statement.execute();
+
+                if (hasResult)
+                    output += resultSetToString(statement.executeQuery());
+                else
+                    output += "<no output>";
+
+            } catch (Exception e) {
+                System.out.println("SQL : CONNECTION / QUERY : ERROR");
+                e.printStackTrace();
+            }
+        }
+
+        return output;
+    }
+
+    private static String resultSetToString (ResultSet rs) throws SQLException {
+
+        String output = "";
+
+        // Prepare metadata object and get the number of columns.
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int columnsNumber = rsmd.getColumnCount();
+
+        // Print column names (a header).
+        for (int i = 1; i <= columnsNumber; i++) {
+            if (i > 1) output += " | ";
+            output += rsmd.getColumnName(i);
+        }
+        output += System.lineSeparator();
+
+        while (rs.next()) {
+            for (int i = 1; i <= columnsNumber; i++) {
+                if (i > 1) output += " | ";
+                output += rs.getString(i);
+            }
+            output += System.lineSeparator();
+        }
+
+        return output;
     }
 
     public static int getRole() throws NumberFormatException, SQLException {
