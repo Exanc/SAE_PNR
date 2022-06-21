@@ -24,9 +24,9 @@ public class SQLQuerys {
         ResultSet rs = executeSQL("SELECT CURRENT_ROLE();");
 
         while (rs.next()) {
-            if (rs.getString(1).equals("`administrator`@`%`") && ret < 3) ret = 3;
-            else  if (rs.getString(1).equals("`field_man`@`%`") && ret < 2) ret = 2;
-            else  if (rs.getString(1).equals("`observer`@`%`") && ret < 1) ret = 1;
+            if (rs.getString(1).contains("administrator") && ret < 3) ret = 3;
+            else  if (rs.getString(1).contains("field_man") && ret < 2) ret = 2;
+            else  if (rs.getString(1).contains("observer") && ret < 1) ret = 1;
         }
 
         return ret;
