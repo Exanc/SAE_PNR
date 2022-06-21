@@ -84,6 +84,7 @@ TEXTFIELD
 #textfield {
     -fx-background-color : -fx-background2-color;
     -fx-border-radius : 4;
+    -fx-font-size : 13
 }
 
 #textfield:hover {

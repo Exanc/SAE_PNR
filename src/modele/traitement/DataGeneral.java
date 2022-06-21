@@ -3,6 +3,7 @@ package modele.traitement;
 import java.sql.*;
 import java.util.ArrayList;
 
+import controlleur.ErrorHandler;
 import modele.donnee.Observateur;
 
 public abstract class DataGeneral<T> {
@@ -21,21 +22,9 @@ public abstract class DataGeneral<T> {
             statement = connection.prepareStatement(command);
             rs = statement.executeQuery();
         } catch (Exception e) {
-            System.out.println();
-            e.printStackTrace();
-
-            controlleur.ErrorHandler.show(
-                "SQL : CONNECTION / QUERY : ERROR",
-                e.getMessage(), e);
-
-        }/* finally {
-            try {
-                statement.close();
-                connection.close();
-            } catch (Exception e) {
-                System.out.println("SQL : CLOSE CONNECTION : ERROR");
-            }
-        }*/
+            ErrorHandler.show("Erreur de requête", 
+                "L'envoie de la requête à échoué", e);
+        }
         return rs;
     }
 

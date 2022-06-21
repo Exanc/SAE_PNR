@@ -2,6 +2,8 @@ package modele.traitement;
 
 import java.sql.*;
 
+import controlleur.ErrorHandler;
+
 public class SQLQuerys {
 
     public static ResultSet executeSQL (String command) {
@@ -13,7 +15,8 @@ public class SQLQuerys {
             statement = connection.prepareStatement(command);
             rs = statement.executeQuery();
         } catch (Exception e) {
-            System.out.println("SQL : CONNECTION / QUERY : ERROR");
+            ErrorHandler.show("Erreur de requête", 
+                "L'envoie de la requête à échoué", e);
             e.printStackTrace();
         }
         return rs;
