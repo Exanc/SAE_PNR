@@ -95,4 +95,15 @@ public class SQLQuerys {
 
         return ret;
     }
+
+    public static int getLastObs() throws NumberFormatException, SQLException {
+        int ret = 0;
+        ResultSet rs = executeSQL("SELECT MAX(idObs) FROM observation;");
+
+        while (rs.next()) {
+            ret = rs.getInt(1);
+        }
+
+        return ret;
+    }
 }

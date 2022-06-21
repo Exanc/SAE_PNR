@@ -13,7 +13,7 @@ import modele.donnee.TypeObservation;
 
 public class DataObsChouette extends DataGeneral<ObsChouette> {
 
-    public DataObsChouette(String table) {
+    public DataObsChouette() {
         super("Obs_Chouette");
     }
 

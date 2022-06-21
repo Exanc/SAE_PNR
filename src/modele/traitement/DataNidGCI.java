@@ -8,7 +8,7 @@ import modele.donnee.NidGCI;
 
 public class DataNidGCI extends DataGeneral<NidGCI> {
 
-    public DataNidGCI(String table) {
+    public DataNidGCI() {
         super("Nid_GCI");
     }
 

@@ -10,7 +10,7 @@ import modele.donnee.Sexe;
 
 public class DataChouette extends DataGeneral<Chouette> {
 
-    public DataChouette(String table) {
+    public DataChouette() {
         super("Chouette");
     }
 

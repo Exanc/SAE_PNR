@@ -15,7 +15,7 @@ import modele.donnee.Sexe;
 
 public class DataHippocampe extends DataGeneral<ObsHippocampe> {
 
-    public DataHippocampe(String table) {
+    public DataHippocampe() {
         super("Obs_Hippocampe");
     }
 

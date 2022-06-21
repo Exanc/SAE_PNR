@@ -150,7 +150,14 @@ BUTTONS
 
 #selected_left_button {
     -fx-background-color : -fx-light-primary-color;
+    -fx-background-radius : 5;
     -fx-border-color : -fx-primary-color;
+    -fx-border-radius : 4;
+
+    -fx-background-image : url("../img/picto/faune.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center left;
 }
 
 

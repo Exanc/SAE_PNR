@@ -16,7 +16,7 @@ public enum EView {
     SAISIE(                  "src/vue/assets/ui/saisie.fxml"),
     SAISIE_CHOUETTE(         "src/vue/assets/ui/saisie_espece/saisie_chouette.fxml"),
     SAISIE_LOUTRE(           "src/vue/assets/ui/saisie_espece/saisie_loutre.fxml"),
-    SAISIE_HIPPOCAMPE(       "src/vue/assets/ui/saisie_espece/saisie_hyppocampe.fxml"),
+    SAISIE_HIPPOCAMPE(       "src/vue/assets/ui/saisie_espece/saisie_hippocampe.fxml"),
     SAISIE_GCI(              "src/vue/assets/ui/saisie_espece/saisie_gci.fxml"),
     SAISIE_BATRACIEN(        "src/vue/assets/ui/saisie_espece/saisie_batracien.fxml");
 

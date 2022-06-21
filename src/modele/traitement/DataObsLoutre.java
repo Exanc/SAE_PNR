@@ -13,7 +13,7 @@ import modele.donnee.Observateur;
 
 public class DataObsLoutre extends DataGeneral<ObsLoutre> {
 
-    public DataObsLoutre(String table) {
+    public DataObsLoutre() {
         super("Obs_Loutre");
     }
 

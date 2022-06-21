@@ -13,7 +13,7 @@ import modele.donnee.Observateur;
 
 public class DataObsGCI extends DataGeneral<ObsGCI> {
 
-    public DataObsGCI(String table) {
+    public DataObsGCI() {
         super("Obs_GCI");
     }
 

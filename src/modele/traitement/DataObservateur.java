@@ -8,7 +8,7 @@ import modele.donnee.Observateur;
 
 public class DataObservateur extends DataGeneral<Observateur> {
 
-    public DataObservateur(String table) {
+    public DataObservateur() {
         super("Observateur");
     }
 
