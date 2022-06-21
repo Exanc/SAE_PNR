@@ -23,6 +23,7 @@
     -fx-background2-color-alt : rgb(208, 208, 208);
     -fx-background3-color : #d9d9d9ff;
     -fx-lines-color : #ccccccff;
+    -fx-light-primary-color : rgb(151, 202, 129);
     -fx-primary-color : #6aa84fff;
     -fx-primary-color-alt : rgb(75, 131, 51);
     -fx-deny-color : #eb5600ff;
@@ -105,10 +106,20 @@
 
 #left_button {
     -fx-background-color : -fx-background1-color;
-    -fx-border-color : #666666ff;
+    -fx-border-color : -fx-hyperlink-color;
     -fx-border-radius : 4;
     -fx-font-family : Oswald;
     -fx-text-fill : -fx-text-color;
+}
+
+#left_button:hover {
+    -fx-background-color : -fx-background2-color-alt;
+    -fx-border-color : -fx-primary-color;
+}
+
+#selected_left_button {
+    -fx-background-color : -fx-light-primary-color;
+    -fx-border-color : -fx-primary-color;
 }
 
 /* BACKGROUNDS */
