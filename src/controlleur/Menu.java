@@ -28,8 +28,6 @@ public class Menu
             e.printStackTrace();
         }
 
-        System.out.println(level);
-
         if (level <= 2) {
             btAdministrer.setDisable(true);
         }

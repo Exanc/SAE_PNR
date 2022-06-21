@@ -44,19 +44,25 @@ public class Connexion
                     
                 e.printStackTrace();
 
-                if (e.getMessage().contains("The driver has not received any packets from the server."))
+                if (e.getMessage().contains("The driver has not received any packets from the server.")) {
                     fErrorField.setText("Le serveur n'existe pas ou est injoignable.");
+                    ErrorHandler.show("Le serveur n'existe pas ou est injoignable", 
+                        "Le serveur à l'addresse renseigné, n'existe pas ou est hors ligne", e);
 
-                else if (e.getMessage().contains("Access denied for user"))
+                } else if (e.getMessage().contains("Access denied for user")) {
                     fErrorField.setText("Accès refusé");
+                    ErrorHandler.show("Erreur", "Accès refusé", e);
 
-                else
+                } else {
                     fErrorField.setText(e.getMessage());
-
+                    ErrorHandler.show("Erreur", "", e);
+                }
             }
 
         } else if (user.trim().isEmpty() || password.trim().isEmpty())
             fErrorField.setText("Mot de passe ou nom d'utilisateur non renseigner.");
+            ErrorHandler.show("Mot de passe ou nom d'utilisateur non renseigner", 
+                "Le nom d'utilisateur ou le mots de passe est vide ou non renseigné", null);
         
         if (!valid) return;
     }
