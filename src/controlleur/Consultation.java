@@ -9,17 +9,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.control.TableView;
+
+import controlleur.*;
 import vue.EView;
 
 public class Consultation {
     
-    @FXML
-    BorderPane bbPane;
+    @FXML BorderPane bbPane;
+    @FXML TableView tableConsultation;
 
     @FXML
-    public void disconnectAction () {
-        modele.traitement.ConnectionFactory.setProperties("", "", null);
-        ViewSwitcher.switchTo(EView.CONNEXION);
+    public void btDeconnection () {
+        App.disconnectUser();
     }
 
     @FXML
@@ -37,13 +39,9 @@ public class Consultation {
 
     @FXML
     public void btBatracien () {
-        Parent ret = null;
-        try {
-            ret = FXMLLoader.load(new File(EView.SAISIE_BATRACIEN.getFileName()).toURI().toURL());
-            bbPane.setCenter(ret);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        
+        
+
     }
 
     @FXML
