@@ -2,7 +2,9 @@ package controlleur;
 
 import java.sql.SQLException;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -10,19 +12,34 @@ import javafx.scene.control.TextField;
 import modele.traitement.*;
 import vue.EView;
 
+import lib.INIFile;
+
 /**
  * Controlleur de la page Connexion
  */
 public class Connexion
 {   
-    @FXML 
-    private TextField fUsername, fAddress;
-    
-    @FXML
-    private PasswordField fPassword;
+    @FXML private TextField fUsername, fAddress;
+    @FXML private PasswordField fPassword;
+    @FXML private Label fErrorField;
+    @FXML private CheckBox cbRememberMe;
 
-    @FXML
-    private Label fErrorField;
+    public static Connexion Instance;
+
+    public Connexion () {
+        Instance = this;
+        Platform.runLater(new Runnable() {
+            public void run () {
+                controlleur.Connexion.Instance.init();
+            }
+        });
+    }
+
+    public void init() {
+        cbRememberMe.setSelected(getRememberMe());
+        if (!getUsername().isEmpty())
+            fUsername.setText(getUsername());
+    }
 
     @FXML
     public void connectAction () {
@@ -37,12 +54,17 @@ public class Connexion
 
             try {
                 ConnectionFactory.getConnectionFactory().getConnection();
+
+                setRememberMe(cbRememberMe.isSelected());
+
+                if (cbRememberMe.isSelected())
+                    setUsername(fUsername.getText());
+                else
+                    setUsername("");
+
                 ViewSwitcher.switchTo(EView.MENU);
-                
 
             } catch (SQLException e) {
-                    
-                e.printStackTrace();
 
                 if (e.getMessage().contains("The driver has not received any packets from the server.")) {
                     fErrorField.setText("Le serveur n'existe pas ou est injoignable.");
@@ -57,7 +79,7 @@ public class Connexion
                 } else {
                     fErrorField.setText(e.getMessage());
                     ErrorHandler.show("Erreur", 
-                        "", e);
+                        e.getMessage(), e);
                 }
             }
 
@@ -67,5 +89,31 @@ public class Connexion
                 "Le nom d'utilisateur ou le mots de passe est vide ou non renseigné", null);
         
         if (!valid) return;
+    }
+
+    /* --- Gestion des préférences --- */
+
+    private static final String file = "src/vue/assets/conf.ini";
+
+    public static boolean getRememberMe () {
+        INIFile conf = new INIFile (file);
+        return conf.getBooleanProperty("user", "remember_me");
+    }
+
+    public static void setRememberMe (boolean remember_me) {
+        INIFile conf = new INIFile (file);
+        conf.setBooleanProperty("user", "remember_me", remember_me, null);
+        conf.save();
+    }
+
+    public static String getUsername () {
+        INIFile conf = new INIFile (file);
+        return conf.getStringProperty("user", "username");
+    }
+
+    public static void setUsername (String username) {
+        INIFile conf = new INIFile (file);
+        conf.setStringProperty("user", "username", username, null);
+        conf.save();
     }
 }

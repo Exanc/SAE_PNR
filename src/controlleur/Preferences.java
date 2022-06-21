@@ -6,6 +6,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 import javafx.fxml.FXML;
@@ -23,6 +24,16 @@ public class Preferences
 
     public Preferences () {
         Preferences.Instance = this;
+        Platform.runLater(new Runnable() {
+            public void run () {
+                controlleur.Preferences.Instance.init();
+            }
+        });
+    }
+
+    public void init () {
+        fAddress.setPromptText(getDefaultUrl());
+        cbConfirmationRequete.setSelected(getConfirmOnSqlRequest());
     }
 
     public static final EventHandler<WindowEvent> CLOSER = new EventHandler<WindowEvent>() {
@@ -67,7 +78,6 @@ public class Preferences
         if (!fAddress.getText().trim().isEmpty())
             Preferences.setDefaultUrl(fAddress.getText().trim());
         Preferences.setConfirmOnSqlRequest(cbConfirmationRequete.isSelected());
-        
     }
 
     /* --- File R/W --- */
@@ -95,6 +105,4 @@ public class Preferences
         conf.setStringProperty("database", "default_url", default_url, null);
         conf.save();
     }
-
-    
 }

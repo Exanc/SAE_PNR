@@ -3,18 +3,25 @@ package controlleur;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Optional;
 
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TableView;
-
+import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import controlleur.*;
 import modele.traitement.DynamicTable;
 import vue.EView;
+import vue.EImage;
 
 public class Consultation {
     
@@ -38,6 +45,58 @@ public class Consultation {
 
     @FXML
     public void btCarte () {}
+
+    @FXML
+    public void btRechercher () {
+
+        Dialog<String> dialog = new Dialog<>();
+        dialog.setTitle("Requéte SQL");
+        dialog.setHeaderText("Veuillez entrez une requéte SQL de type SELECT.");
+        
+        try {
+            String path = new File(EImage.PICTO_EXPERIMENTATION.getFileName()).toURI().toURL().toString();
+
+            ImageView img = new ImageView(path);
+            img.setFitHeight(100.0);
+            img.setFitWidth(100.0);
+
+            dialog.setGraphic(img);
+        } catch (MalformedURLException e) {
+            ErrorHandler.show(
+                "Une érreur est survenue lors du chargement d'une image",
+                e.getMessage(), e);
+        }
+        
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.APPLY, ButtonType.CANCEL);
+
+        // Enable/Disable login button depending on whether a text was entered.
+        Node confirmButton = dialog.getDialogPane().lookupButton(ButtonType.APPLY);
+        confirmButton.setDisable(true);
+        TextArea text = new TextArea();
+
+        // Do some validation
+        text.textProperty().addListener((observable, oldValue, newValue) -> {
+            confirmButton.setDisable(newValue.trim().isEmpty());
+        });
+        
+        dialog.getDialogPane().setContent(text);
+
+        // Request focus on the username field by default.
+        Platform.runLater(() -> text.requestFocus());
+        
+        // Convert the result to a username-password-pair when the login button is clicked.
+        dialog.setResultConverter(dialogButton -> {
+            if (dialogButton == ButtonType.APPLY) {
+                return text.getText();
+            }
+            return null;
+        });
+
+        Optional<String> result = dialog.showAndWait();
+
+        if (result.isPresent())
+            this.showTable(result.get());
+    }
 
     @FXML
     public void btBatracien () {
