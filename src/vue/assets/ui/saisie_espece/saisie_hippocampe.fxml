@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -41,40 +40,19 @@
             <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
                <children>
                   <Label id="text" stylesheets="@../../css/default.css" text="Type de pêche" />
-                  <MenuButton id="dropdown" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../../css/default.css" text="Sélectionner">
-                     <items>
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Casier de crevettes" />
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Casier de morgates" />
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Petit filet" />
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Verveux anguilles" />
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Non renseigné" />
-                     </items>
-                  </MenuButton>
+                  <ComboBox id="dropdown" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
                <children>
                   <Label id="text" stylesheets="@../../css/default.css" text="Espèce" />
-                  <MenuButton id="dropdown" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../../css/default.css" text="Sélectionner">
-                     <items>
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Sygniathus acus" />
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Hippocampe guttulatus" />
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Hippocampe hippocampus" />
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Enterurus aequoreus" />
-                     </items>
-                  </MenuButton>
+                  <ComboBox id="dropdown" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
                <children>
                   <Label id="text" stylesheets="@../../css/default.css" text="Sexe" />
-                  <MenuButton id="dropdown" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../../css/default.css" text="Sélectionner">
-                     <items>
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Male" />
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Femelle" />
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Inconnu" />
-                     </items>
-                  </MenuButton>
+                  <ComboBox id="dropdown" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
                </children>
             </HBox>
          </children>

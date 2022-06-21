@@ -2,8 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -69,13 +68,7 @@
                <children>
                   <TextField id="textfield" fx:id="fAddMemberUsername" promptText="Username" stylesheets="@../css/default.css" />
                   <TextField id="textfield" fx:id="fAddMemberPassword" promptText="Password" stylesheets="@../css/default.css" />
-                  <MenuButton id="dropdown" fx:id="dpAddMemberRole" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Role">
-                    <items>
-                      <MenuItem id="dropdown_item" mnemonicParsing="false" text="Administrateur" />
-                      <MenuItem id="dropdown_item" mnemonicParsing="false" text="Observateur" />
-                        <MenuItem id="dropdown_item" mnemonicParsing="false" text="Homme de terrain" />
-                    </items>
-                  </MenuButton>
+                  <ComboBox id="dropdown" fx:id="dpAddMemberRole" prefWidth="100.0" promptText="Role" stylesheets="@../css/default.css" />
                   <Button id="button" mnemonicParsing="false" onAction="#btRechercher" prefWidth="100.0" stylesheets="@../css/default.css" text="Ajouter" />
                </children>
                <padding>
