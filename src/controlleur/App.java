@@ -1,6 +1,7 @@
 package controlleur;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -51,6 +52,12 @@ public class App extends Application {
             
             Stage stage = ViewSwitcher.invokePopup(EView.POPUP_PREFERENCES, "Préférences");
             stage.setOnCloseRequest(Preferences.CLOSER);
+
+            try {
+                stage.getIcons().add(new Image(new FileInputStream("src/vue/assets/img/window_icon.png")));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 

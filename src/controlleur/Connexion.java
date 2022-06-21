@@ -51,11 +51,13 @@ public class Connexion
 
                 } else if (e.getMessage().contains("Access denied for user")) {
                     fErrorField.setText("Accès refusé");
-                    ErrorHandler.show("Erreur", "Accès refusé", e);
+                    ErrorHandler.show("Accès refusé", 
+                        "L'accès à la base de donnée à été réfusé, verfiez vos permissions auprès d'un administrateur", e);
 
                 } else {
                     fErrorField.setText(e.getMessage());
-                    ErrorHandler.show("Erreur", "", e);
+                    ErrorHandler.show("Erreur", 
+                        "", e);
                 }
             }
 
