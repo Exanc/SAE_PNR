@@ -12,19 +12,18 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Consultation">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox id="left_panel" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-border-color: #cccccc;" BorderPane.alignment="CENTER">
+            <VBox id="left_panel" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" stylesheets="@../css/default.css" BorderPane.alignment="CENTER">
                <children>
                   <Label id="text" stylesheets="@../css/default.css" text="Espèces" />
-                  <Button onAction="#btBatracien"  id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Batracien" />
-                  <Button onAction="#btChouette"   id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Chouette" />
-                  <Button onAction="#btGCI"        id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="GCI" />
-                  <Button onAction="#btHippocampe" id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Hippocampe" />
-                  <Button onAction="#btLoutre"     id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Loutre" />
+                  <Button id="left_button" mnemonicParsing="false" onAction="#btBatracien" prefWidth="90.0" stylesheets="@../css/default.css" text="Batracien" />
+                  <Button id="left_button" mnemonicParsing="false" onAction="#btChouette" prefWidth="90.0" stylesheets="@../css/default.css" text="Chouette" />
+                  <Button id="left_button" mnemonicParsing="false" onAction="#btGCI" prefWidth="90.0" stylesheets="@../css/default.css" text="GCI" />
+                  <Button id="left_button" mnemonicParsing="false" onAction="#btHippocampe" prefWidth="90.0" stylesheets="@../css/default.css" text="Hippocampe" />
+                  <Button id="left_button" mnemonicParsing="false" onAction="#btLoutre" prefWidth="90.0" stylesheets="@../css/default.css" text="Loutre" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -34,7 +33,7 @@
          <right>
             <VBox id="right_panel" alignment="TOP_CENTER" prefHeight="364.0" prefWidth="114.0" spacing="5.0" stylesheets="@../css/default.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btRechercher" id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Rechercher" />
+                  <Button id="button" fx:id="btRechercher" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Rechercher" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -68,14 +67,14 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <Button onAction="#btRetour" id="button" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
-                              <Button onAction="#btPreference" id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Préférence" />
-                              <Button onAction="#btCarte" id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Carte" />
+                              <Button id="button" mnemonicParsing="false" onAction="#btRetour" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
+                              <Button id="button" mnemonicParsing="false" onAction="#btPreference" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="Préférence" />
+                              <Button id="button" mnemonicParsing="false" onAction="#btCarte" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="Carte" />
                            </children>
                         </HBox>
                         <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="btDeconnection" id="button_cancel" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
+                              <Button id="button_cancel" fx:id="btDeconnection" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
                            </children>
                         </HBox>
                      </children>

@@ -27,10 +27,10 @@
                         <HBox alignment="CENTER_LEFT" spacing="5.0">
                            <children>
                               <Label id="text" stylesheets="@../css/default.css" text="Demander confirmation avant requête" />
-                              <CheckBox fx:id="cbConfirmationRequete" mnemonicParsing="false" />
+                              <CheckBox id="checkbox" fx:id="cbConfirmationRequete" mnemonicParsing="false" stylesheets="@../css/default.css" />
                            </children>
                         </HBox>
-                        <Button id="button" onAction="#btSauvegarder" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Sauvegarder" />
+                        <Button id="button" mnemonicParsing="false" onAction="#btSauvegarder" prefWidth="100.0" stylesheets="@../css/default.css" text="Sauvegarder" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

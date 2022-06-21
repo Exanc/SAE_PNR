@@ -31,15 +31,15 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <Button id="button" onAction="#btRetour" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
-                              <Button id="button" onAction="#btPreference" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Préférence" />
-                              <Button id="button" onAction="#btBDD" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="BDD" />
-                              <Button id="button" onAction="#btComandes" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Commandes" />
+                              <Button id="button" mnemonicParsing="false" onAction="#btRetour" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
+                              <Button id="button" mnemonicParsing="false" onAction="#btPreference" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="Préférence" />
+                              <Button id="button" mnemonicParsing="false" onAction="#btBDD" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="BDD" />
+                              <Button id="button" mnemonicParsing="false" onAction="#btComandes" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="Commandes" />
                            </children>
                         </HBox>
                         <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
                            <children>
-                              <Button id="button_cancel" onAction="#btDeconnection" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
+                              <Button id="button_cancel" mnemonicParsing="false" onAction="#btDeconnection" prefWidth="100.0" stylesheets="@../css/default.css" text="Se déconnecter" />
                            </children>
                         </HBox>
                      </children>

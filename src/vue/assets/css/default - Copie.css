@@ -3,13 +3,13 @@ IMPORTS FONT
 */
 
 @font-face {
-    font-family: AvenirLTStd-Book;
-    src: url('../font/Avenir-Font/AvenirLTStd-Book.otf');
+    font-family: Oswald;
+    src: url('../font/Oswald/Oswald-Regular.ttf');
 }
 
 @font-face {
-    font-family: WCManoNegraBta;
-    src: url('../font/WC-Mano-Negra-Bta/WCManoNegraBta.otf');
+    font-family: Comfortaa;
+    src: url('../font/Comfortaa/Comfortaa-Regular.ttf');
 }
 
 
@@ -19,35 +19,23 @@ VARIABLES
 
 * {
     /*Text colors*/
-    -fx-title-color : #cadb2a;
+    -fx-title-color : #6aa84fff;
     -fx-subtitle-color : #666666ff;
     -fx-text-color : #000000ff;
     -fx-hyperlink-color : #666666ff;
 
     /*Pane colors*/
-    -fx-background1-color : #6bac9a;
+    -fx-background1-color : #f3f3f3ff;
     -fx-background2-color : #efefefff;
     -fx-background2-color-alt : rgb(208, 208, 208);
-    -fx-background3-color : #00936e;
-    -fx-lines-color : #00936e;
-    -fx-light-primary-color : #e1f33d;
-    -fx-primary-color : #cadb2a;
-    -fx-primary-color-alt : #abba22;
-    -fx-secondary-color : #03b9bd;
-    -fx-deny-color : #f58229;
-    -fx-deny-color-alt : #d76f1f;
+    -fx-background3-color : #d9d9d9ff;
+    -fx-lines-color : #ccccccff;
+    -fx-light-primary-color : rgb(151, 202, 129);
+    -fx-primary-color : #6aa84fff;
+    -fx-primary-color-alt : rgb(75, 131, 51);
+    -fx-deny-color : #eb5600ff;
+    -fx-deny-color-alt : rgb(177, 65, 0);
     -fx-arrow-bg-color : #00000000;
-}
-
-
-/*
-GLOBAL
-*/
-
-* {
-    -fx-font-family : AvenirLTStd-Book;
-    -fx-text-fill : -fx-text-color;
-    -fx-font-size : 11;
 }
 
 
@@ -62,17 +50,18 @@ TEXTS
 }
 
 #text {
-    -fx-font-size : 13;
+    -fx-font-family : Oswald;
+    -fx-text-fill : #000000ff;
 }
 
 #subtitle {
-    -fx-font-family : WCManoNegraBta;
+    -fx-font-family : Comfortaa;
     -fx-text-fill : -fx-subtitle-color;
 }
 
 #title {
-    -fx-font-family : WCManoNegraBta;
-    -fx-text-fill : -fx-title-color;
+    -fx-font-family : Comfortaa;
+    -fx-text-fill : #6aa84fff;
     -fx-font-size : 32;
 }
 
@@ -84,6 +73,8 @@ TEXTFIELD
 #textfield {
     -fx-background-color : -fx-background2-color;
     -fx-border-radius : 4;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
 }
 
 #textfield:hover {
@@ -97,6 +88,8 @@ TEXTAREA
 
 #textarea {
     -fx-background-color : none;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
 }
 
 #textarea .content {
@@ -116,6 +109,8 @@ BUTTONS
 
 #button {
     -fx-background-color : -fx-primary-color;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
 }
 
 #button:hover {
@@ -124,6 +119,8 @@ BUTTONS
 
 #button_cancel {
     -fx-background-color : -fx-deny-color;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
 }
 
 #button_cancel:hover {
@@ -131,20 +128,16 @@ BUTTONS
 }
 
 #left_button {
-    -fx-background-color : -fx-background2-color;
-    -fx-background-radius : 5;
-    -fx-border-color : -fx-primary-color;
+    -fx-background-color : -fx-background1-color;
+    -fx-border-color : -fx-hyperlink-color;
     -fx-border-radius : 4;
-
-    -fx-background-image : url("../img/picto/faune.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center left;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
 }
 
 #left_button:hover {
     -fx-background-color : -fx-background2-color-alt;
-    -fx-border-color : -fx-secondary-color;
+    -fx-border-color : -fx-primary-color;
 }
 
 #selected_left_button {
@@ -153,56 +146,9 @@ BUTTONS
 }
 
 
-/*
-PICTO
-*/
-
-.top_button {
-    -fx-background-image : url("../img/picto/parc.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center left;
-}
-
-.bt_consulter {
-    -fx-background-image : url("../img/picto/patrimoine.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center left;
-}
-
-.bt_administrer {
-    -fx-background-image : url("../img/picto/parc.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center left;
-}
-
-.bt_importer {
-    -fx-background-image : url("../img/picto/experimentation.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center left;
-}
-
-.bt_saisir {
-    -fx-background-image : url("../img/picto/tourisme.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center left;
-}
-
 /* 
 BACKGROUNDS 
 */
-
-#background {
-    -fx-background-color: linear-gradient(to right, rgba(4,147,107,1), rgba(255,255,255,1) 100%);
-    -fx-background-image : url("../img/logo_pnr_transparent.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center left;
-}
 
 #background_2 {
     -fx-background-color : -fx-background3-color;
@@ -213,17 +159,12 @@ BACKGROUNDS
 }
 
 #left_panel {
-    -fx-background-color : -fx-background1-color;
     -fx-border-color :  -fx-lines-color;
 }
 
 #right_panel {
     -fx-background-color : -fx-background1-color;
     -fx-border-color :  -fx-lines-color;
-    -fx-background-image: url("../img/logo_pnr_transparent.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center center;
 }
 
 #select_pane {
@@ -238,6 +179,10 @@ DATE
 
 .date-picker-popup {
     -fx-background-color: #00000000;
+}
+
+.date-picker-popup > *, .date-picker > * {
+    -fx-font-family : Oswald;
 }
 
 .date-picker .cell {
@@ -265,6 +210,8 @@ DATE
     
 .date-picker .text-field {
     -fx-background-color : -fx-background2-color;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
 }
 
 .date-picker {
@@ -320,6 +267,7 @@ SPINNER
 */
 
 .spinner {
+    -fx-font-family : Oswald;
     -fx-background-color : -fx-background2-color;
     -fx-border-color : -fx-background2-color;
     -fx-border-radius : 4;
@@ -327,6 +275,24 @@ SPINNER
 
 .spinner .text-field {
     -fx-background-color : -fx-background2-color;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
+}
+
+.date-picker .cell {
+    -fx-border-radius : 4;
+    -fx-background-color: -fx-background1-color;
+    -fx-pref-width:30px ;
+    -fx-pref-height:25px ;
+}
+
+.date-picker .cell:hover {
+    -fx-background-color: -fx-background2-color;
+    -fx-text-fill : -fx-hyperlink-color;
+}
+    
+.date-picker .cell:focused {
+    -fx-background-color: -fx-primary-color;
 }
 
 .spinner .button {
@@ -338,6 +304,8 @@ SPINNER
     
 .date-picker .text-field {
     -fx-background-color : -fx-background2-color;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
 }
 
 .date-picker {
@@ -364,16 +332,28 @@ DROPDOWN
     -fx-background-color : -fx-primary-color;
 }
 
+#dropdown > * {
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
+}
+
 #dropdown:hover {
     -fx-background-color : -fx-primary-color-alt;
 }
 
 #dropdown_item {
     -fx-background-color : -fx-background1-color;
+    -fx-font-family : Oswald;
+    -fx-text-fill : -fx-text-color;
 }
 
 #dropdown_item:focused {
     -fx-background-color : -fx-primary-color;
+    -fx-font-family : Oswald;
+}
+
+#dropdown_item:focused > *{
+    -fx-text-fill : -fx-text-color;
 }
 
 

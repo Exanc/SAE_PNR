@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Connexion">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Connexion">
    <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label id="title" style="-fx-text-fill: #6aa84f; -fx-font-size: 32;" stylesheets="@../css/default.css" text="PARC NATUREL RÉGIONAL " textAlignment="CENTER" />
+            <Label id="title" style="-fx-font-size: 32; -fx-alignment: center;" stylesheets="@../css/default.css" text="PARC NATUREL RÉGIONAL " textAlignment="CENTER" />
             <TextField id="textfield" fx:id="fUsername" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Identifiant" stylesheets="@../css/default.css" />
             <PasswordField id="textfield" fx:id="fPassword" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Mots de passe" stylesheets="@../css/default.css" />
             <TextField id="textfield" fx:id="fAddress" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Addresse de connexion" stylesheets="@../css/default.css" />

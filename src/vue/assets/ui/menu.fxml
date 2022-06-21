@@ -6,22 +6,22 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Menu">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Menu">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label id="title" style="-fx-alignment: center;" stylesheets="@../css/default.css" text="PARC NATUREL RÉGIONAL " textAlignment="CENTER" />
-            <Label id="subtitle" style="-fx-alignment: center;" stylesheets="@../css/default.css" text="Base de données" textAlignment="CENTER" textFill="#666666" />
+            <Label id="title" style="-fx-alignment: center; -fx-font-size: 32;" stylesheets="@../css/default.css" text="PARC NATUREL RÉGIONAL " textAlignment="CENTER" />
+            <Label id="subtitle" style="-fx-alignment: center; -fx-font-size: 16;" stylesheets="@../css/default.css" text="Base de données" textAlignment="CENTER" textFill="#666666" />
             <HBox alignment="CENTER" spacing="50.0">
                <children>
-                  <Button id="button" mnemonicParsing="false" onAction="#switchToConsult" prefWidth="100.0" stylesheets="@../css/default.css" text="Consulter" />
-                  <Button id="button" fx:id="fSaisir" mnemonicParsing="false" onAction="#switchToSaisir" prefWidth="100.0" stylesheets="@../css/default.css" text="Saisir" />
+                  <Button id="button" mnemonicParsing="false" onAction="#switchToConsult" prefWidth="100.0" styleClass="bt_consulter" stylesheets="@../css/default.css" text="Consulter" />
+                  <Button id="button" fx:id="fSaisir" mnemonicParsing="false" onAction="#switchToSaisir" prefWidth="100.0" styleClass="bt_saisir" stylesheets="@../css/default.css" text="Saisir" />
                </children>
             </HBox>
             <HBox alignment="CENTER" spacing="50.0">
                <children>
-                  <Button id="button" fx:id="fAdministrer" mnemonicParsing="false" onAction="#switchToAdmin" prefWidth="100.0" stylesheets="@../css/default.css" text="Administrer" />
-                  <Button id="button" mnemonicParsing="false" onAction="#switchToImport" prefWidth="100.0" stylesheets="@../css/default.css" text="Importer" />
+                  <Button id="button" fx:id="fAdministrer" mnemonicParsing="false" onAction="#switchToAdmin" prefWidth="100.0" styleClass="bt_administrer" stylesheets="@../css/default.css" text="Administrer" />
+                  <Button id="button" mnemonicParsing="false" onAction="#switchToImport" prefWidth="100.0" styleClass="bt_importer" stylesheets="@../css/default.css" text="Importer" />
                </children>
             </HBox>
             <Button id="button_cancel" mnemonicParsing="false" onAction="#deconnexion" prefWidth="100.0" stylesheets="@../css/default.css" text="Déconnexion" />
