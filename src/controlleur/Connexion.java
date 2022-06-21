@@ -36,9 +36,7 @@ public class Connexion
             modele.traitement.ConnectionFactory.setProperties(user, password, (url.trim().isEmpty() ? null : url));
 
             try {
-                System.out.println(ConnectionFactory.getConnectionFactory().getConnection());
-                System.out.println("Connecter à la BDD");
-
+                ConnectionFactory.getConnectionFactory().getConnection();
                 ViewSwitcher.switchTo(EView.MENU);
                 
 

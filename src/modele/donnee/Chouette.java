@@ -31,11 +31,8 @@ public class Chouette implements IObs<ObsChouette> {
      * @param obs the observation
      */
     public void ajouteUneObs(ObsChouette obs) {
-        if (obs != null) {
+        if (obs != null)
             this.lesObservations.add(obs);
-        } else {
-            System.out.println("Chouette : ajouteUneObs() : obs = null");
-        }
     }
 
     @Override
