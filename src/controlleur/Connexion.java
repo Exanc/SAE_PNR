@@ -38,6 +38,7 @@ public class Connexion
             try {
                 ConnectionFactory.getConnectionFactory().getConnection();
                 ViewSwitcher.switchTo(EView.MENU);
+                
 
             } catch (SQLException e) {
                     
