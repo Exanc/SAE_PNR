@@ -1,7 +1,10 @@
 package controlleur;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,19 +32,8 @@ public class Saisie {
     }
 
     @FXML
-    public void btCarte () {}
-
-    @FXML
     public void btBatracien () {
-        Parent root;
-        try {
-            root = FXMLLoader.load(
-                new File(EView.SAISIE_BATRACIEN.getFileName()).toURI().toURL()
-            );
-            bbPane.setCenter(root);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        setSaisieOf(EView.SAISIE_BATRACIEN);
     }
 /*
     @FXML
@@ -54,16 +46,15 @@ public class Saisie {
     public void btHippocampe () {}
 
     @FXML
-    public void btLoutre () {}
+    public void btLoutre () {}*/
 
-    private Parent getSaisieOf(EView view) {
-        Parent ret = null;
+    private void setSaisieOf(EView view) {
         try {
-            ret = FXMLLoader.load(new File(view.getFileName()).toURI().toURL());
+            Parent root = FXMLLoader.load(new File(view.getFileName()).toURI().toURL());
+            bbPane.setCenter(root);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ret;
     }
-*/
+
 }

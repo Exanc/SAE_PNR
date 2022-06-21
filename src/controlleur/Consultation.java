@@ -36,7 +36,15 @@ public class Consultation {
     public void btCarte () {}
 
     @FXML
-    public void btBatracien () {}
+    public void btBatracien () {
+        Parent ret = null;
+        try {
+            ret = FXMLLoader.load(new File(EView.SAISIE_BATRACIEN.getFileName()).toURI().toURL());
+            bbPane.setCenter(ret);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void btChouette () {}
