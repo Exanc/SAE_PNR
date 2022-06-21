@@ -54,29 +54,26 @@ public class DynamicTable {
                         });
 
                 tableview.getColumns().addAll(col);
-                System.out.println("Column [" + i + "] ");
             }
 
             /********************************
              * Data added to ObservableList *
              ********************************/
             while (rs.next()) {
-                // Iterate Row
                 ObservableList<String> row = FXCollections.observableArrayList();
                 for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                    // Iterate Column
                     row.add(rs.getString(i));
                 }
-                System.out.println("Row [1] added " + row);
                 data.add(row);
-
             }
 
             // FINALLY ADDED TO TableView
             tableview.setItems(data);
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error on Building Data");
+
+            controlleur.ErrorHandler.show(
+                "Erreur lors de la création de la table.",
+                e.getMessage(), e);
         }
     }
 
