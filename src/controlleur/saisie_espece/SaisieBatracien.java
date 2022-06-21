@@ -23,17 +23,11 @@ import modele.traitement.DataObservateur;
 import modele.traitement.SQLQuerys;
 
 public class SaisieBatracien {
-    @FXML
-    TextField fObservateurs, fNbAdultes, fNbAmplexus, fNbTetards, fNbPontes, fPosX, fPosY;
 
-    @FXML
-    DatePicker dpDate;
-
-    @FXML
-    Spinner<Integer> sHeure, sMinutes;
-
-    @FXML
-    ComboBox cbEspece;
+    @FXML TextField fObservateurs, fNbAdultes, fNbAmplexus, fNbTetards, fNbPontes, fPosX, fPosY;
+    @FXML DatePicker dpDate;
+    @FXML Spinner<Integer> sHeure, sMinutes;
+    @FXML ComboBox cbEspece;
 
     public void initialize() {
         cbEspece.setItems(FXCollections.observableArrayList(EspeceBatracien.values()));
@@ -45,7 +39,7 @@ public class SaisieBatracien {
         fPosX.textProperty().addListener(NumericField.onlyDigit(fPosX));
         fPosY.textProperty().addListener(NumericField.onlyDigit(fPosY));
     }
-
+    
     public void btSave() {
         if (cbEspece.getValue() != null && !fObservateurs.getText().isEmpty() && dpDate.getValue() != null && sHeure.getValue() != null && sMinutes != null) {
             ArrayList<Observateur> observateurs = new ArrayList<Observateur>();

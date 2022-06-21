@@ -21,8 +21,7 @@ public class Saisie {
 
     @FXML
     public void disconnectAction () {
-        modele.traitement.ConnectionFactory.setProperties("", "", null);
-        ViewSwitcher.switchTo(EView.CONNEXION);
+        controlleur.App.disconnectUser();
     }
 
     @FXML
