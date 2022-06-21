@@ -40,6 +40,7 @@ public class Connexion
                 System.out.println("Connecter à la BDD");
 
                 ViewSwitcher.switchTo(EView.MENU);
+                
 
             } catch (SQLException e) {
                     
