@@ -36,9 +36,7 @@ public class Consultation {
     public void btCarte () {}
 
     @FXML
-    public void btBatracien () {
-
-    }
+    public void btBatracien () {}
 
     @FXML
     public void btChouette () {}

@@ -18,11 +18,11 @@
             <VBox id="left_panel" alignment="TOP_CENTER" spacing="5.0" stylesheets="@../css/default.css" BorderPane.alignment="CENTER">
                <children>
                   <Label id="text" stylesheets="@../css/default.css" text="Espèces" />
-                  <Button id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Batracien" />
-                  <Button id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Chouette" />
-                  <Button id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="GCI" />
-                  <Button id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Hippocampe" />
-                  <Button id="left_button" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Loutre" />
+                  <Button id="left_button" fx:id="btBatracien" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Batracien" />
+                  <Button id="left_button" fx:id="btChouette" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Chouette" />
+                  <Button id="left_button" fx:id="btGCI" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="GCI" />
+                  <Button id="left_button" fx:id="btHippocampe" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Hippocampe" />
+                  <Button id="left_button" fx:id="btLoutre" mnemonicParsing="false" prefWidth="90.0" stylesheets="@../css/default.css" text="Loutre" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

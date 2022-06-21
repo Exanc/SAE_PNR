@@ -33,28 +33,28 @@ public class Saisie {
 
     @FXML
     public void btBatracien () {
-        bbPane.setCenter(getSaisieOf(EView.SAISIE_BATRACIEN));
+        Parent root;
+        try {
+            root = FXMLLoader.load(
+                new File(EView.SAISIE_BATRACIEN.getFileName()).toURI().toURL()
+            );
+            bbPane.setCenter(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+/*
+    @FXML
+    public void btChouette () {}
 
     @FXML
-    public void btChouette () {
-        bbPane.setCenter(getSaisieOf(EView.SAISIE_CHOUETTE));
-    }
+    public void btGCI () {}
 
     @FXML
-    public void btGCI () {
-        bbPane.setCenter(getSaisieOf(EView.SAISIE_GCI));
-    }
+    public void btHippocampe () {}
 
     @FXML
-    public void btHippocampe () {
-        bbPane.setCenter(getSaisieOf(EView.SAISIE_HIPPOCAMPE));
-    }
-
-    @FXML
-    public void btLoutre () {
-        bbPane.setCenter(getSaisieOf(EView.SAISIE_LOUTRE));
-    }
+    public void btLoutre () {}
 
     private Parent getSaisieOf(EView view) {
         Parent ret = null;
@@ -65,4 +65,5 @@ public class Saisie {
         }
         return ret;
     }
+*/
 }
