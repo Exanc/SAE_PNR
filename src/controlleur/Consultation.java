@@ -9,15 +9,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.control.TableView;
 
 import controlleur.*;
+import modele.traitement.DynamicTable;
 import vue.EView;
 
 public class Consultation {
     
     @FXML BorderPane bbPane;
-    @FXML TableView tableConsultation;
+    @FXML Pane tablePane;
 
     @FXML
     public void btDeconnection () {
@@ -39,9 +41,14 @@ public class Consultation {
 
     @FXML
     public void btBatracien () {
-        
-        
 
+        this.tablePane.getChildren().clear();
+
+        DynamicTable t = new DynamicTable(
+            "SELECT * FROM Observation, Obs_Batracien WHERE idObs = obsB"
+        );     
+
+        this.tablePane.getChildren().add(t.getTable());
     }
 
     @FXML
