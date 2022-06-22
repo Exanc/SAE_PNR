@@ -29,11 +29,10 @@ public class DefaultUser {
 
     @FXML private ComboBox cbRole;
     @FXML private Label lUsername;
+    
+    private AdminUtilisateurs parent;
 
-    /**
-     * Initialisation du controlleur
-     */
-    public void initialize () {
+    public void initialize() {
         cbRole.setItems(FXCollections.observableArrayList(ERole.values()));
     }
 
@@ -42,10 +41,22 @@ public class DefaultUser {
      * @param username nom
      * @param role role dans la BDD
      */
-    public void setUser (String username, ERole role) {
+    public void setUser(String username, ERole role, AdminUtilisateurs parent) {
         cbRole.setValue(role);
         lUsername.setText(username);
+        if (parent != null) this.parent = parent;
     }
+    
+    /**
+     * Gére la sélection d'un rôle
+     */
+    public void cbRoleAction() {
+        SQLQuerys.executeSQL("REVOKE 'observer', 'field_man', 'administrator' FROM " + lUsername.getText() + "@'localhost';");
+        SQLQuerys.executeSQL("GRANT " + ((ERole) cbRole.getValue()).getRole() + " to " + lUsername.getText() + "@localhost;");
+        SQLQuerys.executeSQL("SET DEFAULT ROLE ALL TO " + lUsername.getText() + "@localhost;");
+        SQLQuerys.executeSQL("FLUSH PRIVILEGES;");
+        parent.updateList();
+    } 
 
     /**
      * Bouton de changement du mot de passe

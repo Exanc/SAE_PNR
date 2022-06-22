@@ -2,7 +2,7 @@ use pnr;
 
 DROP ROLE 'administrator';
 CREATE ROLE 'administrator';
-GRANT CREATE USER, GRANT OPTION, ROLE_ADMIN ON *.* TO 'administrator';
+GRANT CREATE USER, GRANT OPTION, ROLE_ADMIN, RELOAD ON *.* TO 'administrator';
 GRANT SELECT ON mysql.role_edges TO 'administrator';
 GRANT ALL PRIVILEGES ON pnr.* TO 'administrator';
 
