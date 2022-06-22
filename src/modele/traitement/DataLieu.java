@@ -9,6 +9,12 @@ public class DataLieu extends DataGeneral<Lieu> {
         super("Lieu");
     }
 
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
     public ArrayList<Lieu> getAll() {
         ArrayList<Lieu> ret = new ArrayList<Lieu>();
         try {
@@ -19,6 +25,10 @@ public class DataLieu extends DataGeneral<Lieu> {
         return ret;
     }
 
+    /**
+     * Get all Object Lieu
+     * @return create all objects Lieu
+     */
     public Lieu getInstance(ResultSet rs) throws SQLException {
 
         String coord_x = rs.getString(1);

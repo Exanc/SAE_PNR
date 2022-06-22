@@ -20,6 +20,10 @@ public class NidGCI implements IObs<ObsGCI> {
         this.nomPlage = plage;
     }
 
+    /**
+     * Get the observation start date
+     * @return this date
+     */
     public Date dateDebutObs() {
         Date min = null;
 
@@ -38,6 +42,10 @@ public class NidGCI implements IObs<ObsGCI> {
         return min;
     }
 
+    /**
+     * Get the observation end date
+     * @return this date 
+     */
     public Date dateFinObs() {
         Date max = null;
 
@@ -56,11 +64,19 @@ public class NidGCI implements IObs<ObsGCI> {
         return max;
     }
 
+    /**
+     * Add an observation
+     * @param obs an Observation
+     */
     @Override
     public void ajouteUneObs(ObsGCI obs) {
         this.lesObservations.add(obs);
     }
 
+    /**
+     * Add a list of observation
+     * @param obs ArrayList containing several observations
+     */
     @Override
     public void ajoutePlsObs(ArrayList<ObsGCI> obs) {
         Iterator<ObsGCI> iter = obs.iterator();
@@ -72,11 +88,18 @@ public class NidGCI implements IObs<ObsGCI> {
         }
     }
 
+    /**
+     * Clear the list of observations
+     */
     @Override
     public void videObs() {
         this.lesObservations.clear();
     }
 
+    /*
+     * Remove an observation
+     * @param idObs index of the observation wanted to be removed
+     */
     @Override
     public boolean retireObs(int idObs) {
         Iterator<ObsGCI> iter = this.lesObservations.iterator();
@@ -93,6 +116,10 @@ public class NidGCI implements IObs<ObsGCI> {
         return estSuprimer;
     }
 
+    /**
+     * Size of the observation list
+     * @return a integer 
+     */
     @Override
     public int nbObs() {
         return this.lesObservations.size();

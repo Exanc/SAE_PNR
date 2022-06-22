@@ -19,6 +19,26 @@ public class DataHippocampe extends DataGeneral<ObsHippocampe> {
         super("Obs_Hippocampe");
     }
 
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
+    public ArrayList<ObsHippocampe> getAll() {
+        ArrayList<ObsHippocampe> ret = new ArrayList<ObsHippocampe>();
+        try {
+            ret = super.getAll();
+        } catch (NumberFormatException | SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    /**
+     * Get all Object Hippocampe
+     * @return create all objects Hippocampe
+     */
     @Override
     public ObsHippocampe getInstance(ResultSet rs) throws SQLException {
         

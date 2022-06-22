@@ -9,10 +9,19 @@ import modele.donnee.Observateur;
 public abstract class DataGeneral<T> {
     private String table;
 
+    /**
+     * Constructor of DataGeneral
+     * @param table name of the sql table
+     */
     public DataGeneral(String table) {
         if (table != null) this.table = table;
     }
 
+    /**
+     * Create the connection with the database
+     * @param command the sql request
+     * @return the request lines
+     */
     public static ResultSet executeSQL(String command) {
         ResultSet rs = null;
         PreparedStatement statement = null;
@@ -28,6 +37,12 @@ public abstract class DataGeneral<T> {
         return rs;
     }
 
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
     public ArrayList<T> getAll() throws NumberFormatException, SQLException {
         ArrayList<T> ret = new ArrayList<T>();
         ResultSet rs = executeSQL("SELECT * FROM " + table);
@@ -39,10 +54,21 @@ public abstract class DataGeneral<T> {
         return ret;
     }
 
+    /**
+     * Get all observation where the observator is the one requested
+     * @param id requested observator
+     * @return a resulset of several Observation
+     */
     public ResultSet getObservation(String id) {
         return executeSQL("SELECT * FROM Observation WHERE idObs = " + id);
     }
 
+    /**
+     * Get all observators on an observation
+     * @param idObservation the observation to get his observators
+     * @return an ArrayList of observators
+     * @throws SQLException
+     */
     public ArrayList<Observateur> getObservateur(String idObservation) throws SQLException {
         ArrayList<Observateur> ret = new ArrayList<Observateur>();
         ResultSet rs = executeSQL(
@@ -60,6 +86,11 @@ public abstract class DataGeneral<T> {
     
     public abstract T getInstance(ResultSet rs) throws SQLException;
 
+    /**
+     * Delete entries
+     * @param columnsNames columns where we want delete entries
+     * @param values entry to delete
+     */
     public void deleteEntry (String[] columnsNames, String[] values) {
         if (columnsNames.length == values.length && columnsNames.length > 0) {
             String condition = "";

@@ -17,6 +17,12 @@ public class DataObsGCI extends DataGeneral<ObsGCI> {
         super("Obs_GCI");
     }
 
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
     public ArrayList<ObsGCI> getAll() {
         ArrayList<ObsGCI> ret = new ArrayList<ObsGCI>();
         try {
@@ -27,6 +33,10 @@ public class DataObsGCI extends DataGeneral<ObsGCI> {
         return ret;
     }
 
+    /**
+     * Get all Object ObsGCI
+     * @return create all objects ObsGCI
+     */
     public ObsGCI getInstance(ResultSet rs) throws SQLException {
         
         String id = rs.getString(1);

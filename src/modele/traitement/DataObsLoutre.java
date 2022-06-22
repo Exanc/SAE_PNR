@@ -17,6 +17,28 @@ public class DataObsLoutre extends DataGeneral<ObsLoutre> {
         super("Obs_Loutre");
     }
 
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
+    public ArrayList<ObsLoutre> getAll() {
+        ArrayList<ObsLoutre> ret = new ArrayList<ObsLoutre>();
+        try {
+            ret = super.getAll();
+        } catch (NumberFormatException | SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
     @Override
     public ObsLoutre getInstance(ResultSet rs) throws SQLException {
         

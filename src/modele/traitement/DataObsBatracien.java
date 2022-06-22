@@ -17,6 +17,12 @@ public class DataObsBatracien extends DataGeneral<ObsBatracien> {
         super("Obs_Batracien");
     }
 
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
     public ArrayList<ObsBatracien> getAll() {
         ArrayList<ObsBatracien> ret = new ArrayList<ObsBatracien>();
         try {
@@ -27,6 +33,10 @@ public class DataObsBatracien extends DataGeneral<ObsBatracien> {
         return ret;
     }
 
+    /**
+     * Get all Object ObsBatracien
+     * @return create all objects ObsBatracien
+     */
     public ObsBatracien getInstance(ResultSet rs) throws SQLException {
         
         String id = rs.getString(1);

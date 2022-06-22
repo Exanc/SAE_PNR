@@ -17,6 +17,12 @@ public class DataObsChouette extends DataGeneral<ObsChouette> {
         super("Obs_Chouette");
     }
 
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
     public ArrayList<ObsChouette> getAll() {
         ArrayList<ObsChouette> ret = new ArrayList<ObsChouette>();
         try {
@@ -27,6 +33,10 @@ public class DataObsChouette extends DataGeneral<ObsChouette> {
         return ret;
     }
 
+    /**
+     * Get all Object Chouette
+     * @return create all objects Chouette
+     */
     public ObsChouette getInstance(ResultSet rs) throws SQLException {
         
         String id = rs.getString(4);

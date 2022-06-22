@@ -12,6 +12,12 @@ public class DataObservateur extends DataGeneral<Observateur> {
         super("Observateur");
     }
 
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
     public ArrayList<Observateur> getAll() {
         ArrayList<Observateur> ret = new ArrayList<Observateur>();
         try {
@@ -22,6 +28,10 @@ public class DataObservateur extends DataGeneral<Observateur> {
         return ret;
     }
 
+    /**
+     * Get all Object Observateur
+     * @return create all objects Observateur
+     */
     public Observateur getInstance(ResultSet rs) throws SQLException {
                 
         String id = rs.getString(1);
