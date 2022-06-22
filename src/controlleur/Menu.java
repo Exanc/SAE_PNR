@@ -70,11 +70,4 @@ public class Menu
     public void switchToAdmin () {
         ViewSwitcher.switchTo(EView.ADMIN_CONSOLE);
     }
-
-    /**
-     * Bouton pour aller sur la page "importation"
-     */
-    public void switchToImport () {
-        ViewSwitcher.switchTo(EView.IMPORTATION);
-    }
 }

@@ -52,9 +52,6 @@ public class Consultation {
         ViewSwitcher.switchTo(EView.MENU);
     }
 
-    @Deprecated
-    public void btCarte () {}
-
     /**
      * Bouton de recherche avancée
      */

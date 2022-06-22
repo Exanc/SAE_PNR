@@ -55,7 +55,6 @@
                            <children>
                               <Button id="button" fx:id="btRetour" mnemonicParsing="false" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
                               <Button id="button" fx:id="btPreference" mnemonicParsing="false" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="Préférence" />
-                              <Button id="button" fx:id="btCarte" mnemonicParsing="false" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="Carte" />
                            </children>
                         </HBox>
                         <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
