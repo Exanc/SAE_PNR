@@ -62,8 +62,10 @@ public class AdminUtilisateurs {
             cbAddMemberRole.setValue(null);
             cbAddMemberRole.setPromptText("Role");
             updateList();
+            // TODO: POPUP L'UTILISATEUR A ETE AJOUTE
         } else {
-            // TODO: Afficher une érreur
+            ErrorHandler.show("L'utilisateur n'a pas pu être ajouter", 
+            "Les paramètres sont invalide", null);
         }
     }
 

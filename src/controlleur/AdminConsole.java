@@ -19,15 +19,15 @@ public class AdminConsole {
      * la partie admin_consultation ?
     */
 
-    @FXML private Label lConsole, lInfoPosition;
-    @FXML private TextArea fCommandes;
+    @FXML private Label lInfoPosition;
+    @FXML private TextArea taConsole, fCommandes;
 
     /**
      * Exécution du script SQL entrée par l'utilisateur
      */
     public void btExecuter () {
         // TODO: Rafiner umpeut la chose quand le medium de sortie serat mieux
-        lConsole.setText(modele.traitement.SQLQuerys.executeSQLScript(fCommandes.getText()));
+        taConsole.setText(modele.traitement.SQLQuerys.executeSQLScript(fCommandes.getText()));
 
     }
 
