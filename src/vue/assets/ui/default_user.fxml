@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane id="background_2" stylesheets="@../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane id="background_2" stylesheets="@../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.DefaultUser">
    <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -20,13 +20,13 @@
    <children>
       <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../css/default.css">
          <children>
-            <Label id="text" stylesheets="@../css/default.css" text="Username" />
+            <Label id="text" fx:id="lUsername" stylesheets="@../css/default.css" text="Username" />
             <Button id="button" mnemonicParsing="false" stylesheets="@../css/default.css" text="Changer le mots de passe" />
          </children>
       </HBox>
       <HBox alignment="CENTER_RIGHT" spacing="5.0" stylesheets="@../css/default.css" GridPane.columnIndex="1">
          <children>
-            <ComboBox id="dropdown" prefWidth="100.0" promptText="Role" stylesheets="@../css/default.css" />
+            <ComboBox id="dropdown" fx:id="cbRole" prefWidth="100.0" promptText="Role" stylesheets="@../css/default.css" />
             <Button id="button_cancel" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Supprimer" />
          </children>
       </HBox>
