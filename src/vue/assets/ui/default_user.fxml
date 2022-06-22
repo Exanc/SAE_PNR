@@ -26,7 +26,7 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" spacing="5.0" stylesheets="@../css/default.css" GridPane.columnIndex="1">
          <children>
-            <ComboBox id="dropdown" fx:id="cbRole" prefWidth="100.0" promptText="Role" stylesheets="@../css/default.css" />
+            <ComboBox id="dropdown" fx:id="cbRole" onAction="#cbRoleAction" prefWidth="100.0" promptText="Role" stylesheets="@../css/default.css" />
             <Button id="button_cancel" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Supprimer" />
          </children>
       </HBox>

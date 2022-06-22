@@ -58,7 +58,7 @@ public class SQLQuerys {
         return output;
     }
 
-    private static String resultSetToString (ResultSet rs) throws SQLException {
+    public static String resultSetToString (ResultSet rs) throws SQLException {
 
         String output = "";
 
@@ -111,12 +111,8 @@ public class SQLQuerys {
     public static void addUser(String username, String password, ERole role) {
         // TODO: change localhost
         String host = "localhost";
-        String userCreation =      "CREATE USER " + username + "@" + host + " IDENTIFIED BY '" + password + "';";
-        String grantUser =         "GRANT '" + role.getRole() + "' TO " + username + "@" + host + ";";
-        String setGrantByDefault = "SET DEFAULT ROLE ALL TO " + username + "@" + host + ";";
-        executeSQL(userCreation);
-        executeSQL(grantUser);
-        executeSQL(setGrantByDefault);
-        System.out.println(role.getRole()  + " a ete CREE en tant que " + username + "@" + host + " IDENTIFIED BY '" + password + "';");
+        executeSQL("CREATE USER " + username + "@" + host + " IDENTIFIED BY '" + password + "';");
+        executeSQL("GRANT '" + role.getRole() + "' TO " + username + "@" + host + ";");
+        executeSQL("SET DEFAULT ROLE ALL TO " + username + "@" + host + ";");
     }
 }
