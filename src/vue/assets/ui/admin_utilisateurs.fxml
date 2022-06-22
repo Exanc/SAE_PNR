@@ -32,7 +32,6 @@
                            <children>
                               <Button id="button" mnemonicParsing="false" onAction="#btRetour" stylesheets="@../css/default.css" text="&lt;" textAlignment="CENTER" />
                               <Button id="button" mnemonicParsing="false" onAction="#btPreference" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="Préférence" />
-                              <Button id="button" mnemonicParsing="false" onAction="#btBDD" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="BDD" />
                               <Button id="button" mnemonicParsing="false" onAction="#btComandes" prefWidth="100.0" styleClass="top_button" stylesheets="@../css/default.css" text="Commandes" />
                            </children>
                         </HBox>
