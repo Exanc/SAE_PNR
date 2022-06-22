@@ -3,28 +3,41 @@ package controlleur;
 import javafx.scene.Parent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import modele.traitement.SQLQuerys;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.fxml.FXMLLoader;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 
 import java.io.File;
 import java.io.IOException;
 
 import controlleur.*;
+import vue.ERole;
 import vue.EView;
 
 public class AdminUtilisateurs {
     
     @FXML private VBox vbListeUtilisateurs;
     @FXML private TextField fAddMemberUsername, fAddMemberPassword;
-    @FXML private MenuButton dpAddMemberRole;
+    @FXML private ComboBox cbAddMemberRole;
     //@FXML private GridPane defaultUser;
 
-    public void btRechercher () {}
+    public void initialize() {
+        cbAddMemberRole.setItems(FXCollections.observableArrayList(ERole.values()));
+    }
+
+    public void btAjouter () {
+        if (!fAddMemberUsername.getText().trim().isEmpty() && !fAddMemberPassword.getText().trim().isEmpty() && cbAddMemberRole.getValue() != null) {
+            SQLQuerys.addUser(fAddMemberUsername.getText(), fAddMemberPassword.getText(), (ERole) cbAddMemberRole.getValue());
+        } else {
+            // TODO: Erreur
+        }
+    }
 
     public void btRetour () {
         ViewSwitcher.switchTo(vue.EView.MENU);

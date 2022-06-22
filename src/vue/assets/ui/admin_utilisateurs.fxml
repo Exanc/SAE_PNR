@@ -68,8 +68,8 @@
                <children>
                   <TextField id="textfield" fx:id="fAddMemberUsername" promptText="Username" stylesheets="@../css/default.css" />
                   <TextField id="textfield" fx:id="fAddMemberPassword" promptText="Password" stylesheets="@../css/default.css" />
-                  <ComboBox id="dropdown" fx:id="dpAddMemberRole" prefWidth="100.0" promptText="Role" stylesheets="@../css/default.css" />
-                  <Button id="button" mnemonicParsing="false" onAction="#btRechercher" prefWidth="100.0" stylesheets="@../css/default.css" text="Ajouter" />
+                  <ComboBox id="dropdown" fx:id="cbAddMemberRole" prefWidth="100.0" promptText="Role" stylesheets="@../css/default.css" />
+                  <Button id="button" mnemonicParsing="false" onAction="#btAjouter" prefWidth="100.0" stylesheets="@../css/default.css" text="Ajouter" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

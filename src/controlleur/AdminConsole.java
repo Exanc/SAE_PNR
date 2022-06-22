@@ -21,7 +21,7 @@ public class AdminConsole {
 
     public void btExecuter () {
         // TODO: Rafiner umpeut la chose quand le medium de sortie serat mieux
-        fCommandes.setText(modele.traitement.SQLQuerys.executeSQLScript(fCommandes.getText()));
+        lConsole.setText(modele.traitement.SQLQuerys.executeSQLScript(fCommandes.getText()));
 
     }
 

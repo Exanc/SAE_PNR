@@ -3,17 +3,18 @@ package modele.traitement;
 import java.sql.*;
 
 import controlleur.ErrorHandler;
+import vue.ERole;
 
 public class SQLQuerys {
 
     public static ResultSet executeSQL (String command) {
         ResultSet rs = null;
-        PreparedStatement statement = null;
+        Statement statement = null;
         Connection connection = null;
         try {
             connection = ConnectionFactory.getConnectionFactory().getConnection();
             statement = connection.prepareStatement(command);
-            rs = statement.executeQuery();
+            rs = statement.executeQuery(command);
         } catch (Exception e) {
             ErrorHandler.show("Erreur de requête", 
                 "L'envoie de la requête à échoué", e);
@@ -105,5 +106,14 @@ public class SQLQuerys {
         }
 
         return ret;
+    }
+
+    public static void addUser(String username, String password, ERole role) {
+        // TODO: change localhost
+        String host = "localhost";
+        String userCreation =      "CREATE USER '" + username + "'@'" + host + "' IDENTIFIED BY '" + password + "';";
+        String grantUser =         "GRANT '" + role.getRole() + "' TO " + username + "'@'" + host + "';";
+        String setGrantByDefault = "SET DEFAULT ROLE ALL TO '" + username + "'@'" + host + "';";
+        executeSQL(userCreation + grantUser + setGrantByDefault);
     }
 }
