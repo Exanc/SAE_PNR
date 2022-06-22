@@ -46,7 +46,8 @@ public class SaisieBatracien {
      * Method de sauvegarde du formulaire
      */
     public void btSave() {
-        if (cbEspece.getValue() != null && !fObservateurs.getText().isEmpty() && dpDate.getValue() != null && sHeure.getValue() != null && sMinutes != null) {
+        
+        //if (cbEspece.getValue() != null && !fObservateurs.getText().isEmpty() && dpDate.getValue() != null && sHeure.getValue() != null && sMinutes != null) {
             ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
             ArrayList<Observateur> allObservateurs = new DataObservateur().getAll();
             String[] sObservateurs = fObservateurs.getText().split(",");
@@ -77,12 +78,28 @@ public class SaisieBatracien {
             try {
                 id = SQLQuerys.getLastObs() + 1;
             } catch (Exception e) {
-                e.printStackTrace();
+                controlleur.ErrorHandler.show("Une érreur est survenue.", e.getMessage(), e);
             }
 
-            if (id != -1) {
-                ObsBatracien obsBatracien = new ObsBatracien(id, date, heure, lieu, observateurs, resObs, IEspece);
-            }
-        }
+            if (id == -1) return;
+
+            String SQL = "";
+
+            
+
+            SQL += "INSERT INTO Lieu (coord_Lambert_X, coord_Lambert_Y) ";
+            SQL += "VALUES ("+fPosX.getText()+", "+fPosY.getText()+");";
+
+            SQL += "INSERT INTO Observation(idObs, dateObs, lieuObs, lieu_Lambert_X, lieu_Lambert_Y) ";
+            SQL += "VALUES ("+id+", "+date+", "+heure+", "+fPosX.getText()+", "+fPosY.getText()+");";
+
+            SQL += "INSERT INTO Obs_Batracien (obsB, espece, nombreAdultes, nombreAmplexus, nombrePonte, nombreTetard, temperature, meteo_ciel, meteo_temp, meteo_vent, meteo_pluie,concerne_ZH,concernes_vege) ";
+            SQL += "VALUES ("+id+","+IEspece.name()+", "+fNbAdultes.getText()+", "+fNbAmplexus.getText()+", "+fNbPontes.getText()+", "+fNbTetards.getText()+", 0, null, null, null, null, 1, 1);";
+
+            // TODO: AObserver
+
+            System.out.println(SQL);
+            SQLQuerys.executeSQLScript(SQL);
+       // }
     }
 }
