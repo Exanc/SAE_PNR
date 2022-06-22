@@ -7,6 +7,7 @@ import javafx.scene.layout.VBox;
 import modele.traitement.SQLQuerys;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.SingleSelectionModel;
@@ -37,6 +38,15 @@ public class AdminUtilisateurs {
      */
     public void initialize() {
         cbAddMemberRole.setItems(FXCollections.observableArrayList(ERole.values()));
+        cbAddMemberRole.setPromptText("Role");
+        cbAddMemberRole.setButtonCell(new ListCell<String>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty) ;
+                if (empty || item == null) setText("Role");
+                else setText(item);
+            }
+        });
         updateList();
     }
 
