@@ -45,13 +45,14 @@ public class SQLQuerys {
                 boolean hasResult = statement.execute();
 
                 if (hasResult)
-                    output += resultSetToString(statement.executeQuery());
+                    output += resultSetToString(statement.getResultSet());
                 else
                     output += "<no output>";
 
             } catch (Exception e) {
-                System.out.println("SQL : CONNECTION / QUERY : ERROR");
-                e.printStackTrace();
+                ErrorHandler.show("Erreur de requête", 
+                "L'envoie de la requête à échoué", e);
+            e.printStackTrace();
             }
         }
 
@@ -114,5 +115,21 @@ public class SQLQuerys {
         executeSQL("CREATE USER " + username + "@" + host + " IDENTIFIED BY '" + password + "';");
         executeSQL("GRANT '" + role.getRole() + "' TO " + username + "@" + host + ";");
         executeSQL("SET DEFAULT ROLE ALL TO " + username + "@" + host + ";");
+    }
+
+    public static String getCurrentUser() {
+        String ret = "";
+
+        try {
+            ResultSet rs = executeSQL("SELECT CURRENT_USER();");
+            rs.next();
+            ret = rs.getString(1);
+        } catch (SQLException e) {
+            ErrorHandler.show("Erreur de requête", 
+            "L'envoie de la requête à échoué", e);
+        e.printStackTrace();
+        }
+
+        return ret;
     }
 }

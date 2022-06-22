@@ -46,6 +46,11 @@ public class AdminUtilisateurs {
     public void btAjouter () {
         if (!fAddMemberUsername.getText().trim().isEmpty() && !fAddMemberPassword.getText().trim().isEmpty() && cbAddMemberRole.getValue() != null) {
             SQLQuerys.addUser(fAddMemberUsername.getText(), fAddMemberPassword.getText(), (ERole) cbAddMemberRole.getValue());
+            fAddMemberUsername.setText("");
+            fAddMemberPassword.setText("");
+            cbAddMemberRole.getSelectionModel().clearSelection();
+            cbAddMemberRole.setValue(null);
+            cbAddMemberRole.setPromptText("Role");
             updateList();
         } else {
             // TODO: Afficher une érreur

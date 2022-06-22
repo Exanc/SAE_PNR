@@ -1,6 +1,7 @@
 package controlleur;
 
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialog;
@@ -17,7 +18,11 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Optional;
+
+import com.mysql.cj.protocol.Resultset;
 
 import controlleur.*;
 import vue.ERole;
@@ -30,7 +35,8 @@ public class DefaultUser {
 
     @FXML private ComboBox cbRole;
     @FXML private Label lUsername;
-    
+    @FXML private Button btSupprimer;
+
     private AdminUtilisateurs parent;
 
     public void initialize() {
@@ -46,6 +52,10 @@ public class DefaultUser {
         cbRole.setValue(role);
         lUsername.setText(username);
         if (parent != null) this.parent = parent;
+        if (SQLQuerys.getCurrentUser().equals(username + "@localhost")) {
+            cbRole.setDisable(true);
+            btSupprimer.setDisable(true);
+        }
     }
     
     /**
@@ -59,7 +69,16 @@ public class DefaultUser {
         parent.updateList();
     } 
 
+
     /**
+     * Bouton de suppression d'utilisateur
+     */
+    public void btSupprimerAction() {
+        SQLQuerys.executeSQL("DROP USER " + lUsername.getText() + "@'localhost';");
+        parent.updateList();
+    }
+
+    /*
      * Bouton de changement du mot de passe
      */
     public void btChangePassword () {
@@ -122,7 +141,7 @@ public class DefaultUser {
 
         result.ifPresent(res -> {
             if (res.getKey().equals(res.getValue())) {
-                // TODO update password
+                SQLQuerys.executeSQL("ALTER USER " + lUsername.getText() + "@localhost IDENTIFIED BY '" + res.getKey() + "';");
             }
         });
     }
