@@ -21,7 +21,7 @@
       <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../css/default.css">
          <children>
             <Label id="text" fx:id="lUsername" stylesheets="@../css/default.css" text="Username" />
-            <Button id="button" mnemonicParsing="false" stylesheets="@../css/default.css" text="Changer le mots de passe" />
+            <Button id="button" onAction="#btChangePassword" mnemonicParsing="false" stylesheets="@../css/default.css" text="Changer le mots de passe" />
          </children>
       </HBox>
       <HBox alignment="CENTER_RIGHT" spacing="5.0" stylesheets="@../css/default.css" GridPane.columnIndex="1">
