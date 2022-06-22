@@ -1,4 +1,4 @@
-package modele.traitement;
+package lib;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import modele.traitement.SQLQuerys;
 
 /**
  * 

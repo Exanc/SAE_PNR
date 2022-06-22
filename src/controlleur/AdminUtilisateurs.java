@@ -23,6 +23,9 @@ import controlleur.*;
 import vue.ERole;
 import vue.EView;
 
+/**
+ * Controlleur de la page admin utilisateurs
+ */
 public class AdminUtilisateurs {
     
     @FXML private VBox vbListeUtilisateurs;
@@ -30,40 +33,60 @@ public class AdminUtilisateurs {
     @FXML private ComboBox cbAddMemberRole;
     //@FXML private GridPane defaultUser;
 
+    /**
+     * Initialisation de la page
+     */
     public void initialize() {
         cbAddMemberRole.setItems(FXCollections.observableArrayList(ERole.values()));
         updateList();
     }
 
+    /**
+     * Bouton pour ajouter un utilisateur
+     */
     public void btAjouter () {
         if (!fAddMemberUsername.getText().trim().isEmpty() && !fAddMemberPassword.getText().trim().isEmpty() && cbAddMemberRole.getValue() != null) {
             SQLQuerys.addUser(fAddMemberUsername.getText(), fAddMemberPassword.getText(), (ERole) cbAddMemberRole.getValue());
         } else {
-            // TODO: Erreur
+            // TODO: Afficher une érreur
         }
     }
 
+    /**
+     * Bouton de retour en arriére
+     */
     public void btRetour () {
         ViewSwitcher.switchTo(vue.EView.MENU);
     }
 
+    /**
+     * Bouton pour ouvrir la popup préférences
+     */
     public void btPreference () {
         App.openPreferences();
     }
 
+    /**
+     * Bouton pour accéder à la page admin console
+     */
     public void btComandes () {
         //ViewSwitcher.switchTo(vue.EView.ADMIN_CONSOLE);
         //updateList();
     }
 
-    public void btBDD () {
-        ViewSwitcher.switchTo(EView.ADMIN_CONSULTATION);
-    }
-
+    /**
+     * Bouton de déconnection
+     */
     public void btDeconnection () {
         controlleur.App.disconnectUser();
     }
 
+    /**
+     * Ajoute un utilisateur sur la base de données
+     * @param username nom
+     * @param password mot de passe
+     * @param role role dans la base de données
+     */
     public void addUser (String username, String password, int role) {
         try {
             Parent root = FXMLLoader.load(
@@ -83,6 +106,9 @@ public class AdminUtilisateurs {
         }
     }
     
+    /**
+     * Méthode d'affichage des utilisateurs sur l'interface
+     */
     public void updateList () {
         try {
             ResultSet rs = SQLQuerys.executeSQL("SELECT from_user, to_user FROM mysql.role_edges WHERE from_user IN ('administrator', 'field_man', 'observer');");

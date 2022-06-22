@@ -63,7 +63,9 @@ public class ViewSwitcher {
 
     /**
      * Ouvrir une popup avec la vue.
-     * @param view
+     * @param view la vue à ouvrir
+     * @param title le titre de la popup
+     * @return la popup, null si il y a eu un érreur lors de l'ouverture
      */
     public static Stage invokePopup (EView view, String title) {
         

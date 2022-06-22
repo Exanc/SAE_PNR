@@ -18,6 +18,9 @@ import modele.donnee.Observateur;
 import modele.traitement.DataObservateur;
 import modele.traitement.SQLQuerys;
 
+/**
+ * Formulaire de saise ObsBatracien
+ */
 public class SaisieBatracien {
 
     @FXML TextField fObservateurs, fNbAdultes, fNbAmplexus, fNbTetards, fNbPontes, fPosX, fPosY;
@@ -25,6 +28,9 @@ public class SaisieBatracien {
     @FXML Spinner<Integer> sHeure, sMinutes;
     @FXML ComboBox cbEspece;
 
+    /**
+     * Initialisation du formulaire
+     */
     public void initialize() {
         cbEspece.setItems(FXCollections.observableArrayList(EspeceBatracien.values()));
 
@@ -36,6 +42,9 @@ public class SaisieBatracien {
         fPosY.textProperty().addListener(NumericField.onlyDigit(fPosY));
     }
     
+    /**
+     * Method de sauvegarde du formulaire
+     */
     public void btSave() {
         if (cbEspece.getValue() != null && !fObservateurs.getText().isEmpty() && dpDate.getValue() != null && sHeure.getValue() != null && sMinutes != null) {
             ArrayList<Observateur> observateurs = new ArrayList<Observateur>();

@@ -22,20 +22,34 @@ import controlleur.*;
 import vue.ERole;
 import vue.EView;
 
+/**
+ * Controlleur de widget utilisateur
+ */
 public class DefaultUser {
 
     @FXML private ComboBox cbRole;
     @FXML private Label lUsername;
 
+    /**
+     * Initialisation du controlleur
+     */
     public void initialize () {
         cbRole.setItems(FXCollections.observableArrayList(ERole.values()));
     }
 
+    /**
+     * Changer les valeurs afficher sur l'interface
+     * @param username nom
+     * @param role role dans la BDD
+     */
     public void setUser (String username, ERole role) {
         cbRole.setValue(role);
         lUsername.setText(username);
     }
 
+    /**
+     * Bouton de changement du mot de passe
+     */
     public void btChangePassword () {
         
         // Create the custom dialog.

@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import lib.DynamicTable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
@@ -19,34 +20,44 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import controlleur.*;
-import modele.traitement.DynamicTable;
 import vue.EView;
 import vue.EImage;
 
+/**
+ * Controlleur de la page consultation
+ */
 public class Consultation {
     
     @FXML BorderPane bbPane;
     @FXML AnchorPane tablePane;
 
-    @FXML
+    /**
+     * Bouton de déconnection
+     */
     public void btDeconnection () {
         App.disconnectUser();
     }
 
-    @FXML
+    /**
+     * Bouton pour ouvrir le préférences
+     */
     public void btPreference () {
         controlleur.App.openPreferences();
     }
 
-    @FXML
+    /**
+     * Bouton de retour en arriére
+     */
     public void btRetour () {
         ViewSwitcher.switchTo(EView.MENU);
     }
 
-    @FXML
+    @Deprecated
     public void btCarte () {}
 
-    @FXML
+    /**
+     * Bouton de recherche avancée
+     */
     public void btRechercher () {
 
         Dialog<String> dialog = new Dialog<>();
@@ -98,41 +109,55 @@ public class Consultation {
             this.showTable(result.get());
     }
 
-    @FXML
+    /**
+     * Affichage de la table Observation+Obs_Batracien
+     */
     public void btBatracien () {
         this.showTable(
             "SELECT * FROM Observation, Obs_Batracien WHERE idObs = obsB"
         );
     }
 
-    @FXML
+    /**
+     * Affichage de la table Observation+Obs_Chouette
+     */
     public void btChouette () {
         this.showTable(
             "SELECT * FROM Observation, Obs_Chouette WHERE idObs = numObs"
         );
     }
 
-    @FXML
+    /**
+     * Affichage de la table Observation+Obs_GCI
+     */
     public void btGCI () {
         this.showTable(
             "SELECT * FROM Observation, Obs_GCI WHERE idObs = obsG"
         );
     }
 
-    @FXML
+    /**
+     * Affichage de la table Observation+Obs_Hippocampe
+     */
     public void btHippocampe () {
         this.showTable(
             "SELECT * FROM Observation, Obs_Hippocampe WHERE idObs = obsH"
         );
     }
 
-    @FXML
+    /**
+     * Affichage de la table Observation+Obs_Loutre
+     */
     public void btLoutre () {
         this.showTable(
             "SELECT * FROM Observation, Obs_Loutre WHERE idObs = obsL"
         );
     }
 
+    /**
+     * Méthode d'affichage du résultat d'une requéte SQL
+     * @param SQL la requéte SQL
+     */
     public void showTable (String SQL) {
         this.tablePane.getChildren().clear();
 

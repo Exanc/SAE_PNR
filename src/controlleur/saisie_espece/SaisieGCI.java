@@ -11,6 +11,9 @@ import controlleur.NumericField;
 
 import modele.donnee.ContenuNid;
 
+/**
+ * Formulaire de saisie de ObsGCI
+ */
 public class SaisieGCI {
     
     @FXML TextField fObservateurs, fNombre;
@@ -18,6 +21,9 @@ public class SaisieGCI {
     @FXML Spinner<Integer> sHeure, sMinutes;
     @FXML ComboBox cbContenuDuNid;
 
+    /**
+     * Initiasation du formulaire
+     */
     public void initialize () {
         cbContenuDuNid.setItems(FXCollections.observableArrayList(ContenuNid.values()));
 

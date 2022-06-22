@@ -15,6 +15,9 @@ public class Menu
     @FXML
     Button btConsulter, btSaisir, btAdministrer, btImporter;
 
+    /**
+     * Initialisation du controlleur
+     */
     public void initialize() {
         int level = 0;
 
@@ -40,27 +43,37 @@ public class Menu
         }
     }
 
-    @FXML
+    /**
+     * Bouton de déconnection
+     */
     public void deconnexion () {
         App.disconnectUser();
     }
 
-    @FXML
+    /**
+     * Bouton pour aller sur la page "consultation"
+     */
     public void switchToConsult () {
         ViewSwitcher.switchTo(EView.CONSULTATION);
     }
 
-    @FXML
+    /**
+     * Bouton pour aller sur la page "saisie"
+     */
     public void switchToSaisir () {
         ViewSwitcher.switchTo(EView.SAISIE);
     }
 
-    @FXML
+    /**
+     * Bouton pour aller sur la page "administration"
+     */
     public void switchToAdmin () {
         ViewSwitcher.switchTo(EView.ADMIN_CONSOLE);
     }
 
-    @FXML
+    /**
+     * Bouton pour aller sur la page "importation"
+     */
     public void switchToImport () {
         ViewSwitcher.switchTo(EView.IMPORTATION);
     }
