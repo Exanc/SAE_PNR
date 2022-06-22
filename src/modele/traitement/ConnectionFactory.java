@@ -35,8 +35,8 @@ public class ConnectionFactory {
         if (url != null) ConnectionFactory.url = url;
     }
 
-    /*
-     * #TODO
+    /**
+     * Renvoi une instance de la classe
      */
     public static ConnectionFactory getConnectionFactory() {
         
@@ -47,8 +47,10 @@ public class ConnectionFactory {
         return connectionFactory;
     }
 
-    /*
-     * #TODO
+    /**
+     * Renvoi un objet connection
+     * @return connection à la base de données
+     * @throws SQLException
      */
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://"+ url +"?user="+ user +"&password="+ password);
