@@ -9,8 +9,10 @@ import javafx.css.Stylesheet;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.FileChooser.ExtensionFilter;
 import vue.EView;
 
 /**
@@ -99,5 +101,26 @@ public class ViewSwitcher {
                 "Le fichier \""+ view.getFileName() +"\" n'a pas pu être chargé correctement.", e);
         }
         return null;
+    }
+
+    /**
+     * Fait apparaitre un écran de choix de fichier
+     * @param filter filtre des extensions
+     * @return le fichier selectionner
+     */
+    public static File invokeFileChooser (ExtensionFilter filter) {
+        
+        if (stage == null) {
+            controlleur.ErrorHandler.show(
+                "Une erreur est survenue lors du chargement d'une popup.",
+                "Aucun objet \"stage\" n'a été précisée.",
+                new IllegalArgumentException("Aucun objet \"stage\" n'a été précisée."));
+            return null;
+        }
+        
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Enregistrer sous");
+        fileChooser.getExtensionFilters().addAll(filter);
+        return fileChooser.showSaveDialog(stage);
     }
 }

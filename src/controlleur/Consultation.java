@@ -1,8 +1,13 @@
 package controlleur;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.Optional;
 
 import javafx.application.Platform;
@@ -12,12 +17,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import lib.DynamicTable;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import controlleur.*;
 import vue.EView;
@@ -30,6 +39,8 @@ public class Consultation {
     
     @FXML BorderPane bbPane;
     @FXML AnchorPane tablePane;
+
+    private String lastSearch;
 
     /**
      * Bouton de déconnection
@@ -107,6 +118,86 @@ public class Consultation {
     }
 
     /**
+     * Bouton d'exportation
+     */
+    public void btExporter () {
+
+        if (this.tablePane.getChildren().isEmpty()) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez faire une recherche avant d'exporter.");
+
+            alert.showAndWait();
+            return;
+        }
+
+        File f = controlleur.ViewSwitcher.invokeFileChooser(new ExtensionFilter("Fichier CSV", "*.csv"));
+        
+        try {
+            if (f.exists())
+                    f.delete();
+
+            f.createNewFile();
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(f));
+            ResultSet result = modele.traitement.SQLQuerys.executeSQL(this.lastSearch);
+            
+            // write header line containing column names
+            final String separator = ";";
+            ResultSetMetaData metaData = result.getMetaData();
+            int numberOfColumns = metaData.getColumnCount();
+            String headerLine = "";
+            
+            // exclude the first column which is the ID field
+            for (int i = 2; i <= numberOfColumns; i++) {
+                String columnName = metaData.getColumnName(i);
+                headerLine = headerLine.concat(columnName).concat(separator);
+            }
+         
+            writer.write(headerLine.substring(0, headerLine.length() - 1));
+            
+
+            while (result.next()) {
+                String line = "";
+                 
+                for (int i = 2; i <= numberOfColumns; i++) {
+                    Object valueObject = result.getObject(i);
+                    String valueString = "";
+                     
+                    if (valueObject != null) valueString = valueObject.toString();
+                     
+                    if (valueObject instanceof String) {
+                        valueString = "\"" + valueString.replaceAll("\"", "\"\"") + "\"";
+                    }
+                     
+                    line = line.concat(valueString);
+                     
+                    if (i != numberOfColumns) {
+                        line = line.concat(separator);
+                    }
+                }
+                 
+                writer.newLine();
+                writer.write(line);            
+            }
+            
+            writer.close();
+
+        } catch (IOException e) {
+            controlleur.ErrorHandler.show("Une érreur est survenue lors de l'écriture du fichier.", e.getMessage(), e);
+
+        } catch (SecurityException e) {
+            controlleur.ErrorHandler.show("Erreur",
+            "Le programme n'a pas l'autorité sufisante pour remplacer ce fichier.", e);
+
+        } catch (SQLException e) {
+            controlleur.ErrorHandler.show("Erreur",
+            "La récupération des données a échouée.", e);
+        }
+    }
+
+    /**
      * Affichage de la table Observation+Obs_Batracien
      */
     public void btBatracien () {
@@ -160,6 +251,9 @@ public class Consultation {
 
         DynamicTable t = new DynamicTable(SQL);
         TableView table = t.getTable();
+        table.setId("table");
+
+        this.lastSearch = SQL;
 
         AnchorPane.setTopAnchor(table, 0.0);
         AnchorPane.setBottomAnchor(table, 0.0);

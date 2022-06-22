@@ -90,11 +90,11 @@ public class SaisieBatracien {
             SQL += "INSERT INTO Lieu (coord_Lambert_X, coord_Lambert_Y) ";
             SQL += "VALUES ("+fPosX.getText()+", "+fPosY.getText()+");";
 
-            SQL += "INSERT INTO Observation(idObs, dateObs, lieuObs, lieu_Lambert_X, lieu_Lambert_Y) ";
-            SQL += "VALUES ("+id+", "+date+", "+heure+", "+fPosX.getText()+", "+fPosY.getText()+");";
+            SQL += "INSERT INTO Observation(idObs, dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) ";
+            SQL += "VALUES ("+id+", \'"+date+"\', \'"+heure+"\', "+fPosX.getText()+", "+fPosY.getText()+");";
 
             SQL += "INSERT INTO Obs_Batracien (obsB, espece, nombreAdultes, nombreAmplexus, nombrePonte, nombreTetard, temperature, meteo_ciel, meteo_temp, meteo_vent, meteo_pluie,concerne_ZH,concernes_vege) ";
-            SQL += "VALUES ("+id+","+IEspece.name()+", "+fNbAdultes.getText()+", "+fNbAmplexus.getText()+", "+fNbPontes.getText()+", "+fNbTetards.getText()+", 0, null, null, null, null, 1, 1);";
+            SQL += "VALUES ("+id+",\'"+IEspece.getValue()+"\', "+fNbAdultes.getText()+", "+fNbAmplexus.getText()+", "+fNbPontes.getText()+", "+fNbTetards.getText()+", 0, null, null, null, null, 1, 1);";
 
             // TODO: AObserver
 

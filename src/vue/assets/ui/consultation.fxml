@@ -35,6 +35,7 @@
             <VBox id="right_panel" alignment="TOP_CENTER" prefHeight="364.0" prefWidth="114.0" spacing="5.0" stylesheets="@../css/default.css" BorderPane.alignment="CENTER">
                <children>
                   <Button id="button" onAction="#btRechercher" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Rechercher" />
+                  <Button id="button" onAction="#btExporter" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Exporter" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
