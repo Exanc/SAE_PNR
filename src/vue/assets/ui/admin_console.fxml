@@ -48,7 +48,7 @@
                         <Label id="text" stylesheets="@../css/default.css" text="Commandes SQL" />
                         <AnchorPane VBox.vgrow="ALWAYS">
                            <children>
-                              <TextArea id="textarea" fx:id="fCommandes" onKeyReleased="#changeCarretPos" onMouseClicked="#changeCarretPos" onMouseReleased="#changeCarretPos" promptText="Code SQL" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <TextArea id="textarea" fx:id="fCommandes" promptText="Code SQL" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>

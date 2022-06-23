@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.saisie_espece.SaisieHippocampe">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" stylesheets="@../../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -52,25 +52,25 @@
             <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
                <children>
                   <Label id="text" stylesheets="@../../css/default.css" text="Taille : " />
-                  <TextField id="textfield" promptText="Taille" stylesheets="@../../css/default.css" />
+                  <TextField id="textfield" fx:id="taille" promptText="Taille" stylesheets="@../../css/default.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
                <children>
                   <Label id="text" stylesheets="@../../css/default.css" text="Type de pêche" />
-                  <ComboBox id="dropdown" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
+                  <ComboBox id="dropdown" fx:id="type_peche" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
                <children>
                   <Label id="text" stylesheets="@../../css/default.css" text="Espèce" />
-                  <ComboBox id="dropdown" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
+                  <ComboBox id="dropdown" fx:id="cbEspece" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
                <children>
                   <Label id="text" stylesheets="@../../css/default.css" text="Sexe" />
-                  <ComboBox id="dropdown" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
+                  <ComboBox id="dropdown" fx:id="sexe" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
                </children>
             </HBox>
             <Button id="button" mnemonicParsing="false" onAction="#btSave" prefWidth="100.0" stylesheets="@../../css/default.css" text="Enregistrer" />
