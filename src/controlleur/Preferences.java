@@ -15,9 +15,12 @@ import java.util.Optional;
 
 import lib.INIFile;
 
+/**
+ * Controlleur de la popup préférences
+ */
 public class Preferences
 {
-    /* --- Sngleton managment --- */
+    /* --- Singleton managment --- */
 
     public static boolean isActive = false;
     public static Preferences Instance;
@@ -31,11 +34,17 @@ public class Preferences
         });
     }
 
+    /**
+     * Initialisation de l'interface
+     */
     public void init () {
         fAddress.setPromptText(getDefaultUrl());
         cbConfirmationRequete.setSelected(getConfirmOnSqlRequest());
     }
 
+    /**
+     * Event: Fermeture du popup
+     */
     public static final EventHandler<WindowEvent> CLOSER = new EventHandler<WindowEvent>() {
         public void handle(WindowEvent event) {
             
@@ -60,6 +69,9 @@ public class Preferences
         }
     };
 
+    /**
+     * @return true, si il y à eu des changments
+     */
     public boolean hasChanges () {
         return   (this.cbConfirmationRequete.isSelected() != getConfirmOnSqlRequest())
               || (!this.fAddress.getText().trim().isEmpty() && !this.fAddress.getText().trim().equals(getDefaultUrl()));
@@ -67,13 +79,12 @@ public class Preferences
 
     /* --- FXML PART --- */
 
-    @FXML
-    private TextField fAddress;
+    @FXML private TextField fAddress;
+    @FXML private CheckBox cbConfirmationRequete;
 
-    @FXML
-    private CheckBox cbConfirmationRequete;
-
-    @FXML
+    /**
+     * Bouton de sauvegarde
+     */
     public void btSauvegarder () {
         if (!fAddress.getText().trim().isEmpty())
             Preferences.setDefaultUrl(fAddress.getText().trim());
@@ -84,22 +95,38 @@ public class Preferences
 
     private static final String file = "src/vue/assets/conf.ini";
 
+    /**
+     * Récupére l'option "confirm_on_sql_request"
+     * @return true, s'il faut demander confirmation avant un requéte SQL
+     */
     public static boolean getConfirmOnSqlRequest () {
         INIFile conf = new INIFile (file);
         return conf.getBooleanProperty("user", "confirm_on_sql_request");
     }
 
+    /**
+     * Définit l'option "confirm_on_sql_request"
+     * @param confirm_on_sql_request true, s'il faut demander confirmation avant un requéte SQL
+     */
     public static void setConfirmOnSqlRequest (boolean confirm_on_sql_request) {
         INIFile conf = new INIFile (file);
         conf.setBooleanProperty("user", "confirm_on_sql_request", confirm_on_sql_request, null);
         conf.save();
     }
 
+    /**
+     * Récupére l'option "default_url"
+     * @return l'url de connection par défaut
+     */
     public static String getDefaultUrl () {
         INIFile conf = new INIFile (file);
         return conf.getStringProperty("database", "default_url");
     }
 
+    /**
+     * Définit l'option "default_url"
+     * @param default_url l'url de connection par défaut
+     */
     public static void setDefaultUrl (String default_url) {
         INIFile conf = new INIFile (file);
         conf.setStringProperty("database", "default_url", default_url, null);

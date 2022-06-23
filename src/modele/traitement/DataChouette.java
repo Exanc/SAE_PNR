@@ -10,10 +10,17 @@ import modele.donnee.Sexe;
 
 public class DataChouette extends DataGeneral<Chouette> {
 
+   
     public DataChouette() {
         super("Chouette");
     }
 
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
     public ArrayList<Chouette> getAll() {
         ArrayList<Chouette> ret = new ArrayList<Chouette>();
         try {
@@ -23,7 +30,11 @@ public class DataChouette extends DataGeneral<Chouette> {
         }
         return ret;
     }
-
+    
+    /**
+     * Get all Object Chouette
+     * @return create all objects Chouette
+     */
     public Chouette getInstance(ResultSet rs) throws SQLException {
         
         String id = rs.getString(1);

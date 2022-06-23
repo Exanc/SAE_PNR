@@ -12,19 +12,23 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import modele.traitement.ConnectionFactory;
-import controlleur.*;
+import vue.EImage;
 import vue.EView;
 
+/**
+ * Méthode principal de l'application
+ */
 public class App extends Application {
     
-    // TODO: Trouver tous les endroit ou un érreur n'est pas envoyer via ErrorHandler
-
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         launch(args);
     }
 
+    /**
+     * Méthode d'initialisation de l'application
+     */
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start (Stage stage) throws Exception {
         
         Scene scene = new Scene(new Pane());
 
@@ -33,7 +37,7 @@ public class App extends Application {
         ViewSwitcher.switchTo(EView.CONNEXION);
         
         stage.setTitle("Gestion de données - Parc Naturel Regional");
-        stage.getIcons().add(new Image(new FileInputStream("src/vue/assets/img/window_icon.png")));
+        stage.getIcons().add(new Image(new FileInputStream(EImage.WINDOW_ICON.getFileName())));
         stage.setMaximized(true);
         stage.setScene(scene);
 
@@ -46,6 +50,9 @@ public class App extends Application {
         stage.show();
     }
 
+    /**
+     * Méthode d'ouverture et de gestion du popup préférences
+     */
     public static void openPreferences () {
         
         if (!Preferences.isActive) {
@@ -61,6 +68,9 @@ public class App extends Application {
         }
     }
 
+    /**
+     * Méthode de déconnection de l'utilisateur
+     */
     public static void disconnectUser () {
         ConnectionFactory.setProperties("", "", null);
         ViewSwitcher.switchTo(EView.CONNEXION);

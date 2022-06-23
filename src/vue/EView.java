@@ -20,6 +20,7 @@ public enum EView {
     SAISIE_GCI(              "ui/saisie_espece/saisie_gci.fxml"),
     SAISIE_BATRACIEN(        "ui/saisie_espece/saisie_batracien.fxml");
 
+
     private String fileName;
 
     EView (String fileName) {

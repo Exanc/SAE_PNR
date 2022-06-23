@@ -35,12 +35,18 @@ public class Connexion
         });
     }
 
+    /**
+     * Initialisation de l'interface
+     */
     public void init() {
         cbRememberMe.setSelected(getRememberMe());
         if (!getUsername().isEmpty())
             fUsername.setText(getUsername());
     }
 
+    /**
+     * Bouton de connexion
+     */
     @FXML
     public void connectAction () {
 
@@ -83,11 +89,11 @@ public class Connexion
                 }
             }
 
-        } else if (user.trim().isEmpty() || password.trim().isEmpty())
+        } else if (user.trim().isEmpty() || password.trim().isEmpty()) {
             fErrorField.setText("Mot de passe ou nom d'utilisateur non renseigner.");
             ErrorHandler.show("Mot de passe ou nom d'utilisateur non renseigner", 
-                "Le nom d'utilisateur ou le mots de passe est vide ou non renseigné", null);
-        
+                "Le nom d'utilisateur ou le mots de passe est vide ou non renseigné", new IllegalArgumentException());
+        }
         if (!valid) return;
     }
 
@@ -95,22 +101,38 @@ public class Connexion
 
     private static final String file = "src/vue/assets/conf.ini";
 
+    /**
+     * Récuppére l'option "ce souvenir de moi"
+     * @return true, s'il faut ce souvenir de l'utilisateur
+     */
     public static boolean getRememberMe () {
         INIFile conf = new INIFile (file);
         return conf.getBooleanProperty("user", "remember_me");
     }
 
+    /**
+     * Définit l'option "ce souvenir de moi"
+     * @param remember_me true, s'il faut ce souvenir de l'utilisateur
+     */
     public static void setRememberMe (boolean remember_me) {
         INIFile conf = new INIFile (file);
         conf.setBooleanProperty("user", "remember_me", remember_me, null);
         conf.save();
     }
 
+    /**
+     * Récupére le nom du dernier utilisateur
+     * @return nom
+     */
     public static String getUsername () {
         INIFile conf = new INIFile (file);
         return conf.getStringProperty("user", "username");
     }
 
+    /**
+     * Définit le nom du dernier utilisateur
+     * @param username nom
+     */
     public static void setUsername (String username) {
         INIFile conf = new INIFile (file);
         conf.setStringProperty("user", "username", username, null);

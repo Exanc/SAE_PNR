@@ -11,6 +11,9 @@ public class ConnectionFactory {
     private static Connection connection = null;
     private static ConnectionFactory connectionFactory = null;
 
+    /*
+     * Detection of the driver connectivity
+     */
     private ConnectionFactory () {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -19,6 +22,9 @@ public class ConnectionFactory {
         }
     }
 
+    /*
+     * Set the name of the user, his password and the url of the database
+     */
     public static void setProperties (String user, String password, String url) {
         
         if (user != null && password != null) {
@@ -29,6 +35,9 @@ public class ConnectionFactory {
         if (url != null) ConnectionFactory.url = url;
     }
 
+    /**
+     * Renvoi une instance de la classe
+     */
     public static ConnectionFactory getConnectionFactory() {
         
         if (connectionFactory == null) {
@@ -38,6 +47,11 @@ public class ConnectionFactory {
         return connectionFactory;
     }
 
+    /**
+     * Renvoi un objet connection
+     * @return connection à la base de données
+     * @throws SQLException
+     */
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://"+ url +"?user="+ user +"&password="+ password);
     }

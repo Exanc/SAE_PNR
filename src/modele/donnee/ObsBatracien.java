@@ -41,7 +41,7 @@ public class ObsBatracien extends Observation {
                 new IllegalArgumentException("L'argument \"resObs\" ne doit pas être null."));
         }
     }
-
+    
     @Override
     public EspeceObservee especeObs () {
         return EspeceObservee.BATRACIEN;

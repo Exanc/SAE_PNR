@@ -21,7 +21,6 @@
             <HBox alignment="CENTER" spacing="50.0">
                <children>
                   <Button id="button" fx:id="btAdministrer" mnemonicParsing="false" onAction="#switchToAdmin" prefWidth="100.0" styleClass="bt_administrer" stylesheets="@../css/default.css" text="Administrer" />
-                  <Button id="button" fx:id="btImporter" mnemonicParsing="false" onAction="#switchToImport" prefWidth="100.0" styleClass="bt_importer" stylesheets="@../css/default.css" text="Importer" />
                </children>
             </HBox>
             <Button id="button_cancel" mnemonicParsing="false" onAction="#deconnexion" prefWidth="100.0" stylesheets="@../css/default.css" text="Déconnexion" />

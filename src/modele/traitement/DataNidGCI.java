@@ -12,6 +12,12 @@ public class DataNidGCI extends DataGeneral<NidGCI> {
         super("Nid_GCI");
     }
 
+    /**
+     * Execute an sql query and return the responses
+     * @return an ArrayList of several objects 
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
     public ArrayList<NidGCI> getAll() {
         ArrayList<NidGCI> ret = new ArrayList<NidGCI>();
         try {
@@ -22,6 +28,10 @@ public class DataNidGCI extends DataGeneral<NidGCI> {
         return ret;
     }
 
+    /**
+     * Get all Object NidGCI
+     * @return create all objects NidGCI
+     */
     public NidGCI getInstance(ResultSet rs) throws SQLException {
         
         String id = rs.getString(1);

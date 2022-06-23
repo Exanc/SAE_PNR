@@ -14,32 +14,12 @@ import javafx.scene.layout.Priority;
  * Gére les érreurs
  */
 public class ErrorHandler {
-    
-    
-    /*public static void show (String entête, Exception e) {
 
-        Alert alert = new Alert(AlertType.ERROR);
-        StackTraceElement[] traces = e.getStackTrace();
-        String message = e.toString();
-
-        for (int i = 0; i < traces.length && i < 10; i++)
-        {
-            message += "\n   at " + traces[i].getClassName();
-        }
-        
-        alert.setTitle("ERREUR");
-        alert.setHeaderText(entête);
-        alert.setContentText(message 
-            + "\n\nVeulliez copiez le contenu de ce message et le transmétre à votre administrateur/équipe technique.");
-        
-        alert.show();
-    }*/
-    
     /**
      * Affiche une érreur à l'écran
-     * @param entête
-     * @param description
-     * @param e
+     * @param entête entête de la popup
+     * @param description description de l'érreur
+     * @param e l'exception
      */
     public static void show (String entête, String description, Exception e) {
 
@@ -48,7 +28,6 @@ public class ErrorHandler {
         alert.setHeaderText(entête);
         alert.setContentText(description);
 
-        // Create expandable Exception.
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         e.printStackTrace(pw);
@@ -70,10 +49,8 @@ public class ErrorHandler {
         expContent.add(label, 0, 0);
         expContent.add(textArea, 0, 1);
 
-        // Set expandable Exception into the dialog pane.
         alert.getDialogPane().setExpandableContent(expContent);
 
         alert.showAndWait();
     }
-
 }

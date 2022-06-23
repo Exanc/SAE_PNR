@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.saisie_espece.SelectNidGCI">
    <children>
       <VBox spacing="50.0" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -18,7 +18,7 @@
                <children>
                   <BorderPane id="background_1" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <bottom>
-                        <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Sélectionner" BorderPane.alignment="CENTER" />
+                        <Button id="button" onAction="#select" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Sélectionner" BorderPane.alignment="CENTER" />
                      </bottom>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -40,7 +40,7 @@
                      <center>
                         <AnchorPane BorderPane.alignment="CENTER">
                            <children>
-                              <VBox alignment="TOP_CENTER" spacing="5.0" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <VBox fx:id="box" alignment="TOP_CENTER" spacing="5.0" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <AnchorPane>
                                        <children>
@@ -55,7 +55,6 @@
                                           </HBox>
                                        </children>
                                     </AnchorPane>
-                                    <MFXLegacyTableView fx:id="tableSelect" stylesheets="@../css/default.css" />
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" />
@@ -71,7 +70,7 @@
                <children>
                   <BorderPane id="background_1" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <bottom>
-                        <Button id="button" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Ajouter" BorderPane.alignment="CENTER" />
+                        <Button id="button" onAction="#add" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/default.css" text="Ajouter" BorderPane.alignment="CENTER" />
                      </bottom>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
