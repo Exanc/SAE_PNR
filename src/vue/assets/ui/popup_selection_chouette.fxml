@@ -42,7 +42,7 @@
                      <center>
                         <AnchorPane BorderPane.alignment="CENTER">
                            <children>
-                              <VBox alignment="TOP_CENTER" spacing="5.0" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <VBox fx:id="box" alignment="TOP_CENTER" spacing="5.0" stylesheets="@../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <AnchorPane>
                                        <children>
@@ -58,7 +58,6 @@
                                           </HBox>
                                        </children>
                                     </AnchorPane>
-                                    <MFXLegacyTableView fx:id="tableSelect" stylesheets="@../css/default.css" />
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" />

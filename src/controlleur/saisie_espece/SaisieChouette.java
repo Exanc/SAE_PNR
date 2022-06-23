@@ -5,13 +5,16 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 import controlleur.NumericField;
+import controlleur.ViewSwitcher;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import modele.donnee.EspeceBatracien;
 import modele.donnee.Lieu;
 import modele.donnee.ObsBatracien;
@@ -19,6 +22,7 @@ import modele.donnee.Observateur;
 import modele.donnee.TypeObservation;
 import modele.traitement.DataObservateur;
 import modele.traitement.SQLQuerys;
+import vue.EView;
 
 /**
  * Formulaire de saise ObsChouette
@@ -26,19 +30,40 @@ import modele.traitement.SQLQuerys;
 public class SaisieChouette {
 
     @FXML TextField fObservateurs, fPosX, fPosY;
+    @FXML Label lSelecId, lSelecEspèce, lSelecSexe;
     @FXML DatePicker dpDate;
     @FXML Spinner<Integer> sHeure, sMinutes;
     @FXML CheckBox chbProtocole;
     @FXML ComboBox cbTypeObservation;
 
+    public static SaisieChouette Instance;
+    private Stage popupStage;
 
     /**
      * Initialisation du formulaire
      */
     public void initialize() {
         cbTypeObservation.setItems(FXCollections.observableArrayList(TypeObservation.values()));
+        Instance = this;
+    }
+
+    /**
+     * Change quel Nid est selectionner
+     */
+    public void changeSelectedInd (String id, String espece, String sexe) {
+        popupStage.close();
+        lSelecId.setText(id);
+        lSelecSexe.setText(sexe);
+        lSelecEspèce.setText(espece);
     }
     
+    /**
+     * Selection d'un individu
+     */
+    public void btSelect () {
+        this.popupStage = ViewSwitcher.invokePopup(EView.POPUP_SELECTION_CHOUETTE, "SELECT");
+    }
+
     /**
      * Method de sauvegarde du formulaire
      */
