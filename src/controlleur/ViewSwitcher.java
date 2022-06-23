@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import vue.EView;
+import vue.assets.AssetsManager;
 
 /**
  * Permet de passer d'une vue a l'autre.
@@ -49,7 +50,7 @@ public class ViewSwitcher {
 
         try {
             Parent root = FXMLLoader.load(
-                new File(view.getFileName()).toURI().toURL()
+                AssetsManager.getURL(view.getFileName())
             );
 
             scene.setRoot(root);

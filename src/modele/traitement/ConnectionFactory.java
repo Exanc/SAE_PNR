@@ -41,4 +41,8 @@ public class ConnectionFactory {
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://"+ url +"?user="+ user +"&password="+ password);
     }
+
+    public static String getUser () {
+        return user;
+    }
 }

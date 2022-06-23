@@ -14,5 +14,4 @@ public class Launcher {
 
         App.main(args);
     }
-
 }

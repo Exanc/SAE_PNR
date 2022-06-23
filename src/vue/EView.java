@@ -2,23 +2,23 @@ package vue;
 
 public enum EView {
 
-    ADMIN_CONSOLE(           "src/vue/assets/ui/admin_console.fxml"),
-    ADMIN_CONSULTATION(      "src/vue/assets/ui/admin_consultation.fxml"),
-    ADMIN_UTILISATEUR(       "src/vue/assets/ui/admin_utilisateurs.fxml"),
-    CONNEXION(               "src/vue/assets/ui/connexion.fxml"),
-    CONSULTATION(            "src/vue/assets/ui/consultation.fxml"),
-    DEFAULT_USER(            "src/vue/assets/ui/default_user.fxml"),
-    IMPORTATION(             "src/vue/assets/ui/importation.fxml"),
-    MENU(                    "src/vue/assets/ui/menu.fxml"),
-    POPUP_GENERIC(           "src/vue/assets/ui/popup_generic.fxml"),
-    POPUP_PREFERENCES(       "src/vue/assets/ui/popup_preferences.fxml"),
-    POPUP_SELECTION_CHOUETTE("src/vue/assets/ui/popup_selection_chouette.fxml"),
-    SAISIE(                  "src/vue/assets/ui/saisie.fxml"),
-    SAISIE_CHOUETTE(         "src/vue/assets/ui/saisie_espece/saisie_chouette.fxml"),
-    SAISIE_LOUTRE(           "src/vue/assets/ui/saisie_espece/saisie_loutre.fxml"),
-    SAISIE_HIPPOCAMPE(       "src/vue/assets/ui/saisie_espece/saisie_hippocampe.fxml"),
-    SAISIE_GCI(              "src/vue/assets/ui/saisie_espece/saisie_gci.fxml"),
-    SAISIE_BATRACIEN(        "src/vue/assets/ui/saisie_espece/saisie_batracien.fxml");
+    ADMIN_CONSOLE(           "ui/admin_console.fxml"),
+    ADMIN_CONSULTATION(      "ui/admin_consultation.fxml"),
+    ADMIN_UTILISATEUR(       "ui/admin_utilisateurs.fxml"),
+    CONNEXION(               "ui/connexion.fxml"),
+    CONSULTATION(            "ui/consultation.fxml"),
+    DEFAULT_USER(            "ui/default_user.fxml"),
+    IMPORTATION(             "ui/importation.fxml"),
+    MENU(                    "ui/menu.fxml"),
+    POPUP_GENERIC(           "ui/popup_generic.fxml"),
+    POPUP_PREFERENCES(       "ui/popup_preferences.fxml"),
+    POPUP_SELECTION_CHOUETTE("ui/popup_selection_chouette.fxml"),
+    SAISIE(                  "ui/saisie.fxml"),
+    SAISIE_CHOUETTE(         "ui/saisie_espece/saisie_chouette.fxml"),
+    SAISIE_LOUTRE(           "ui/saisie_espece/saisie_loutre.fxml"),
+    SAISIE_HIPPOCAMPE(       "ui/saisie_espece/saisie_hippocampe.fxml"),
+    SAISIE_GCI(              "ui/saisie_espece/saisie_gci.fxml"),
+    SAISIE_BATRACIEN(        "ui/saisie_espece/saisie_batracien.fxml");
 
     private String fileName;
 

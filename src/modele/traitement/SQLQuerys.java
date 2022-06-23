@@ -89,6 +89,10 @@ public class SQLQuerys {
         ResultSet rs = executeSQL("SELECT CURRENT_ROLE();");
 
         while (rs.next()) {
+
+            if (modele.traitement.ConnectionFactory.getUser().equals("root"))
+                return 3;
+
             if (rs.getString(1).contains("administrator") && ret < 3) ret = 3;
             else  if (rs.getString(1).contains("field_man") && ret < 2) ret = 2;
             else  if (rs.getString(1).contains("observer") && ret < 1) ret = 1;
