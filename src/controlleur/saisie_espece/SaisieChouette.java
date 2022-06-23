@@ -105,7 +105,7 @@ public class SaisieChouette {
         SQL += "INSERT INTO Observation(idObs, dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) ";
         SQL += "VALUES ("+id+", \'"+date+"\', \'"+heure+"\', "+fPosX.getText()+", "+fPosY.getText()+");";
 
-        SQL += "INSERT INTO Obs_chouette (protocoole, typeObs, leNumIndividu, id) ";
+        SQL += "INSERT INTO Obs_chouette (protocole, typeObs, leNumIndividu, numObs) ";
         SQL += "VALUES ("+ (chbProtocole.isSelected() ? 1 : 0) + ", " + ItypeObs.getValue() + ", " + 0 + ", " + id + ");";
 
         // TODO: AObserver

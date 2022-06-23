@@ -65,7 +65,6 @@ public class SelectChouette {
      * @param SQL la requéte SQL
      */
     public void showTable (String SQL) {
-        
         int i = 0;
         boolean exists = false;
         for (Node n : this.box.getChildren()) {
