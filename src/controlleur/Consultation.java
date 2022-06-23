@@ -11,13 +11,9 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 import javafx.application.Platform;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import lib.DynamicTable;
 import javafx.scene.layout.AnchorPane;
@@ -28,7 +24,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
-import controlleur.*;
 import vue.EView;
 import vue.EImage;
 
@@ -88,22 +83,18 @@ public class Consultation {
         
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.APPLY, ButtonType.CANCEL);
 
-        // Enable/Disable login button depending on whether a text was entered.
         Node confirmButton = dialog.getDialogPane().lookupButton(ButtonType.APPLY);
         confirmButton.setDisable(true);
         TextArea text = new TextArea();
 
-        // Do some validation
         text.textProperty().addListener((observable, oldValue, newValue) -> {
             confirmButton.setDisable(newValue.trim().isEmpty());
         });
         
         dialog.getDialogPane().setContent(text);
 
-        // Request focus on the username field by default.
         Platform.runLater(() -> text.requestFocus());
         
-        // Convert the result to a username-password-pair when the login button is clicked.
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == ButtonType.APPLY) {
                 return text.getText();
@@ -143,13 +134,11 @@ public class Consultation {
             BufferedWriter writer = new BufferedWriter(new FileWriter(f));
             ResultSet result = modele.traitement.SQLQuerys.executeSQL(this.lastSearch);
             
-            // write header line containing column names
             final String separator = ";";
             ResultSetMetaData metaData = result.getMetaData();
             int numberOfColumns = metaData.getColumnCount();
             String headerLine = "";
             
-            // exclude the first column which is the ID field
             for (int i = 2; i <= numberOfColumns; i++) {
                 String columnName = metaData.getColumnName(i);
                 headerLine = headerLine.concat(columnName).concat(separator);

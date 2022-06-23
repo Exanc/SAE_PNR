@@ -35,8 +35,6 @@ public class SQLQuerys {
      */
     public static String executeSQLScript (String script) {
 
-        // TODO: Rafiner umpeut la chose quand le medium de sortie serat mieux
-
         String[] commands = script.split(";");
         String output = "";
 

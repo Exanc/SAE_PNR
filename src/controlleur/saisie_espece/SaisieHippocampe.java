@@ -12,7 +12,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import modele.donnee.EspeceHippocampe;
-import modele.donnee.Lieu;
 import modele.donnee.Observateur;
 import modele.donnee.Peche;
 import modele.donnee.Sexe;
@@ -42,10 +41,9 @@ public class SaisieHippocampe {
     }
 
     /**
-     * Method de sauvegarde du formulaire
+     * Methode de sauvegarde du formulaire
      */
     public void btSave() {
-        
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
         ArrayList<Observateur> allObservateurs = new DataObservateur().getAll();
         String[] sObservateurs = fObservateurs.getText().split(",");
@@ -59,13 +57,11 @@ public class SaisieHippocampe {
             observateurs.add(observateur2);
         }
         
-        String laTaille = taille.getText();
         EspeceHippocampe IEspece = (EspeceHippocampe) cbEspece.getValue();
         Peche leTypePeche = (Peche) type_peche.getValue();
         Sexe leSexe = (Sexe) sexe.getValue();
         
         Date date = new Date(dpDate.getValue().getYear(), dpDate.getValue().getMonthValue(), dpDate.getValue().getDayOfMonth());
-        Lieu lieu = new Lieu(Double.parseDouble(fPosX.getText()), Double.parseDouble(fPosY.getText()));
         Time heure = new Time(sHeure.getValue(), sMinutes.getValue(), 00);
 
         int id = -1;

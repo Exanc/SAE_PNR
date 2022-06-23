@@ -34,7 +34,7 @@ public class SaisieLoutre {
     }
 
     /**
-     * Method de sauvegarde du formulaire
+     * Methode de sauvegarde du formulaire
      */
     public void btSave() {
         
