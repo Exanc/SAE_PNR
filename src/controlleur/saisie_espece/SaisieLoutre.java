@@ -1,5 +1,4 @@
 package controlleur.saisie_espece;
-
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -11,31 +10,24 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
-import modele.donnee.EspeceHippocampe;
+import modele.donnee.IndiceLoutre;
 import modele.donnee.Lieu;
 import modele.donnee.Observateur;
-import modele.donnee.Peche;
-import modele.donnee.Sexe;
 import modele.traitement.DataObservateur;
 import modele.traitement.SQLQuerys;
 
-public class SaisieHippocampe {
+public class SaisieLoutre {
     
-    @FXML TextField fObservateurs, taille, fPosX, fPosY;
+    @FXML TextField fObservateurs, fPosX, fPosY;
     @FXML DatePicker dpDate;
     @FXML Spinner<Integer> sHeure, sMinutes;
-    @FXML ComboBox type_peche, cbEspece, sexe;
+    @FXML ComboBox cbIndice;
     
     /**
      * Initialisation du formulaire
      */
     public void initialize() {
-        taille.textProperty().addListener(NumericField.onlyDigit(taille));
-
-        type_peche.setItems(FXCollections.observableArrayList(Peche.values()));
-        cbEspece.setItems(FXCollections.observableArrayList(EspeceHippocampe.values()));
-        sexe.setItems(FXCollections.observableArrayList(Sexe.values()));
-
+        cbIndice.setItems(FXCollections.observableArrayList(IndiceLoutre.values()));
 
         fPosX.textProperty().addListener(NumericField.onlyDigit(fPosX));
         fPosY.textProperty().addListener(NumericField.onlyDigit(fPosY));
@@ -58,12 +50,9 @@ public class SaisieHippocampe {
             }
             observateurs.add(observateur2);
         }
-        
-        String laTaille = taille.getText();
-        EspeceHippocampe IEspece = (EspeceHippocampe) cbEspece.getValue();
-        Peche leTypePeche = (Peche) type_peche.getValue();
-        Sexe leSexe = (Sexe) sexe.getValue();
-        
+
+        IndiceLoutre IEspece = (IndiceLoutre) cbIndice.getValue();
+
         Date date = new Date(dpDate.getValue().getYear(), dpDate.getValue().getMonthValue(), dpDate.getValue().getDayOfMonth());
         Lieu lieu = new Lieu(Double.parseDouble(fPosX.getText()), Double.parseDouble(fPosY.getText()));
         Time heure = new Time(sHeure.getValue(), sMinutes.getValue(), 00);
@@ -86,8 +75,8 @@ public class SaisieHippocampe {
         SQL += "INSERT INTO Observation(idObs, dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) ";
         SQL += "VALUES ("+id+", \'"+date+"\', \'"+heure+"\', "+fPosX.getText()+", "+fPosY.getText()+");";
 
-        SQL += "INSERT INTO Obs_Hippocampe (obsH, espece, sexe, temperatureEau, typePeche, taille, gestant) ";
-        SQL += "VALUES ("+id+",\'"+IEspece.getValue()+"\', \'"+leSexe.getValue()+"\', null, \'"+leTypePeche.getValue()+"\', "+taille.getText()+", null);";
+        SQL += "INSERT INTO Obs_Loutre (ObsL, commune, lieuDit, indice) ";
+        SQL += "VALUES ("+id+", null, null, \'"+IEspece.getValue()+"\' );";
 
         // TODO: AObserver
 

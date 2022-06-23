@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="controlleur.saisie_espece.SaisieLoutre>
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" stylesheets="@../../css/default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -52,7 +52,7 @@
             <HBox alignment="CENTER_LEFT" spacing="5.0" stylesheets="@../../css/default.css">
                <children>
                   <Label id="text" stylesheets="@../../css/default.css" text="Indice" />
-                  <ComboBox id="dropdown" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
+                  <ComboBox id="dropdown" fx:id="cbIndice" prefWidth="150.0" promptText="Sélectionner" stylesheets="@../../css/default.css" />
                </children>
             </HBox>
             <Button id="button" mnemonicParsing="false" onAction="#btSave" prefWidth="100.0" stylesheets="@../../css/default.css" text="Enregistrer" />
