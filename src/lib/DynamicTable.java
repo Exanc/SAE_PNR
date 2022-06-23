@@ -32,7 +32,6 @@ public class DynamicTable {
 
         try {
             ResultSet rs = modele.traitement.SQLQuerys.executeSQL(command);
-
             /**********************************
              * TABLE COLUMN ADDED DYNAMICALLY *
              **********************************/

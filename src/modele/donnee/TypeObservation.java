@@ -6,7 +6,7 @@ package modele.donnee;
 public enum TypeObservation {
     SONORE("SONORE"),
     VISUELLE("VISUELLE"),
-    SONORE_VISUELLE("SONORE_VISUELLE");
+    SONORE_VISUELLE("SONORE ET VISUELLE");
 
     private String sqlValue;
 
