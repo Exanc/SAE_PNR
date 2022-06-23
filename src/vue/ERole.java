@@ -4,7 +4,7 @@ public enum ERole {
 
     ADMINISTRATEUR(         "administrator"),
     CONSULTANT(             "observer"),
-    HOMME_DE_TERRAIN(       "field_man");
+    OBSERVATEUR(       "field_man");
 
     private String role;
 

@@ -112,7 +112,7 @@ public class AdminUtilisateurs {
                         role = ERole.ADMINISTRATEUR;
                         break;
                     case "field_man":
-                        role = ERole.HOMME_DE_TERRAIN;
+                        role = ERole.OBSERVATEUR;
                         break;
                     case "observer":
                         role = ERole.CONSULTANT;

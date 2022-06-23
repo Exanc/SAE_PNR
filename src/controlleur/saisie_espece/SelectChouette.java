@@ -32,8 +32,8 @@ public class SelectChouette {
         cbAddSexe.setItems(FXCollections.observableArrayList(Sexe.values()));
         cbSelectSexe.setItems(FXCollections.observableArrayList(Sexe.values()));
 
-        fIdSelect.textProperty().addListener(NumericField.onlyDigit(fIdSelect));
-        fIdAdd.textProperty().addListener(NumericField.onlyDigit(fIdAdd));
+        /*fIdSelect.textProperty().addListener(NumericField.onlyDigit(fIdSelect));
+        fIdAdd.textProperty().addListener(NumericField.onlyDigit(fIdAdd));*/
 
         this.showTable(request);
     }
