@@ -58,7 +58,6 @@ public class SaisieChouette {
     }
     
     /**
-<<<<<<< HEAD
      * Selection d'un individu
      */
     public void btSelect () {
@@ -66,10 +65,7 @@ public class SaisieChouette {
     }
 
     /**
-     * Method de sauvegarde du formulaire
-=======
      * Methode de sauvegarde du formulaire
->>>>>>> a4290478da195e2a6fbdd3504c420acd26e94570
      */
     public void btSave() {
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();

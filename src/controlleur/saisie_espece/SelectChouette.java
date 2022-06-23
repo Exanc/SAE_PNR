@@ -1,20 +1,23 @@
 package controlleur.saisie_espece;
 
 import controlleur.NumericField;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.MenuButton;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import lib.DynamicTable;
+import modele.donnee.EspeceChouette;
+import modele.donnee.Sexe;
 import modele.traitement.SQLQuerys;
 
 public class SelectChouette {
     
-    @FXML TextField fIdSelect, fEspeceSelect, fSexeSelect, fIdAdd;
-    @FXML MenuButton dpEspeceAdd, dpSexeAdd;
+    @FXML TextField fIdSelect, fIdAdd;
+    @FXML ComboBox cbSelectEspece, cbSelectSexe, cbAddEspece, cbAddSexe;
     @FXML VBox box;
 
     public static final String request = "SELECT * FROM Chouette";
@@ -23,6 +26,12 @@ public class SelectChouette {
      * Initialisation de l'interface
      */
     public void initialize () {
+
+        cbSelectEspece.setItems(FXCollections.observableArrayList(EspeceChouette.values()));
+        cbAddEspece.setItems(FXCollections.observableArrayList(EspeceChouette.values()));
+        cbAddSexe.setItems(FXCollections.observableArrayList(Sexe.values()));
+        cbSelectSexe.setItems(FXCollections.observableArrayList(Sexe.values()));
+
         fIdSelect.textProperty().addListener(NumericField.onlyDigit(fIdSelect));
         fIdAdd.textProperty().addListener(NumericField.onlyDigit(fIdAdd));
 
@@ -33,7 +42,7 @@ public class SelectChouette {
      * Selection d'un nid
      */
     public void select () {
-        //TODO
+        SaisieChouette.Instance.changeSelectedInd(fIdSelect.getText(), ((EspeceChouette) cbSelectEspece.getValue()).getValue(), ((Sexe) cbSelectSexe.getValue()).getValue().toUpperCase());
     }
 
     /**
@@ -43,8 +52,8 @@ public class SelectChouette {
 
         String SQL = "";
 
-        //SQL += "INSERT INTO Nid_GCI ";
-        //SQL += "VALUES ("+fId_Add.getText()+", "+fPlage_Add.getText()+", null, null, null, null, null);";
+        SQL += "INSERT INTO Chouette ";
+        SQL += "VALUES("+fIdSelect.getText()+", "+((EspeceChouette) cbSelectEspece.getValue()).getValue()+", "+((Sexe) cbSelectSexe.getValue()).getValue().toUpperCase()+");";
 
         SQLQuerys.executeSQLScript(SQL);
 
@@ -82,5 +91,4 @@ public class SelectChouette {
 
         this.box.getChildren().add(table);
     }
-
 }

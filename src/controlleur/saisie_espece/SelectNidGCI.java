@@ -65,7 +65,7 @@ public class SelectNidGCI {
             }
             i++;
         }
-
+ 
         if (exists)
             this.box.getChildren().remove(i);
 
