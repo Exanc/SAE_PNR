@@ -4,11 +4,8 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 
-<<<<<<< HEAD
 import controlleur.NumericField;
 import controlleur.ViewSwitcher;
-=======
->>>>>>> a4290478da195e2a6fbdd3504c420acd26e94570
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
