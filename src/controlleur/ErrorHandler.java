@@ -28,7 +28,6 @@ public class ErrorHandler {
         alert.setHeaderText(entête);
         alert.setContentText(description);
 
-        // Create expandable Exception.
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         e.printStackTrace(pw);
@@ -50,7 +49,6 @@ public class ErrorHandler {
         expContent.add(label, 0, 0);
         expContent.add(textArea, 0, 1);
 
-        // Set expandable Exception into the dialog pane.
         alert.getDialogPane().setExpandableContent(expContent);
 
         alert.showAndWait();

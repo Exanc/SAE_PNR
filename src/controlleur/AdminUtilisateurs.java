@@ -1,16 +1,11 @@
 package controlleur;
 
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import modele.traitement.SQLQuerys;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.SingleSelectionModel;
 import javafx.fxml.FXMLLoader;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -20,7 +15,6 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import controlleur.*;
 import vue.ERole;
 import vue.EView;
 

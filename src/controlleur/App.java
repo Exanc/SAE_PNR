@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import modele.traitement.ConnectionFactory;
-import controlleur.*;
+import vue.EImage;
 import vue.EView;
 
 /**
@@ -37,7 +37,7 @@ public class App extends Application {
         ViewSwitcher.switchTo(EView.CONNEXION);
         
         stage.setTitle("Gestion de données - Parc Naturel Regional");
-        stage.getIcons().add(new Image(new FileInputStream("src/vue/assets/img/window_icon.png")));
+        stage.getIcons().add(new Image(new FileInputStream(EImage.WINDOW_ICON.getFileName())));
         stage.setMaximized(true);
         stage.setScene(scene);
 

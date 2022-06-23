@@ -4,21 +4,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.fxml.FXML;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-
-import controlleur.*;
-
 /**
  * Controlleur de la page admin consolle
  */
 public class AdminConsole {
-    
-    /* TODO: Pourquoi pas transformer ça en popup dans 
-     * la partie admin_consultation ?
-    */
-
     @FXML private Label lInfoPosition;
     @FXML private TextArea taConsole, fCommandes;
 
@@ -26,17 +15,9 @@ public class AdminConsole {
      * Exécution du script SQL entrée par l'utilisateur
      */
     public void btExecuter () {
-        // TODO: Rafiner umpeut la chose quand le medium de sortie serat mieux
         taConsole.setText(modele.traitement.SQLQuerys.executeSQLScript(fCommandes.getText()));
 
     }
-
-    /**
-     * Exécutio selement le texte slectionner ?
-     */
-    @Deprecated
-    public void btExecuterSelection () {}
-
     /**
      * Bouton de retour en arriére
      */
@@ -56,11 +37,6 @@ public class AdminConsole {
      */
     public void btUtilisateurs () {
         ViewSwitcher.switchTo(vue.EView.ADMIN_UTILISATEUR);
-    }
-
-    @Deprecated
-    public void btBDD () {
-        ViewSwitcher.switchTo(vue.EView.ADMIN_CONSULTATION);
     }
 
     /**

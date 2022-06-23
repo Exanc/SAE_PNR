@@ -22,13 +22,13 @@
             <HBox spacing="5.0" stylesheets="@../../css/default.css">
                <children>
                   <DatePicker id="date-picker" fx:id="dpDate" prefHeight="30.0" prefWidth="119.0" promptText="JJ/MM/AAAA" styleClass="date-picker" stylesheets="@../css/default.css" />
-                  <Spinner fx:id="sHeure" editable="true" prefHeight="25.0" prefWidth="57.0" stylesheets="@../css/default.css" />
-                  <Label id="text" prefHeight="20.0" prefWidth="16.0" style="-fx-alignment: center;" stylesheets="@../css/default.css" text=":">
+                  <Spinner fx:id="sHeure" editable="true" prefHeight="25.0" prefWidth="57.0" stylesheets="@../../css/default.css" min="0" max="23" />
+                  <Label id="text" prefHeight="20.0" prefWidth="16.0" style="-fx-alignment: center;" stylesheets="@../../css/default.css" text=":">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Spinner fx:id="sMinutes" editable="true" prefHeight="25.0" prefWidth="57.0" stylesheets="@../css/default.css" />
+                  <Spinner fx:id="sMinutes" editable="true" prefHeight="25.0" prefWidth="57.0" stylesheets="@../../css/default.css" min="0" max="59" />
                </children>
             </HBox>
             <Label id="text" stylesheets="@../../css/default.css" text="Position" />
