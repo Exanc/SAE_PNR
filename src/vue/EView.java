@@ -13,6 +13,7 @@ public enum EView {
     POPUP_GENERIC(           "src/vue/assets/ui/popup_generic.fxml"),
     POPUP_PREFERENCES(       "src/vue/assets/ui/popup_preferences.fxml"),
     POPUP_SELECTION_CHOUETTE("src/vue/assets/ui/popup_selection_chouette.fxml"),
+    POPUP_SELECTION_NIDGCI(  "src/vue/assets/ui/popup_selection_nidgci.fxml"),
     SAISIE(                  "src/vue/assets/ui/saisie.fxml"),
     SAISIE_CHOUETTE(         "src/vue/assets/ui/saisie_espece/saisie_chouette.fxml"),
     SAISIE_LOUTRE(           "src/vue/assets/ui/saisie_espece/saisie_loutre.fxml"),

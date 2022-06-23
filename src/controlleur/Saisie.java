@@ -94,7 +94,7 @@ public class Saisie {
             Parent root = FXMLLoader.load(new File(view.getFileName()).toURI().toURL());
             bbPane.setCenter(root);
         } catch (Exception e) {
-            e.printStackTrace();
+            controlleur.ErrorHandler.show("Une erreur c'est produite.", e.getMessage(), e);
         }
     }
 
