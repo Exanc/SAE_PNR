@@ -89,11 +89,11 @@ public class Connexion
                 }
             }
 
-        } else if (user.trim().isEmpty() || password.trim().isEmpty())
+        } else if (user.trim().isEmpty() || password.trim().isEmpty()) {
             fErrorField.setText("Mot de passe ou nom d'utilisateur non renseigner.");
             ErrorHandler.show("Mot de passe ou nom d'utilisateur non renseigner", 
                 "Le nom d'utilisateur ou le mots de passe est vide ou non renseigné", new IllegalArgumentException());
-        
+        }
         if (!valid) return;
     }
 

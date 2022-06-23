@@ -39,14 +39,14 @@ public class SelectChouette {
     }
 
     /**
-     * Selection d'un nid
+     * Selection d'une chouette
      */
     public void select () {
         SaisieChouette.Instance.changeSelectedInd(fIdSelect.getText(), ((EspeceChouette) cbSelectEspece.getValue()).getValue(), ((Sexe) cbSelectSexe.getValue()).getValue().toUpperCase());
     }
 
     /**
-     * Ajout d'un nid
+     * Ajout d'une chouette
      */
     public void add () {
 
